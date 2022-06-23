@@ -1,29 +1,61 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Pet extends Model {
-    
-    static associate(models) {
-      ser.hasMany (models.pet, {foreignKey: 'user_id'})
+const db = require("../index");
+const { DataTypes } = require("sequelize");
+
+const Pet = db.define(
+  "Pet",
+  {
+    pet_id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: { model: "user", key: "id" },
+      onUpdate: "CASCADE",
+      onDelete: "CASCADE",
+    },
+    name: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    gender: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    address: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    state: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    comments: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    age: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    phone: {
+      type: DataTypes.STRING,
+    },
+    createdAt: {
+      allowNull: true,
+      type: DataTypes.DATE
+    },
+    updatedAt: {
+      allowNull: true,
+      type: DataTypes.DATE
     }
+  },
+  {
+    tableName: "pet",
   }
-  Pet.init({
-    pet_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER,
-    gender: DataTypes.STRING,
-    name: DataTypes.STRING,
-    address: DataTypes.STRING,
-    state: DataTypes.STRING,
-    comments: DataTypes.STRING,
-    age: DataTypes.STRING,
-    phone: DataTypes.STRING,
-    createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE
-  }, {
-    sequelize,
-    modelName: 'pet',
-  });
-  return Pet;
-};
+);
+
+module.exports = Pet;

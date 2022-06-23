@@ -3,8 +3,8 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Pet', [{
-      name: "Caramelo",
       user_id: 1,
+      name: "Caramelo",
       gender: "macho",
       address: "Rua Sete de Setembro, 401",
       state: "Santa Catarina",
