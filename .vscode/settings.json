@@ -1,8 +1,0 @@
-{
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#511E0F",
-        "titleBar.activeBackground": "#712A14",
-        "titleBar.activeForeground": "#FEF9F7"
-    },
-    "editor.guides.bracketPairs": true
-}
