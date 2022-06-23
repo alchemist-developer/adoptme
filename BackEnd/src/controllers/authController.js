@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt')
 const AuthController = {
 
     async login(req, res) {
-
+        console.log(req);
         const {
             email,
             password
@@ -29,17 +29,17 @@ const AuthController = {
         }
 
         const token = jwt.sign({
-            id: user.user_id,
+            user_id: user.user_id,
             email: user.email,
-            username: user.username,
-            name: user.name,
-            avatar: user.avatar,
-            apartment: user.apartment
+            name_user: user.name_user,
+            address: user.address,
+            phone: user.phone    
         },
             secret.key
         )
 
-        return res.json({ token })
+        return res.json({ token, user: {user_id: user.user_id} })
+        
 
 
     },

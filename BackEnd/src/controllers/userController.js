@@ -1,20 +1,19 @@
-const { User, Post } = require("../models")
+const { User, Pet } = require("../models")
 const bcrypt = require ('bcrypt');
 
 const UserController = {
     async create(req,res) {
         try {
-        const {name,username, avatar, email, password, apartment, admin } = req.body;
+        const {name_user, email, password, address, phone, comments } = req.body;
 
         const newPassword = bcrypt.hashSync(password,6)    
         const newUser = await User.create({
-            name,
-            username,
-            avatar,
+            name_user,
             email,
             password:newPassword,
-            apartment,
-            admin
+            address,
+            phone,
+            comments
         });
 
         res.json(newUser);
@@ -34,30 +33,30 @@ const UserController = {
         }
     },
 
-    async listPostsByUsername(req, res) {
+    async listPetsByUser(req, res) {
         try {
             const {
-                username
+                user_id
             } = req.params;
            
-            const existUsername = await User.findOne({
+            const existUser = await User.findOne({
                 where: {
-                   username
+                   user_id
                 }
             });
 
-            if (!existUsername) {
+            if (!existUser) {
                 return res.status(400).json('Usuário não encontrado');
             }
 
-            const postsByUser = await Post.findAll(
+            const petsByUser = await Pet.findAll(
 
              {
                 where: {
-                    user_id: existUsername.user_id
+                    user_id: existUser.user_id
                 }
             });
-            res.status(201).json(postsByUser);
+            res.status(201).json(petsByUser);
         } catch (error) {
             res.status(404).json('Verfique os dados e tente novamente');
             console.error(error);
@@ -67,17 +66,17 @@ const UserController = {
     async updateUser(req, res) {
         try {
             const {
-                id
+                user_id
             } = req.params;
-            const { name } = req.auth
+            const { email } = req.auth
             const {
-                username, avatar, email, password, apartment
+                name_user, password, address, comments, phone
             } = req.body;
 
             const existId = await User.count({
                 where: {
-                    user_id: id,
-                    name
+                    user_id: user_id,
+                    email
                 }
             });
 
@@ -86,10 +85,10 @@ const UserController = {
             }
 
             const updatedUser = await User.update({
-                username, avatar, email, apartment, password
+                name_user, password, address, comments, phone
             }, {
                 where: {
-                    user_id: id,
+                    user_id: user_id,
                 }
             });
             res.status(201).json('Dados atualizados com sucesso');
@@ -102,14 +101,14 @@ const UserController = {
     async deleteUser(req, res) {
         try {
             const {
-                id
+                user_id
             } = req.params;
-            const { name } = req.auth
+            const { email } = req.auth
 
             const existIdUser = await User.count({
                 where: {
-                    user_id:id,
-                    name
+                    user_id:user_id,
+                    email: email
                 }
             });
 
@@ -119,7 +118,7 @@ const UserController = {
 
             await User.destroy({
                 where: {
-                    user_id:id
+                    user_id:user_id
                 }
             });
 

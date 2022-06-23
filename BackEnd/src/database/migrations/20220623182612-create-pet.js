@@ -11,11 +11,19 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: "user", key: "id" },
+        references: { model: "user", key: "user_id" },
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
-      name: {
+      name_pet: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      type: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      size: {
         allowNull: false,
         type: Sequelize.STRING,
       },

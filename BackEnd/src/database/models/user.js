@@ -11,7 +11,7 @@ const User = db.define(
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    name: {
+    name_user: {
       allowNull: false,
       type: DataTypes.STRING,    
     },

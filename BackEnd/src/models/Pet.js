@@ -17,10 +17,18 @@ const Pet = db.define(
         key: "user_id",
       },
     },
-    name: {
-        allowNull: false,
-        type: DataTypes.STRING,
-      },
+    name_pet: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    type: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    size: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
     gender: {
       allowNull: false,
       type: DataTypes.STRING,
@@ -42,7 +50,7 @@ const Pet = db.define(
       type: DataTypes.STRING,
     },
     phone: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
     },
     createdAt: {
       type: DataTypes.DATE,

@@ -13,11 +13,19 @@ const Pet = db.define(
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: "user", key: "id" },
+      references: { model: "user", key: "user_id" },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
     },
-    name: {
+    name_pet: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    type: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    size: {
       allowNull: false,
       type: DataTypes.STRING,
     },
