@@ -1,0 +1,46 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-jwt": "^7.7.5",
+    "express-validation": "^4.1.0",
+    "express-validator": "^6.14.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.2",
+    "@faker-js/faker": "^7.2.0",
+    "babel-jest": "^28.1.1",
+    "jest": "^28.1.1",
+    "nodemon": "^2.0.16",
+    "sequelize-cli": "^6.4.1",
+    "supertest": "^6.2.3"
+  },
+  "name": "adoptme",
+  "version": "1.0.0",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon backend/app.js",
+    "start": "node backend/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alchemist-developer/adoptme"
+  },
+  "bugs": {
+    "url": "https://github.com/Alchemist-developer/adoptme"
+  },
+  "homepage": "https://github.com/Alchemist-developer/adoptme#readme",
+  "description": ""
+}
