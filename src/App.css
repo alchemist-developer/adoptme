@@ -1,3 +1,12 @@
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;	
+  background-color: rgba(165, 42, 42, 0.447);
+}
+/*
 .App {
   text-align: center;
 }
@@ -39,4 +48,4 @@
 
 button {
   font-size: calc(10px + 2vmin);
-}
+} */
