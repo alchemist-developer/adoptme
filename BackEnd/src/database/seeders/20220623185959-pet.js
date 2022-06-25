@@ -3,7 +3,7 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Pet', [{
-      user_id: 1,
+      user_id: 2,
       name_pet: "Caramelo",
       type: "Cão",
       size: "Médio",
@@ -13,17 +13,13 @@ module.exports = {
       comments: "bla bla",
       age: "Filhote",
       phone: "(47) 8889-9985",
+      image_pet01:"www.cloudinary.com",
       createdAt: new Date(),
       updatedAt: new Date(),
     }])
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+      await queryInterface.bulkDelete('Pet', null, {});
   }
 };

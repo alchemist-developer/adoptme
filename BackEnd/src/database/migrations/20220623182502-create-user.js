@@ -33,6 +33,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
+      image_user:{
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

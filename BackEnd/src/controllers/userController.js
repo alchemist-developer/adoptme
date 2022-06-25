@@ -1,19 +1,28 @@
-const { User, Pet } = require("../models")
+// const { User, Pet } = require("../models")
+const {User} = require("../models")
 const bcrypt = require ('bcrypt');
+const cloudinary = require("../configs/cloudinary")
+const fs = require('fs')
 
 const UserController = {
     async create(req,res) {
         try {
-        const {name_user, email, password, address, phone, comments } = req.body;
+        const {name_user, email, password, address, phone, comments} = req.body;
 
         const newPassword = bcrypt.hashSync(password,6)    
+        
+        const file = req.files[0]
+        const uploadPath = await cloudinary.uploads(file.path,'adoptme/users')
+        fs.unlinkSync(file.path);
+
         const newUser = await User.create({
             name_user,
             email,
             password:newPassword,
             address,
             phone,
-            comments
+            comments,
+            image_user:uploadPath.imageUrl
         });
 
         res.json(newUser);

@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
-    key: 'parrot-grupo8',
+    key: process.env.SECRET_KEY,
 }

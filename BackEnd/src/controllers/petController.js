@@ -1,4 +1,6 @@
 const { Pet } = require("../models");
+const cloudinary = require("../configs/cloudinary")
+const fs = require('fs')
 
 const PetController = {
   async create(req, res) {
@@ -6,9 +8,43 @@ const PetController = {
       const { name_pet, type, size, gender, address, state, comments, age, phone } = req.body;
 
       const {
-        id: user_id,
+        user_id: user_id,
         name_user: name_user,
       } = req.auth;
+
+
+        const file = req.files
+       
+        if(file.length==1){
+          const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
+          image_pet01=uploadPathOne.imageUrl
+          image_pet02=null
+          image_pet03=null
+          fs.unlinkSync(file[0].path);
+        }
+
+        if(file.length==2){
+          const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
+          const uploadPathTwo = await cloudinary.uploads(file[1].path,'adoptme/pets')
+          image_pet01=uploadPathOne.imageUrl
+          image_pet02=uploadPathTwo.imageUrl
+          image_pet03=null
+          fs.unlinkSync(file[0].path);
+          fs.unlinkSync(file[1].path);
+        }
+
+        if(file.length==3){
+          const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
+          const uploadPathTwo = await cloudinary.uploads(file[1].path,'adoptme/pets')
+          const uploadPathThree = await cloudinary.uploads(file[2].path,'adoptme/pets')
+          image_pet01=uploadPathOne.imageUrl
+          image_pet02=uploadPathTwo.imageUrl
+          image_pet03=uploadPathThree.imageUrl
+          fs.unlinkSync(file[0].path);
+          fs.unlinkSync(file[1].path);
+          fs.unlinkSync(file[2].path);
+        }
+        
 
       const newPet = await Pet.create({
         user_id,
@@ -21,7 +57,10 @@ const PetController = {
         state,
         comments,
         age,
-        phone
+        phone,
+        image_pet01,
+        image_pet02,
+        image_pet03
       });
 
       res.json(newPet);

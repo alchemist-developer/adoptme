@@ -52,6 +52,18 @@ const Pet = db.define(
     phone: {
       type: DataTypes.STRING,
     },
+    image_pet01:{
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    image_pet02:{
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    image_pet03:{
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
     createdAt: {
       type: DataTypes.DATE,
     },
