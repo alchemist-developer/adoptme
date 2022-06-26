@@ -50,6 +50,18 @@ module.exports = {
       phone: {
         type: Sequelize.STRING,
       },
+      image_pet01:{
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      image_pet02:{
+        allowNull: true,
+        type: Sequelize.STRING,
+      },
+      image_pet03:{
+        allowNull: true,
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

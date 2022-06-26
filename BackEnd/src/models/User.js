@@ -34,6 +34,10 @@ const User = db.define(
       allowNull: false,
       type: DataTypes.STRING,
     },
+    image_user:{
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
     createdAt: {
       type: DataTypes.DATE,
     },
