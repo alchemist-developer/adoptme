@@ -1,5 +1,6 @@
 // const { User, Pet } = require("../models")
 const {User} = require("../models")
+const { Pet } = require("../models");
 const bcrypt = require ('bcrypt');
 const cloudinary = require("../configs/cloudinary")
 const fs = require('fs')
@@ -7,38 +8,33 @@ const fs = require('fs')
 const UserController = {
     async create(req,res) {
         try {
-        const {name_user, email, password, address, phone, comments} = req.body;
+            const {password} = req.body;
+            const newPassword = bcrypt.hashSync(password,6)    
+            
+            const file = req.files[0]
+            const uploadPath = await cloudinary.uploads(file.path,'adoptme/users')
+            fs.unlinkSync(file.path);
 
-        const newPassword = bcrypt.hashSync(password,6)    
-        
-        const file = req.files[0]
-        const uploadPath = await cloudinary.uploads(file.path,'adoptme/users')
-        fs.unlinkSync(file.path);
+            const newUser = await User.create({
+                ...req.body,
+                status:true,
+                password:newPassword,
+                image_user:uploadPath.imageUrl
+            });
 
-        const newUser = await User.create({
-            name_user,
-            email,
-            password:newPassword,
-            address,
-            phone,
-            comments,
-            image_user:uploadPath.imageUrl
-        });
+            res.json(newUser);
 
-        res.json(newUser);
-
-    } catch (error) {
-        res.json('Não foi possível cadastrar o usuário');
-            console.error(error);
-    }
+        } catch (error) {
+            res.json('Erro ao cadastrar o usuário')
+        }
     },
+
     async listAllUsers(req, res) {
         try {
             const listUsers = await User.findAll();
             res.status(201).json(listUsers);
         } catch (error) {
-            res.json('Falha ao listar usuários');
-            console.error(error)
+            res.json('Erro ao listar usuários');
         }
     },
 
@@ -59,7 +55,6 @@ const UserController = {
             }
 
             const petsByUser = await Pet.findAll(
-
              {
                 where: {
                     user_id: existUser.user_id
@@ -67,74 +62,95 @@ const UserController = {
             });
             res.status(201).json(petsByUser);
         } catch (error) {
-            res.status(404).json('Verfique os dados e tente novamente');
-            console.error(error);
+            res.status(500).json('Erro ao listar os pets deste usuário');
         };
     },
 
     async updateUser(req, res) {
         try {
-            const {
-                user_id
-            } = req.params;
+            const {user_id} = req.params
             const { email } = req.auth
-            const {
-                name_user, password, address, comments, phone
-            } = req.body;
+            const file = req.files[0]     
+            const {password} = req.body
+            const newPassword = bcrypt.hashSync(password,6)
 
             const existId = await User.count({
                 where: {
-                    user_id: user_id,
+                    user_id,
                     email
                 }
             });
 
             if (!existId) {
-                return res.status(400).json('Erro ao atualizar usuário');
+                return res.status(404).json('Usuário não encontrado ou não possui permissão');
             }
 
-            const updatedUser = await User.update({
-                name_user, password, address, comments, phone
+            const findUser = await User.findByPk(user_id)
+
+            if(file == undefined){
+                image_user = findUser.image
+            }
+            else{
+                const uploadPath = await cloudinary.uploads(file.path,'adoptme/users')
+                image_user=uploadPath.imageUrl
+                fs.unlinkSync(file.path);
+            }
+
+            await User.update({
+                ...req.body,
+                image_user,
+                password:newPassword
             }, {
                 where: {
-                    user_id: user_id,
+                    user_id,
                 }
             });
-            res.status(201).json('Dados atualizados com sucesso');
+
+            const updatedUser = await User.findByPk(user_id)
+
+            
+
+            res.status(201).json(updatedUser);
         } catch (error) {
-            res.status(404).json('Verfique os dados e tente novamente');
-            console.error(error);
+            res.status(500).json('Erro ao atualizar o usuário');
         };
     },
     
     async deleteUser(req, res) {
         try {
-            const {
-                user_id
-            } = req.params;
+            const {user_id} = req.params;
             const { email } = req.auth
 
             const existIdUser = await User.count({
                 where: {
-                    user_id:user_id,
-                    email: email
+                    user_id,
+                    email
                 }
             });
 
             if (!existIdUser) {
-                return res.status(400).json('Erro ao deletar usuário');
+                return res.status(404).json('Usuário não encontrado ou não possui permissão');
+            }
+            
+            const findUser = await User.findByPk(user_id)
+            if(!findUser.status){
+                return res.status(401).json('Usuário já desativado')
             }
 
-            await User.destroy({
+            await User.update({
+                status:false
+            }, {
                 where: {
-                    user_id:user_id
+                    user_id,
                 }
             });
 
-            res.status(201).json('Usuário deletado com sucesso');
+            const updatedUser = await User.findByPk(user_id)
+
+            return res.status(200).json(updatedUser);
         } catch (error) {
-            res.json('Falha ao deletar usuário')
-            console.error(error);
+            return res.status(500).res.json('Erro ao deletar usuário')
+            
         }
     },
 

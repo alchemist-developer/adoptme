@@ -50,6 +50,10 @@ module.exports = {
       phone: {
         type: Sequelize.STRING,
       },
+      status:{
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
       image_pet01:{
         allowNull: false,
         type: Sequelize.STRING,

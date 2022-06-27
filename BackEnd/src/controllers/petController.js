@@ -5,15 +5,11 @@ const fs = require('fs')
 const PetController = {
   async create(req, res) {
     try {
-      const { name_pet, type, size, gender, address, state, comments, age, phone } = req.body;
-
-      const {
-        user_id: user_id,
-        name_user: name_user,
-      } = req.auth;
+      
+      const {user_id: user_id,} = req.auth;
 
 
-        const file = req.files
+      const file = req.files
        
         if(file.length==1){
           const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
@@ -47,17 +43,9 @@ const PetController = {
         
 
       const newPet = await Pet.create({
+        ...req.body,
         user_id,
-        name_pet,
-        name_user,
-        type,
-        size,
-        gender,
-        address,
-        state,
-        comments,
-        age,
-        phone,
+        status:true,
         image_pet01,
         image_pet02,
         image_pet03
@@ -65,7 +53,7 @@ const PetController = {
 
       res.json(newPet);
     } catch (error) {
-      res.json("Não foi possível publicar o Pet");
+      res.status(500).json("Não foi possível publicar o Pet");
       console.error(error);
     }
   },
@@ -75,7 +63,7 @@ const PetController = {
       const listPets = await Pet.findAll();
       res.status(201).json(listPets);
     } catch (error) {
-      res.json("Falha ao listar os pets");
+      res.status(500).json("Falha ao listar os pets");
       console.error(error);
     }
   },
@@ -83,41 +71,73 @@ const PetController = {
   async updatePet(req, res) {
     try {
       const { pet_id } = req.params;
-      const { name_pet, type, size, gender, address, state, comments, age, phone } = req.body;
-      const { name_user } = req.auth;
-
-      const petByUser = await Post.count({
+      const { user_id } = req.auth;
+      const file = req.files
+    
+      const petByUser = await Pet.count({
         where: {
-          pet_id: pet_id,
-          name_user,
+          pet_id,
+          user_id,
         },
       });
-
+      
       if (!petByUser) {
-        return res.status(400).json("Erro ao tentar atualizar dados do Pet");
+        return res.status(404).json("Pet não existe ou não pertence a este usuário");
       }
 
-      const updatedPet = await Pet.update(
+      const findPet = await Pet.findByPk(pet_id);
+
+      if(file.length==1){
+        const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
+        image_pet01=uploadPathOne.imageUrl
+        image_pet02=findPet.image_pet02
+        image_pet03=findPet.image_pet03
+        fs.unlinkSync(file[0].path);
+      }
+
+      if(file.length==2){
+        const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
+        const uploadPathTwo = await cloudinary.uploads(file[1].path,'adoptme/pets')
+        image_pet01=uploadPathOne.imageUrl
+        image_pet02=uploadPathTwo.imageUrl
+        image_pet03=findPet.image_pet03
+        fs.unlinkSync(file[0].path);
+        fs.unlinkSync(file[1].path);
+      }
+
+      if(file.length==3){
+        const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
+        const uploadPathTwo = await cloudinary.uploads(file[1].path,'adoptme/pets')
+        const uploadPathThree = await cloudinary.uploads(file[2].path,'adoptme/pets')
+        image_pet01=uploadPathOne.imageUrl
+        image_pet02=uploadPathTwo.imageUrl
+        image_pet03=uploadPathThree.imageUrl
+        fs.unlinkSync(file[0].path);
+        fs.unlinkSync(file[1].path);
+        fs.unlinkSync(file[2].path);
+      }
+
+
+      await Pet.update(
         {
-            name_pet,
-            type,
-            size,
-            gender,
-            address,
-            state,
-            comments,
-            age,
-            phone
-        },
+          ...req.body,
+          image_pet01,
+          image_pet02,
+          image_pet03
+        }
+        ,
         {
           where: {
-            pet_id: pet_id,
+            pet_id,
           },
         }
       );
-      res.status(201).json("Pet atualizado com sucesso");
+      
+      const updatedPet = await Pet.findByPk(pet_id);
+      
+      res.status(200).json(updatedPet);
     } catch (error) {
-      res.status(404).json("Verfique os dados e tente novamente");
+      res.status(500).json("Erro ao atualizar o pet");
       console.error(error);
     }
   },
@@ -125,28 +145,40 @@ const PetController = {
   async deletePet(req, res) {
     try {
       const { pet_id } = req.params;
-      const { name_user } = req.auth;
+      const { user_id } = req.auth;
 
       const petByUser = await Pet.count({
         where: {
-          post_id: pet_id,
-          name_user: name_user,
+          pet_id,
+          user_id,
         },
       });
 
       if (!petByUser) {
-        return res.status(400).json("Erro ao tentar deletar cadastro do Pet");
+        return res.status(404).json("Erro ao encontrar o pet!");
       }
 
-      await Pet.destroy({
-        where: {
-          pet_id: pet_id,
-        },
-      });
+      const findPet = await Pet.findByPk(pet_id)
+      if(!findPet.status){
+          return res.status(401).json('Pet já desativado')
+      }
 
-      res.status(201).json("Cadastro do Pet deletado com sucesso");
+      await Pet.update(
+        {
+          status:false
+        }, {
+          where: {
+          pet_id,
+          }
+        }
+      );
+
+      
+      const updatedPet = await Pet.findByPk(pet_id)
+
+      return res.status(200).json(updatedPet);
     } catch (error) {
-      res.json("Falha ao deletar cadastro do Pet");
+      res.status(500).json("Falha ao deletar cadastro do Pet");
       console.error(error);
     }
   },
