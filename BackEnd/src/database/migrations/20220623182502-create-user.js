@@ -33,6 +33,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
+      status:{
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
       image_user:{
         allowNull: false,
         type: Sequelize.STRING,

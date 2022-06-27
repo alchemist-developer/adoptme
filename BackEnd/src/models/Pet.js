@@ -52,6 +52,10 @@ const Pet = db.define(
     phone: {
       type: DataTypes.STRING,
     },
+    status:{
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
     image_pet01:{
       allowNull: false,
       type: DataTypes.STRING,

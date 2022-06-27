@@ -34,6 +34,10 @@ const User = db.define(
       allowNull: false,
       type: DataTypes.STRING,
     },
+    status:{
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
     image_user:{
       allowNull: false,
       type: DataTypes.STRING,
