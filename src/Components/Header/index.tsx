@@ -1,11 +1,12 @@
-import React from 'react';
+import CarouselHeader from '../CarouselHome';
+import * as S from './styles';
 
-// import { Container } from './styles';
 
-const Header: React.FC = () => {
-  return (
-    <p>teste</p>
-  )
+const Header = () => {
+
+  return(
+    <div>oi</div>
+    )
 }
 
 export default Header;

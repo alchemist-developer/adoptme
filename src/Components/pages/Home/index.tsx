@@ -1,8 +1,14 @@
+import { Fragment } from "react";
+import CarouselHome from "../../CarouselHome";
 import Header from "../../Header";
 
 const Home = () => {
   return (
-    <Header/>
+    <Fragment>
+      <Header/>
+      <CarouselHome/>
+    </Fragment>
+
   )
 }
 
