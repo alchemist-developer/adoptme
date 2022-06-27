@@ -3,7 +3,7 @@ import {
     Route,
     BrowserRouter,
   } from "react-router-dom";
-  import Tinder from "../pages/tinder";
+  import adotarPet from "../pages/adotarPet";
   
   
   function Routes(): JSX.Element {
@@ -11,7 +11,7 @@ import {
       <BrowserRouter>
         <WrapperRoutes>
   
-          <Route path="/tinder" element={<Tinder />} />
+          <Route path="/adotar" element={<Tinder />} />
         </WrapperRoutes>
       </BrowserRouter>
     );
