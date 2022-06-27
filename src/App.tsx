@@ -1,10 +1,9 @@
+import Home from "./Components/pages/Home"
 
 function App() {
 
   return (
-    <div className="App">
-      e ai feras
-    </div>
+    <Home/>
   )
 }
 
