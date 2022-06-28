@@ -1,11 +1,12 @@
 import { Carousel } from 'react-bootstrap';
 import imgCat from '../assets/img/gato2.jpg'
+import './styles.css'
 
 // import { Container } from './styles';
 
 const CarouselHome= () => {
     return(
-        <Carousel prevLabel = 'null'>
+        <Carousel prevLabel = 'null' controls = {false}>
           <Carousel.Item>
             <img
               className="d-block w-100"
@@ -42,7 +43,7 @@ const CarouselHome= () => {
             </Carousel.Caption>
           </Carousel.Item>
       </Carousel>
-        );
+  );
 }
 
 export default CarouselHome;
