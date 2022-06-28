@@ -1,7 +1,8 @@
 const {User} = require("../../../database/models");
 const jwt = require('jsonwebtoken');
 const secret = require('../../../configs/secret')
-const bcrypt = require('bcrypt')
+const AuthService = require('../services/authService');
+const UserService = require("../services/userService");
 
 const AuthController = {
 
@@ -10,37 +11,35 @@ const AuthController = {
         try{
             const {email,password} = req.body
     
-            const user = await User.findOne({
-                where: {
-                    email,
-                },
-            });
-    
-            if (!user) {
+            const findUser = await UserService.emailExists(email)
+
+            if (!findUser) {
                 return res.status(404).json('Email ou senha inválidas')
             }
 
-            if(!user.status){
+            if(!findUser.status){
                 return res.status(401).json('Usuário não está mais ativo')
             }
-    
-            if (!bcrypt.compareSync(password, user.password)) {
+            const comparePasswords = AuthService.compareCripPass(password,findUser)
+
+            if (!comparePasswords) {
                 return res.status(404).json('Email ou senha inválidas')
             }
     
             const token = jwt.sign({
-                user_id: user.user_id,
-                email: user.email,
-                name_user: user.name_user,
-                address: user.address,
-                phone: user.phone    
+                user_id: findUser.user_id,
+                email: findUser.email,
+                name_user: findUser.name_user,
+                address: findUser.address,
+                phone: findUser.phone    
             },
                 secret.key
             )
     
-            return res.json({ token, user: {user_id: user.user_id} })
+            return res.json({ token, user: {user_id: findUser.user_id} })
         
         } catch (error) {
+            console.log(error)
             res.status(500).json("Falha ao fazer o login do usuário");
         }
 

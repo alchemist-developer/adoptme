@@ -1,19 +1,19 @@
 // const { User, Pet } = require("../models")
 const {User} = require("../../../database/models");
-const { Pet } = require("../../../database/models");
-const bcrypt = require ('bcrypt');
-const cloudinary = require("../../../configs/cloudinary")
-const fs = require('fs')
+const UserService = require("../services/userService")
+const PetService = require("../../pets/services/petService");
 
 const UserController = {
     async create(req,res) {
         try {
-            const {password} = req.body;
-            const newPassword = bcrypt.hashSync(password,6)    
-            
+            const {password, email} = req.body;
+            const newPassword = UserService.cripPassword(password)
             const file = req.files[0]
-            const uploadPath = await cloudinary.uploads(file.path,'adoptme/users')
-            fs.unlinkSync(file.path);
+            
+            if(await UserService.emailExists(email)){
+                return res.status(404).json("E-mail já cadastrado")
+            }
+            const uploadPath = await UserService.registerImages(file)
 
             const newUser = await User.create({
                 ...req.body,
@@ -22,47 +22,43 @@ const UserController = {
                 image_user:uploadPath.imageUrl.substr(52,50)
             });
 
-            res.json(newUser);
+            return res.status(201).json(newUser);
 
         } catch (error) {
-            res.json('Erro ao cadastrar o usuário')
+            return res.status(500).json('Erro ao cadastrar o usuário')
         }
     },
 
     async listAllUsers(req, res) {
         try {
             const listUsers = await User.findAll();
-            res.status(201).json(listUsers);
+            return res.status(200).json(listUsers);
         } catch (error) {
-            res.json('Erro ao listar usuários');
+            return res.status(500).json('Erro ao listar usuários');
+            console.log(error)
         }
     },
 
     async listPetsByUser(req, res) {
         try {
-            const {
-                user_id
-            } = req.params;
+            const {user_id} = req.params;
            
-            const existUser = await User.findOne({
-                where: {
-                   user_id
-                }
-            });
+            const userExists = await UserService.userExists(user_id)
 
-            if (!existUser) {
+            if (!userExists) {
                 return res.status(400).json('Usuário não encontrado');
             }
 
-            const petsByUser = await Pet.findAll(
-             {
-                where: {
-                    user_id: existUser.user_id
-                }
-            });
-            res.status(201).json(petsByUser);
+            const petsByUser = await PetService.findPetsByUser(user_id)
+            if(!petsByUser){
+                return res.status(404).json('Usuário não possui pets cadastrados atualmente')
+            }
+
+            return res.status(200).json(petsByUser);
         } catch (error) {
-            res.status(500).json('Erro ao listar os pets deste usuário');
+            console.log(error)
+            return res.status(500).json('Erro ao listar os pets deste usuário');
+            
         };
     },
 
@@ -70,30 +66,25 @@ const UserController = {
         try {
             const {user_id} = req.params
             const { email } = req.auth
-            const file = req.files[0]     
+            const file = req.files[0]   
+
             const {password} = req.body
-            const newPassword = bcrypt.hashSync(password,6)
+            const newPassword = UserService.cripPassword(password)
 
-            const existId = await User.count({
-                where: {
-                    user_id,
-                    email
-                }
-            });
+            const userHasPermission = await UserService.userHasPermission(user_id,email)
 
-            if (!existId) {
+            if (!userHasPermission) {
                 return res.status(404).json('Usuário não encontrado ou não possui permissão');
             }
 
-            const findUser = await User.findByPk(user_id)
+            const findUser = await UserService.userExists(user_id)
 
             if(file == undefined){
                 image_user = findUser.image_user
             }
             else{
-                const uploadPath = await cloudinary.uploads(file.path,'adoptme/users')
+                const uploadPath = await UserService.registerImages(file)
                 image_user=uploadPath.imageUrl.substr(52,50)
-                fs.unlinkSync(file.path);
             }
 
             await User.update({
@@ -106,13 +97,10 @@ const UserController = {
                 }
             });
 
-            const updatedUser = await User.findByPk(user_id)
-
-            
-
-            res.status(201).json(updatedUser);
+            const updatedUser = await UserService.userExists(user_id)           
+            return res.status(201).json(updatedUser);
         } catch (error) {
-            res.status(500).json('Erro ao atualizar o usuário');
+            return res.status(500).json('Erro ao atualizar o usuário');
         };
     },
     
@@ -121,18 +109,13 @@ const UserController = {
             const {user_id} = req.params;
             const { email } = req.auth
 
-            const existIdUser = await User.count({
-                where: {
-                    user_id,
-                    email
-                }
-            });
+            const userHasPermission = await UserService.userHasPermission(user_id,email)
 
-            if (!existIdUser) {
+            if (!userHasPermission) {
                 return res.status(404).json('Usuário não encontrado ou não possui permissão');
             }
             
-            const findUser = await User.findByPk(user_id)
+            const findUser = await UserService.userExists(user_id)
             if(!findUser.status){
                 return res.status(401).json('Usuário já desativado')
             }
@@ -145,8 +128,7 @@ const UserController = {
                 }
             });
 
-            const updatedUser = await User.findByPk(user_id)
-
+            const updatedUser = await UserService.userExists(user_id)
             return res.status(200).json(updatedUser);
         } catch (error) {
             return res.status(500).res.json('Erro ao deletar usuário')

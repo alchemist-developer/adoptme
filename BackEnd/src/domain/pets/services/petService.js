@@ -44,7 +44,7 @@ const PetService = {
         return findPet;
     },
 
-    async findPetByUser(user_id, pet_id){
+    async UserHasPet(user_id, pet_id){
         const petByUser = await Pet.count({
             where: {
               pet_id,
@@ -53,6 +53,23 @@ const PetService = {
           });
 
         return petByUser
+    },
+
+    async findAllPets(){
+      const allPets = await Pet.findAll()
+      return allPets
+    },
+
+    async findPetsByUser(user_id){
+      const findPetsByUser = await Pet.findOne({
+        where: {
+          user_id,
+          status:true
+        },
+      });
+
+      return findPetsByUser
+      
     },
 
     async updateImages(file, pet_id){

@@ -1,4 +1,5 @@
 const { Pet } = require("../../../database/models");
+const UserService = require("../../users/services/userService");
 const PetService = require('../services/petService')
 
 const PetController = {
@@ -19,19 +20,19 @@ const PetController = {
         image_pet03
       });
 
-      res.status(201).json(newPet);
+      return res.status(201).json(newPet);
     } catch (error) {
-      res.status(500).json("Não foi possível publicar o Pet");
+      return res.status(500).json("Não foi possível publicar o Pet");
       console.log(error)
     }
   },
 
   async listAllPets(req, res) {
     try {
-      const listPets = await Pet.findAll();
-      res.status(200).json(listPets);
+      const listPets = await PetService.findAllPets()
+      return res.status(200).json(listPets);
     } catch (error) {
-      res.status(500).json("Falha ao listar os pets");
+      return res.status(500).json("Falha ao listar os pets");
     }
   },
 
@@ -41,7 +42,7 @@ const PetController = {
       const { user_id } = req.auth;
       const file = req.files
     
-      const petByUser = await PetService.findPetByUser(user_id,pet_id)
+      const petByUser = await PetService.UserHasPet(user_id,pet_id)
       
       if (!petByUser) {
         return res.status(404).json("Pet não existe ou não pertence a este usuário");
@@ -58,10 +59,10 @@ const PetController = {
       );
       
       const updatedPet = await PetService.findPet(pet_id)
-      res.status(200).json(updatedPet);
+      return res.status(200).json(updatedPet);
 
     } catch (error) {
-      res.status(500).json("Erro ao atualizar o pet");
+      return res.status(500).json("Erro ao atualizar o pet");
     }
   },
 
@@ -70,7 +71,7 @@ const PetController = {
       const { pet_id } = req.params;
       const { user_id } = req.auth;
 
-      const petByUser = await PetService.findPetByUser(user_id,pet_id)
+      const petByUser = await PetService.UserHasPet(user_id,pet_id)
 
       if (!petByUser) {
         return res.status(404).json("Erro ao encontrar o pet!");
@@ -94,7 +95,7 @@ const PetController = {
       const updatedPet = await PetService.findPet(pet_id)
       return res.status(200).json(updatedPet);
     } catch (error) {
-      res.status(500).json("Falha ao deletar cadastro do Pet");
+      return res.status(500).json("Falha ao deletar cadastro do Pet");
     }
   },
 };
