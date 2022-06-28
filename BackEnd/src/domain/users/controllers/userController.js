@@ -1,8 +1,8 @@
 // const { User, Pet } = require("../models")
-const {User} = require("../models")
-const { Pet } = require("../models");
+const {User} = require("../../../database/models");
+const { Pet } = require("../../../database/models");
 const bcrypt = require ('bcrypt');
-const cloudinary = require("../configs/cloudinary")
+const cloudinary = require("../../../configs/cloudinary")
 const fs = require('fs')
 
 const UserController = {
@@ -19,7 +19,7 @@ const UserController = {
                 ...req.body,
                 status:true,
                 password:newPassword,
-                image_user:uploadPath.imageUrl
+                image_user:uploadPath.imageUrl.substr(52,50)
             });
 
             res.json(newUser);
@@ -88,11 +88,11 @@ const UserController = {
             const findUser = await User.findByPk(user_id)
 
             if(file == undefined){
-                image_user = findUser.image
+                image_user = findUser.image_user
             }
             else{
                 const uploadPath = await cloudinary.uploads(file.path,'adoptme/users')
-                image_user=uploadPath.imageUrl
+                image_user=uploadPath.imageUrl.substr(52,50)
                 fs.unlinkSync(file.path);
             }
 

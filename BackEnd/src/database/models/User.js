@@ -1,4 +1,4 @@
-const db = require("../database/index");
+const db = require('../index');
 const { DataTypes } = require("sequelize");
 
 const User = db.define(
