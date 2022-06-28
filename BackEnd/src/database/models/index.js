@@ -1,5 +1,5 @@
-const User = require ('../models/User')
-const Pet = require ('../models/Pet')
+const User = require ('./User')
+const Pet = require ('./Pet')
 
 User.hasMany(
     Pet, {

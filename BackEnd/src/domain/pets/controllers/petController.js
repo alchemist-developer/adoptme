@@ -1,5 +1,5 @@
-const { Pet } = require("../models");
-const cloudinary = require("../configs/cloudinary")
+const { Pet } = require("../../../database/models");
+const cloudinary = require("../../../configs/cloudinary")
 const fs = require('fs')
 
 const PetController = {
@@ -13,7 +13,7 @@ const PetController = {
        
         if(file.length==1){
           const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
-          image_pet01=uploadPathOne.imageUrl
+          image_pet01=uploadPathOne.imageUrl.substr(52,50)
           image_pet02=null
           image_pet03=null
           fs.unlinkSync(file[0].path);
@@ -22,8 +22,8 @@ const PetController = {
         if(file.length==2){
           const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
           const uploadPathTwo = await cloudinary.uploads(file[1].path,'adoptme/pets')
-          image_pet01=uploadPathOne.imageUrl
-          image_pet02=uploadPathTwo.imageUrl
+          image_pet01=uploadPathOne.imageUrl.substr(52,50)
+          image_pet02=uploadPathTwo.imageUrl.substr(52,50)
           image_pet03=null
           fs.unlinkSync(file[0].path);
           fs.unlinkSync(file[1].path);
@@ -33,9 +33,9 @@ const PetController = {
           const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
           const uploadPathTwo = await cloudinary.uploads(file[1].path,'adoptme/pets')
           const uploadPathThree = await cloudinary.uploads(file[2].path,'adoptme/pets')
-          image_pet01=uploadPathOne.imageUrl
-          image_pet02=uploadPathTwo.imageUrl
-          image_pet03=uploadPathThree.imageUrl
+          image_pet01=uploadPathOne.imageUrl.substr(52,50)
+          image_pet02=uploadPathTwo.imageUrl.substr(52,50)
+          image_pet03=uploadPathThree.imageUrl.substr(52,50)
           fs.unlinkSync(file[0].path);
           fs.unlinkSync(file[1].path);
           fs.unlinkSync(file[2].path);
@@ -89,7 +89,7 @@ const PetController = {
 
       if(file.length==1){
         const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
-        image_pet01=uploadPathOne.imageUrl
+        image_pet01=uploadPathOne.imageUrl.substr(52,50)
         image_pet02=findPet.image_pet02
         image_pet03=findPet.image_pet03
         fs.unlinkSync(file[0].path);
@@ -98,8 +98,8 @@ const PetController = {
       if(file.length==2){
         const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
         const uploadPathTwo = await cloudinary.uploads(file[1].path,'adoptme/pets')
-        image_pet01=uploadPathOne.imageUrl
-        image_pet02=uploadPathTwo.imageUrl
+        image_pet01=uploadPathOne.imageUrl.substr(52,50)
+        image_pet02=uploadPathTwo.imageUrl.substr(52,50)
         image_pet03=findPet.image_pet03
         fs.unlinkSync(file[0].path);
         fs.unlinkSync(file[1].path);
@@ -109,9 +109,9 @@ const PetController = {
         const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
         const uploadPathTwo = await cloudinary.uploads(file[1].path,'adoptme/pets')
         const uploadPathThree = await cloudinary.uploads(file[2].path,'adoptme/pets')
-        image_pet01=uploadPathOne.imageUrl
-        image_pet02=uploadPathTwo.imageUrl
-        image_pet03=uploadPathThree.imageUrl
+        image_pet01=uploadPathOne.imageUrl.substr(52,50)
+        image_pet02=uploadPathTwo.imageUrl.substr(52,50)
+        image_pet03=uploadPathThree.imageUrl.substr(52,50)
         fs.unlinkSync(file[0].path);
         fs.unlinkSync(file[1].path);
         fs.unlinkSync(file[2].path);

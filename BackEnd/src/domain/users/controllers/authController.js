@@ -1,8 +1,6 @@
-const {
-    User
-} = require("../models");
+const {User} = require("../../../database/models");
 const jwt = require('jsonwebtoken');
-const secret = require('../configs/secret')
+const secret = require('../../../configs/secret')
 const bcrypt = require('bcrypt')
 
 const AuthController = {
