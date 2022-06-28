@@ -1,9 +1,7 @@
 import styled from 'styled-components'
-import { AiOutlineClose } from 'react-icons/ai'
 
 interface props{
     open?: boolean;
-    width?: number;
 }
 
 export const Option = styled.div<props>`
@@ -20,21 +18,20 @@ export const Option = styled.div<props>`
 export const StyledDivClose = styled.div`
     display: flex;
     justify-content: space-between;
-
 `
 
 export const StyledButton = styled.button<props>`
-    display: flex;
     color: black;
     background-color: transparent;
     justify-content: end;
-    width: ${props=>props.width}%;
+    padding: 0;
+    width: 10%;
     border: none;
     display: ${props =>props.open ? 'flex': 'none'};
 `
 
 export const StyledImg = styled.img`
-    width: 10%;
+    width: 100%;
 `
 
 export const StyledDivLink = styled.div`
@@ -50,10 +47,6 @@ export const StyledA = styled.a`
     &:hover{
         color: black;
     }
-`
-
-export const StyledButtonClose = styled(AiOutlineClose)`
-    margin: auto 0;
 `
 
 export const StyledTeste = styled.div`

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {AiOutlineClose} from 'react-icons/ai'
 import { BsPersonCircle } from 'react-icons/bs'
 import collapse from '../assets/img/collapse.png'
 import * as S from './styles';
@@ -9,7 +10,7 @@ const OptionMenu = () => {
 
   return (
     <S.StyledTeste>
-        <S.StyledButton onClick={()=> setOpen(!open)} open={open} width = {100}>
+        <S.StyledButton onClick={()=> setOpen(!open)} open={open}>
             <S.StyledImg src= {collapse} />
         </S.StyledButton>
         <S.Option open={open}>
@@ -17,8 +18,8 @@ const OptionMenu = () => {
                 <div>
                     <BsPersonCircle/> teste
                 </div>
-                <S.StyledButton onClick={()=> setOpen(!open)} open={true} width = {10}>
-                    X
+                <S.StyledButton onClick={()=> setOpen(!open)} open={true}>
+                    <AiOutlineClose size={25}/>
                 </S.StyledButton>               
             </S.StyledDivClose>
             <S.StyledDivLink>
