@@ -4,10 +4,10 @@ import Header from "../../Header";
 
 const Home = () => {
   return (
-    <Fragment>
+    <div>
       <Header/>
       <CarouselHome/>
-    </Fragment>
+    </div>
 
   )
 }

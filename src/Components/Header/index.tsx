@@ -1,11 +1,11 @@
-import CarouselHeader from '../CarouselHome';
+import OptionMenu from '../OptionMenu';
 import * as S from './styles';
 
 
 const Header = () => {
 
   return(
-    <div>oi</div>
+    <OptionMenu/>
     )
 }
 
