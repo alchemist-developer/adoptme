@@ -1,12 +1,9 @@
 import { Carousel } from 'react-bootstrap';
 import imgCat from '../assets/img/gato2.jpg'
-import './styles.css'
-
-// import { Container } from './styles';
 
 const CarouselBody= () => {
     return(
-        <Carousel prevLabel = 'null' controls = {true}>
+        <Carousel prevLabel = 'null' controls = {true} indicators = {false}>
           <Carousel.Item>
             <img
               className="d-block w-100"
