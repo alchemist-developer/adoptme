@@ -1,9 +1,14 @@
 import React from 'react';
-
 // import { Container } from './styles';
+import CardDog from '../../components/CardDog/index';
 
-const AdotarPet: React.FC = () => {
-  return <div />;
+function AdotarPet() {
+  return (
+    <>
+      <CardDog />
+      </>
+    
+  );
 }
 
 export default AdotarPet;
