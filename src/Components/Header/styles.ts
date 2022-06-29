@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 
-export const StyledDiv = styled.div`
-    position: absolute;
+interface props{
+    position: string;
+}
+
+export const StyledDiv = styled.div<props>`
+    position: ${props=>props.position == 'center' ? 'relative' : 'absolute'};
     z-index: 99;
     display: flex;
     justify-content: space-between;

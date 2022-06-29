@@ -10,7 +10,7 @@ interface Props{
 const Header = ({logo}: Props) => {
 
   return(
-    <S.StyledDiv>
+    <S.StyledDiv position = {logo}>
       <BackArrow display = {logo}/>
       <Logo margin = {logo}/>
       <OptionMenu/>
