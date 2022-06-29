@@ -1,17 +1,19 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-
+import './style.css'
+import Foto from '../../assets/cardd.webp'
 // import { Container } from './styles';
 
 const CardDog: React.FC = () => (
     <div className="card-container">
         {/* style={{ background: `url(${Background})`,}} para randomizar a imagem
         + colocar componente navbar acima do card */}
+        <div><img src={Foto} alt="" /></div> 
         <div className="info-container">
             <div className="info-dog-column">
                 <div className="dog-nome-row">
-                    <h6>Bob</h6>
-                    <Button className="compartilhar-btn"></Button>
+                    <h1>Bob</h1>
+                    <Button className="compartilhar-btn">compartilhar</Button>
                 </div>
                 <p className="doador">ONG Proteger</p>
                 <p className="local">Penha, São Paulo, BR.</p>
@@ -33,8 +35,10 @@ const CardDog: React.FC = () => (
                     </ul>
                 </div>
             </div>
+  
+            <button className='btn-contatar'>Contatar doador </button> 
         </div>
-        <Button>Tenho Interesse // Adotar </Button> 
+       
         {/* botão para adotar, useState para alterar Interesse x Adotar
          no collapse*/}
     </div>
