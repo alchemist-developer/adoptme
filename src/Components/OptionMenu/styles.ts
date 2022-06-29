@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 interface props{
@@ -40,19 +41,15 @@ export const StyledDivLink = styled.div`
     margin-top: 8%;
 `
 
-export const StyledA = styled.a`
-    text-decoration: none;
-    color: black;
-    margin-top: 2%;
-    &:hover{
-        color: black;
-    }
-`
-
 export const StyledTeste = styled.div`
     position: absolute;
     z-index: 9999;
     width: 100%;
     display: flex;
     justify-content: end;
+`
+
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
 `

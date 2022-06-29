@@ -8,3 +8,4 @@ export const StyledDiv = styled.div`
     min-height: 32px;
     width: 100%;
 `
+

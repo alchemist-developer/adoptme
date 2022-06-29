@@ -7,7 +7,7 @@ import Header from "../../Header";
 const Home = () => {
   return (
     <Fragment>
-      <Header/>
+      <Header logo = 'none'/>
       <CarouselHome/>
       <BodyMenu/>
       <Footer/>

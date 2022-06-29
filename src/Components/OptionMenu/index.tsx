@@ -23,9 +23,16 @@ const OptionMenu = () => {
                 </S.StyledButton>               
             </S.StyledDivClose>
             <S.StyledDivLink>
-                <S.StyledA>item</S.StyledA>
-                <S.StyledA>item</S.StyledA>
-                <S.StyledA>item</S.StyledA>
+                <S.StyledLink to={'/userprofile'}>
+                    Editar Perfil
+                </S.StyledLink>
+
+                <S.StyledLink to={'/'}>
+                    item
+                </S.StyledLink>
+                <S.StyledLink to={'/'}>
+                    item
+                </S.StyledLink>
             </S.StyledDivLink>
         </S.Option>
     </S.StyledTeste>

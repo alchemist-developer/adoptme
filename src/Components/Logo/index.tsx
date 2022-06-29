@@ -2,9 +2,13 @@ import React from 'react';
 import imgLogo from '../assets/img/logo1.svg'
 import * as S from './styles';
 
-const Logo: React.FC = () => {
+interface Props{
+  margin: string;
+}
+
+const Logo = ({margin}:Props) => {
   return (
-    <S.Img src={imgLogo} />
+    <S.Img src={imgLogo} margin={margin} />
   );
 }
 

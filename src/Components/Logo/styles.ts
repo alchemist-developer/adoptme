@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Img = styled.img`
+interface props{
+    margin: string;
+}
+
+export const Img = styled.img<props>`
     width: 11%;
-    margin: 2%;
+    margin: ${props => props.margin == 'center' ? '1% auto;': '1% 0% 0% 1%;'}
 `
