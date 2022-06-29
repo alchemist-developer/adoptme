@@ -1,3 +1,5 @@
+import {AiOutlineArrowLeft} from 'react-icons/ai'
+import { Link } from 'react-router-dom';
 import * as S from './styles';
 
 interface Props{
@@ -7,7 +9,9 @@ interface Props{
 const BackArrow = ({display}: Props) => {
   return (
     <S.Arrow display={display} >
-        seta
+      <S.StyledLink to={'/'}>
+        <AiOutlineArrowLeft size={25}/>
+      </S.StyledLink>
     </S.Arrow>
   )
 }

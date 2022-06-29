@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 interface props{
@@ -5,8 +6,13 @@ interface props{
 }
 
 export const Arrow = styled.div<props>`
-    background-color: aquamarine;
     position: absolute;
     height: 100%;
     display: ${props=>props.display == 'center' ? 'block' : 'none'};
+    z-index: 999;
+`
+
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
 `

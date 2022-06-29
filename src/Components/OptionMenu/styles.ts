@@ -43,7 +43,7 @@ export const StyledDivLink = styled.div`
 
 export const StyledTeste = styled.div`
     position: absolute;
-    z-index: 9999;
+    z-index: 88;
     width: 100%;
     display: flex;
     justify-content: end;
