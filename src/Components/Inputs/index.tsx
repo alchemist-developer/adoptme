@@ -6,9 +6,14 @@ interface Props{
   typeInput?: string;
   rows?: number;
   as?: any;
+  id: string;
+  value?: string;
+  onchange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  pattern?: string;
+
 }
 
-const Inputs = ({textLabel, typeInput, rows, as}: Props) => {
+const Inputs = ({textLabel, typeInput, rows, as, id, value, onchange, pattern}: Props) => {
   return (
     <Fragment>
         <S.Label>
@@ -18,7 +23,10 @@ const Inputs = ({textLabel, typeInput, rows, as}: Props) => {
           type={typeInput}
           as = {as}
           rows = {rows}
-
+          id={id}
+          value={value}
+          onChange ={onchange}
+          pattern={pattern}  
         />
     </Fragment>
 
