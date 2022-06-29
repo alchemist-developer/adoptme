@@ -4,7 +4,7 @@ import './styles.css'
 
 const CarouselHome= () => {
     return(
-        <Carousel prevLabel = 'null' controls = {false}>
+        <Carousel controls = {false}>
           <Carousel.Item>
             <img
               className="d-block w-100"
