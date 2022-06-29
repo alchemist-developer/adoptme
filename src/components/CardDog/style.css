@@ -35,12 +35,15 @@ button.btn {
     margin-right: 20px;
 }
 
+div h1 {
+    margin: 6px;
+}
+
 div.info-container {
     color: white;
     font-family: 'Roboto', sans-serif;
     position: fixed;
-    top: 52%;
-    left: 0;
+    top: 66%;
     width: 100%;
     height: 100%;	
     background-color: rgba(0, 0, 0, 0.371);
@@ -52,7 +55,7 @@ div.info-container {
    transition-delay: 0.2s ease-in-out;
 }
 
-div.info-container:active {
+div.info-container:hover {
     color: white;
     background-color: rgba(0, 0, 0, 0.371);
     display: flex;
@@ -60,10 +63,9 @@ div.info-container:active {
     align-items: center;
     padding: 0px 5px;
     position: fixed;
-    top: 18%;
-    left: 0;
+    top: 0;
     width: 100%;
-    height: 82%;	
+    height: 100%;	
     font-family: 'Roboto', sans-serif;
 }
 
@@ -78,7 +80,7 @@ div.caracteristica-item {
     background-color: rgba(68, 65, 65, 0.566);
     padding: 6px 12px;
     border-radius: 10px;
-    margin-right: 3px;
+    margin: 3px;
 }
 
 div.personalidade-row-container {
@@ -91,15 +93,17 @@ div.personalidade-item {
     background-color: rgba(68, 65, 65, 0.566);
     padding: 6px 12px;
     border-radius: 10px;
-    margin-right: 3px;
+    margin: 6px;
 }
 
 p.descricao {
     font-size: 0.9rem;
+    margin: 6px;
 }
 
 div.observacoes {
     height: auto;
+    margin: 6px;
 }
 
 button.btn-contatar {
@@ -114,8 +118,15 @@ button.btn-contatar {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 33px 2px;
     cursor: pointer;
     border-radius: 10px;
+    margin-bottom: 150px;
 }
 
+p.doador {
+    margin:  4px 8px;
+}
+
+p.local {
+    margin: 4px 8px;
+}
