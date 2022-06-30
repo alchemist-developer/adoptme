@@ -5,7 +5,6 @@ const routes = require('./src/routes');
 const handleError = require('./src/middlewares/handleMiddleware');
 const db = require('./src/database');
 const upload = require('./src/configs/upload')
-const port = process.env.APP_PORT
 
 const app = express()
 app.use(cors())
@@ -21,4 +20,5 @@ app.use(routes)
 
 app.use(handleError)
 
-app.listen(4500 || port, () => console.log('Servidor no ar!'))
+const port = process.env.PORT || 4500
+app.listen(port, () => console.log('Servidor no ar!'))

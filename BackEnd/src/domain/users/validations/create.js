@@ -6,7 +6,9 @@ module.exports = validate({
         email:  Joi.string().email().required(),
         password: Joi.string().min(6).required(),
         address: Joi.string().required(),
-        phone: Joi.string().required(),
-        comments: Joi.string().required()
+        phone: Joi.string(),
+        comments: Joi.string().required(),
+        mobile: Joi.string().required(),
+        whats: Joi.boolean().required()
     })
 })

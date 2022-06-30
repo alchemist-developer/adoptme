@@ -21,8 +21,15 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      phone: {
+      mobile: {
         allowNull: false,
+        type: Sequelize.STRING
+      },
+      whats: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN
+      },
+      phone: {
         type: Sequelize.STRING
       },
       password: {
