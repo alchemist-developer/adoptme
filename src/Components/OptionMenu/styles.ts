@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 interface props{
     open?: boolean;
+    display?: string;
 }
 
 export const Option = styled.div<props>`
@@ -49,7 +50,8 @@ export const StyledTeste = styled.div`
     justify-content: end;
 `
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)<props>`
     text-decoration: none;
     color: black;
+    display: ${props => props.display};
 `

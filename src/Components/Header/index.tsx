@@ -1,13 +1,17 @@
+import { useSelector } from 'react-redux';
 import BackArrow from '../BackArrow';
 import Logo from '../Logo';
 import OptionMenu from '../OptionMenu';
+import { RootState } from '../store';
 import * as S from './styles';
 
 interface Props{
   logo: string;
 }
 
-const Header = ({logo}: Props) => {
+const Header = () => {
+
+  const logo = useSelector((state:RootState) => state.componentSlice.logo)
 
   return(
     <S.StyledDiv position = {logo}>

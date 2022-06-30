@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import {AiOutlineClose} from 'react-icons/ai'
 import { BsPersonCircle } from 'react-icons/bs'
+import { useSelector } from 'react-redux';
 import collapse from '../assets/img/collapse.png'
+import { RootState } from '../store';
 import * as S from './styles';
 
 const OptionMenu = () => {
 
     const [open, setOpen] = useState(true)
+    let displayProfile = useSelector((state:RootState)=>state.componentSlice.display)
+    console.log(displayProfile);
+    
 
   return (
     <S.StyledTeste>
@@ -23,7 +28,7 @@ const OptionMenu = () => {
                 </S.StyledButton>               
             </S.StyledDivClose>
             <S.StyledDivLink>
-                <S.StyledLink to={'/userprofile'}>
+                <S.StyledLink to={'/userprofile'} display =  {displayProfile}>
                     Editar Perfil
                 </S.StyledLink>
 
