@@ -8,7 +8,13 @@ const CardDog: React.FC = () => (
     <div className="card-container">
         {/* style={{ background: `url(${Background})`,}} para randomizar a imagem
         + colocar componente navbar acima do card */}
-        <div><img src={Foto} alt="" /></div> 
+        <div>
+            <button className="button-next"> ⟶
+            </button>
+            <button className="button-return"> ⟵
+            </button>
+        </div>
+        <div><img src={Foto} alt="" /></div>
         <div className="info-container">
             <div className="info-dog-column">
                 <div className="dog-nome-row">
@@ -35,13 +41,10 @@ const CardDog: React.FC = () => (
                     </ul>
                 </div>
             </div>
-  
-            <button className='btn-contatar'>Contatar doador </button> 
+            <button className='btn-contatar'>Contatar doador </button>
         </div>
-       
         {/* botão para adotar, useState para alterar Interesse x Adotar
          no collapse*/}
     </div>
 )
-
 export default CardDog;
