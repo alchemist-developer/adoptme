@@ -1,9 +1,11 @@
+import Contact from '../../components/Contact'
+
 function Contatar() {
-    return (
-      <>
-        <Contatar />
-        </>     
-    );
-  }
-  
-  export default Contatar;
+  return (
+    <>
+      <Contact />
+    </>
+  );
+}
+
+export default Contatar;
