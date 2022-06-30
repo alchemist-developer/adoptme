@@ -3,12 +3,13 @@ import * as S from './styles';
 
 interface Props{
   display: string;
+  url: string;
 }
 
-const BackArrow = ({display}: Props) => {
+const BackArrow = ({display, url}: Props) => {
   return (
     <S.Arrow display={display} >
-      <S.StyledLink to={'/'}>
+      <S.StyledLink to={url}>
         <AiOutlineArrowLeft size={25}/>
       </S.StyledLink>
     </S.Arrow>

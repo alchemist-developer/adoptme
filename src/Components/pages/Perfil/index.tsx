@@ -13,7 +13,7 @@ const Perfil = () => {
   return (
     <Fragment>
       <Header logo="center">
-      <BackArrow display = {'center'}/>
+      <BackArrow display = {'center'} url = '/'/>
       <Logo margin = {'center'}/>
       <OptionMenu displayProfile="none"/>
       </Header>
