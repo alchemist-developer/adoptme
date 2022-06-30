@@ -6,10 +6,9 @@ import collapse from '../assets/img/collapse.png'
 import { RootState } from '../store';
 import * as S from './styles';
 
-const OptionMenu = () => {
+const OptionMenu = ({displayProfile}:{displayProfile:string}) => {
 
-    const [open, setOpen] = useState(true)
-    let displayProfile = useSelector((state:RootState)=>state.componentSlice.display)    
+    const [open, setOpen] = useState(true)   
 
   return (
     <S.StyledTeste>

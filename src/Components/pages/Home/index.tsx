@@ -1,20 +1,19 @@
 import { Fragment } from "react";
-import { useDispatch } from "react-redux";
 import BodyMenu from "../../BodyMenu";
 import CarouselHome from "../../CarouselHome";
 import Footer from "../../Footer";
 import Header from "../../Header";
-import { setDisplay, setLogo } from "../../store/Components";
+import Logo from "../../Logo";
+import OptionMenu from "../../OptionMenu";
 
 const Home = () => {
 
-  const dispatch = useDispatch()
-  dispatch(setDisplay('flex'))
-  dispatch(setLogo('none'))
-
   return (
     <Fragment>
-      <Header/>
+      <Header logo="none">
+        <Logo margin = {'none'}/>
+        <OptionMenu displayProfile="flex"/>
+      </Header>
       <CarouselHome/>
       <BodyMenu/>
       <Footer/>
