@@ -1,20 +1,31 @@
 import ButtonAdotar from '../ButtonAdotar';
 import Inputs from '../Inputs';
 import { useFormik } from 'formik';
+import * as Yup from 'yup'
 import * as S from './styles';
 
 const FormPerfil = () => {
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required('O nome é obrigatório'),
+    email: Yup.string().email('Insira um email valido').required('O email é obrigatório'),
+    description: Yup.string().required('A descrição é obrigatória'),
+    address: Yup.string().required('O endereço é obrigatório'),
+    cellphone: Yup.string().min(10).required('O telefone é obrigatório'),
+  })
 
   const formik = useFormik({
     initialValues: {
       name: '',
       email: '',
+      image: '',
       description: '',
       address: '',
       phone: '',
       cellphone: '',
       check: '',
     },
+    validationSchema,
     onSubmit: (values)=>{
       console.log(values);
       
@@ -22,70 +33,88 @@ const FormPerfil = () => {
   })
 
   return (
-    <S.StyledForm onSubmit = {formik.handleSubmit} >
-        <Inputs
-          textLabel='Adicione uma imagem'
-          typeInput='file'
-          id= 'image'
-          value=''
-          onchange={formik.handleChange}
-        />
-        <Inputs
-          textLabel='Adicione uma descrição'
-          as='textarea'
-          value = {formik.values.description}
-          id = 'description'
-          onchange={formik.handleChange}  
-        />
-        <Inputs
-          textLabel='Nome'
-          typeInput='text'
-          value = {formik.values.name}
-          id = 'name'
-          onchange={formik.handleChange}  
-        />
-        <Inputs
-          textLabel='E-email'
-          typeInput='email'
-          value = {formik.values.email}
-          id = 'email'
-          onchange={formik.handleChange}  
-        />
-        <Inputs
-          textLabel='Endereço'
-          typeInput='text'
-          value = {formik.values.address}
-          id = 'address'
-          onchange={formik.handleChange}  
-        />
-        <Inputs
-          textLabel='Telefone (opcional)'
-          typeInput='tel'
-          value = {formik.values.phone}
-          id = 'phone'
-          onchange={formik.handleChange}
-          pattern="[0-9]{10}"  
-        />
-        <Inputs
-          textLabel='Telefone Celular'
-          typeInput='tel'
-          value = {formik.values.cellphone}
-          id = 'cellphone'
-          onchange={formik.handleChange}  
-        />
-
-        <S.Check 
-          type="checkbox"
-          name="check"
-          label="Possuo conta no Whatsapp com esse número e aceito receber mensagens de pessoas interessadas através dele."
-          value = 'true'
-          onChange={formik.handleChange} 
-        />
+    <S.StyledForm onSubmit = {formik.handleSubmit}>
+      <Inputs
+        textLabel='Adicione uma imagem'
+        typeInput='file'
+        id= 'image'
+        onchange={formik.handleChange}
+      />
+      <Inputs
+        textLabel='Adicione uma descrição '
+        as='textarea'
+        value = {formik.values.description}
+        id = 'description'
+        onchange={formik.handleChange}
+        isinvalid = {formik.touched.description && !!formik.errors.description}
+        isvalid = {formik.touched.description && !formik.errors.description}
+        erros = {formik.errors.description} 
+      />
 
 
-        <ButtonAdotar color='green' type='submit'>
-          Salvar informações
-        </ButtonAdotar>
+
+      <Inputs
+        textLabel='Nome'
+        typeInput='text'
+        value = {formik.values.name}
+        id = 'name'
+        onchange={formik.handleChange}
+        isinvalid = {formik.touched.name && !!formik.errors.name}
+        isvalid = {formik.touched.name && !formik.errors.name}
+        erros = {formik.errors.name} 
+
+      />
+      <Inputs
+        textLabel='E-email'
+        typeInput='email'
+        value = {formik.values.email}
+        id = 'email'
+        onchange={formik.handleChange}
+        isinvalid = {formik.touched.email && !!formik.errors.email}
+        isvalid = {formik.touched.email && !formik.errors.email}
+        erros = {formik.errors.email}   
+      />
+      <Inputs
+        textLabel='Endereço'
+        typeInput='text'
+        value = {formik.values.address}
+        id = 'address'
+        onchange={formik.handleChange}
+        isinvalid = {formik.touched.address && !!formik.errors.address}
+        isvalid = {formik.touched.address && !formik.errors.address}
+        erros = {formik.errors.address}   
+      />
+      <Inputs
+        textLabel='Telefone (opcional)'
+        typeInput='tel'
+        value = {formik.values.phone}
+        id = 'phone'
+        onchange={formik.handleChange}
+        pattern="[0-9]{10}"  
+      />
+      <Inputs
+        textLabel='Telefone Celular'
+        typeInput='tel'
+        value = {formik.values.cellphone}
+        id = 'cellphone'
+        onchange={formik.handleChange}
+        isinvalid = {formik.touched.cellphone && !!formik.errors.cellphone}
+        isvalid = {formik.touched.cellphone && !formik.errors.cellphone}
+        erros = {formik.errors.cellphone}   
+      />
+
+      <S.Check 
+        type="checkbox"
+        name="check"
+        label="Possuo conta no Whatsapp com esse número e aceito receber mensagens de pessoas interessadas através dele."
+        value = 'true'
+        onChange={formik.handleChange} 
+      />
+
+
+      <ButtonAdotar color='green' type='submit'>
+        Salvar informações
+      </ButtonAdotar>
     </S.StyledForm>
   )
 }

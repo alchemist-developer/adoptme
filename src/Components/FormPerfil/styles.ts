@@ -7,4 +7,5 @@ export const StyledForm = styled(Form)`
 
 export const Check = styled(FormCheck)`
     margin: 5% 0;
+    font-size: 12px;
 `
