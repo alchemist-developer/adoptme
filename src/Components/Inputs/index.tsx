@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import * as S from './styles';
 
 interface Props{
-  textLabel: string;
+  textLabel?: string;
   typeInput?: string;
   rows?: number;
   as?: any;

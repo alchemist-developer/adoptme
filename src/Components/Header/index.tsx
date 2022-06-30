@@ -5,9 +5,6 @@ import OptionMenu from '../OptionMenu';
 import { RootState } from '../store';
 import * as S from './styles';
 
-interface Props{
-  logo: string;
-}
 
 const Header = () => {
 

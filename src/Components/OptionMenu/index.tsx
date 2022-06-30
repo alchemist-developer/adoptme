@@ -9,9 +9,7 @@ import * as S from './styles';
 const OptionMenu = () => {
 
     const [open, setOpen] = useState(true)
-    let displayProfile = useSelector((state:RootState)=>state.componentSlice.display)
-    console.log(displayProfile);
-    
+    let displayProfile = useSelector((state:RootState)=>state.componentSlice.display)    
 
   return (
     <S.StyledTeste>

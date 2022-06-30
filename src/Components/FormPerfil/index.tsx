@@ -9,9 +9,10 @@ const FormPerfil = () => {
   const validationSchema = Yup.object({
     name: Yup.string().required('O nome é obrigatório'),
     email: Yup.string().email('Insira um email valido').required('O email é obrigatório'),
-    description: Yup.string().required('A descrição é obrigatória'),
+    description: Yup.string(),
     address: Yup.string().required('O endereço é obrigatório'),
-    cellphone: Yup.string().min(10).required('O telefone é obrigatório'),
+    phone: Yup.string(),
+    cellphone: Yup.string().min(10,'Deve ter no mínimo 10 digitios').required('O telefone é obrigatório'),
   })
 
   const formik = useFormik({
