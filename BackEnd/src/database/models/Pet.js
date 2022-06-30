@@ -33,7 +33,7 @@ const Pet = db.define(
       allowNull: false,
       type: DataTypes.STRING,
     },
-    address: {
+    city: {
       allowNull: false,
       type: DataTypes.STRING,
     },
@@ -48,6 +48,10 @@ const Pet = db.define(
     age: {
       allowNull: false,
       type: DataTypes.STRING,
+    },
+    mobile: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     phone: {
       type: DataTypes.STRING,

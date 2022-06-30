@@ -31,7 +31,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      address: {
+      city: {
         allowNull: false,
         type: Sequelize.STRING,
       },
@@ -46,6 +46,10 @@ module.exports = {
       age: {
         allowNull: false,
         type: Sequelize.STRING,
+      },
+      mobile: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       phone: {
         type: Sequelize.STRING,

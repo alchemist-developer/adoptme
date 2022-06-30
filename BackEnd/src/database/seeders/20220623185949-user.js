@@ -13,7 +13,7 @@ for(let i=10; i<20; i++) {
       email: faker.internet.email(),
       address:faker.address.city(),
       password: cripPassword,
-      phone:	faker.finance.amount(),
+      mobile:	faker.finance.amount(),
       comments:faker.random.alpha(),
       status: faker.datatype.boolean(),
       image_user:faker.image.cats(),
