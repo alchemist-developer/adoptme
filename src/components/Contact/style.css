@@ -1,0 +1,95 @@
+div.container-contato {
+    background-color: rgba(255, 255, 255, 0.618);
+    display: flex;
+    flex-direction: column;
+}
+
+img.contato-img {
+    width: 100%;
+    height: 33%;
+    background-size: cover;
+    object-fit: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+div.body-contato {
+    display: block;
+}
+
+div.desc-contato {
+    position: relative;
+    margin-top: 47%;
+    display: flex;
+    height: 66%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    color: black;
+    text-align: start;
+    padding: 6px;
+    background-color: rgba(255, 255, 255, 0.374);
+    border-radius: 10px;
+}
+
+@media screen and (min-width: 375px) {
+    div.desc-contato {
+        margin-top: 60%;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    div.desc-contato {
+        margin-top: 66%;
+    }
+}
+
+@media screen and (min-width: 393px) {
+    div.desc-contato {
+        margin-top: 65%;
+    }
+}
+
+@media screen and (min-width: 360px) and (min-height: 860px) {
+    div.desc-contato {
+        margin-top: 90%;
+    }
+}
+
+div.desc-contato p.local-contato, h1, p {
+    margin: 3px 3px;
+    padding-left: 3px
+}
+
+div.box-contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 3px;
+    background-color: #e6e6e6;
+    text-align: center;
+    margin: 3%;
+    gap: 5px;
+    height: 275px;
+    border-radius: 2px;
+}
+
+div.whatsapp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 3px;
+    text-align: center;
+    margin: 3%;
+}
+
+div.whatsapp a {
+    text-decoration: none;
+    background-color: rgba(180, 189, 76, 0.277);
+    padding: 3%;
+    color: rgb(73, 77, 81);
+    border-radius: 5px;
+    font-weight: bold;
+}
