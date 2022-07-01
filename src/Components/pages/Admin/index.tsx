@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import BackArrow from "../../BackArrow";
+import CardAdmin from "../../CardAdmin";
 import Header from "../../Header";
 import Logo from "../../Logo";
 import OptionMenu from "../../OptionMenu";
@@ -13,6 +14,7 @@ const Admin = () => {
         <Logo margin = {'center'}/>
         <OptionMenu displayProfile="flex"/>
       </Header>
+      <CardAdmin/>
     </Fragment>
 
   )

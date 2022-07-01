@@ -3,6 +3,7 @@ import Inputs from '../Inputs';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
 import * as S from './styles';
+import InputFile from '../InputFile';
 
 const FormPerfil = () => {
 
@@ -35,12 +36,9 @@ const FormPerfil = () => {
 
   return (
     <S.StyledForm onSubmit = {formik.handleSubmit}>
-      <Inputs
-        textLabel='Adicione uma imagem'
-        typeInput='file'
-        id= 'image'
-        onchange={formik.handleChange}
-      />
+
+      <InputFile/>
+
       <Inputs
         textLabel='Adicione uma descrição '
         as='textarea'
