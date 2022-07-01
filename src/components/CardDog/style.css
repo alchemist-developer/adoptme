@@ -19,12 +19,29 @@ div.dog-nome-row {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-right: 5px;
+}
+
+button.compartilhar-btn {
+    background-color: rgba(255, 255, 255, 0.603);
+    border: 1px solid rgba(0, 0, 0, 0.515);
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 12px;
+    cursor: pointer;
+    width: 125px;
+    padding: 3px 5px;
+    border-radius: 8px;
 }
 
 button.btn {
     background-color: #a19e9e83;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 0px 3px;
     font-size: 0.9rem;
     color: rgba(0, 0, 0, 0.375);
@@ -40,21 +57,49 @@ div h1 {
 }
 
 div.info-container {
-    color: white;
     font-family: 'Roboto', sans-serif;
     position: fixed;
-    top: 66%;
+    top: 80%;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.371);
+    height: 90%;
+    background-color: rgba(255, 255, 255, 0.609);
+    box-shadow: 0px 25px 50px rgba(255, 255, 255, 0.208), 0px -10px 5px rgba(238, 238, 238, 0.213);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 3px;
     transition-delay: 0.2s ease-in-out;
     z-index: 2;
 }
+
+div.info-container:hover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 2%;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+div.button-hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+button.btn-fromtop {
+    background-color: transparent;
+    border: none;
+    color: yellow;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
 
 button.button-next {
     position: absolute;
@@ -63,10 +108,10 @@ button.button-next {
     top: 50%;
     margin-right: 5%;
     padding: 5px 10px;
-    background-color: rgba(255, 255, 255, 0.364);
+    background-color: rgba(255, 255, 255, 0.17);
+    color: rgba(65, 62, 62, 0.249);
     border: 0;
     outline: none;
-    color: rgba(65, 62, 62, 0.542);
     font-weight: bold;
     border-radius: 6px;
 }
@@ -74,87 +119,59 @@ button.button-next {
 button.button-return {
     position: absolute;
     z-index: 1;
-   left: 0;
+    left: 0;
     top: 50%;
     margin-left: 5%;
     padding: 5px 10px;
-    background-color: rgba(255, 255, 255, 0.364);
+    background-color: rgba(255, 255, 255, 0.17);
+    color: rgba(65, 62, 62, 0.249);
     border: 0;
     outline: none;
-    color: rgba(65, 62, 62, 0.542);
     font-weight: bold;
     border-radius: 6px;
 }
 
-div.info-container:hover {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.371);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px 5px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-}
-
-
-div.caracteristicas-row-container {
+div.row-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
-div.caracteristica-item {
-    display: block;
-    background-color: rgba(68, 65, 65, 0.566);
-    padding: 6px 12px;
-    border-radius: 10px;
-    margin: 3px;
-}
-
-div.personalidade-row-container {
-    display: flex;
-    flex-direction: row;
-}
-
-div.personalidade-item {
-    display: block;
-    background-color: rgba(68, 65, 65, 0.566);
-    padding: 6px 12px;
-    border-radius: 10px;
-    margin: 6px;
-}
 
 p.descricao {
     font-size: 0.9rem;
-    margin: 6px;
+    margin: 15px 2px;
+}
+
+button span {
+    margin-left: 10px;
 }
 
 div.observacoes {
     height: auto;
-    margin: 6px;
+    margin: 8px;
 }
 
 button.btn-contatar {
-    background-color: #f5f5f54c;
     width: 90%;
     height: 55px;
     border: none;
-    color: rgba(0, 0, 0, 0.81);
+    background-color: #1E1E1E;
+    color: rgba(255, 255, 255, 0.81);
     font-weight: bold;
     padding: 10px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 8px;
     position: absolute;
     bottom: 0;
     right: 0;
     left: 0;
-    margin: 10px auto;
+    margin: 25px auto;
+    letter-spacing: 1px;
+    font-weight: 100;
 }
 
 p.doador {
@@ -162,5 +179,46 @@ p.doador {
 }
 
 p.local {
-    margin: 4px 8px;
+    margin-bottom: 25px;
+    margin-left: 8px;
+}
+
+div.row-item1 {
+    display: flex;
+    background-color: #77B291;
+    border-radius: 5px;
+    border: #1E1E1E 1px solid;
+    margin: 2px;
+    font-size: 14px;
+    padding: 4px 5px;
+}
+
+div.row-item2 {
+    display: block;
+    background-color: #6079D1;
+    border-radius: 5px;
+    border: #1E1E1E 1px solid;
+    margin: 2px;
+    font-size: 14px;
+    padding: 4px 5px;
+}
+
+div.row-item3 {
+    display: block;
+    background-color: #FAD673;
+    border-radius: 5px;
+    border: #1E1E1E 1px solid;
+    margin: 2px;
+    font-size: 14px;
+    padding: 4px 5px;
+}
+
+div.row-item4 {
+    display: block;
+    background-color: #ED7957;
+     border-radius: 5px;
+    border: #1E1E1E 1px solid;
+    margin: 2px;
+    font-size: 14px;
+    padding: 4px 5px;
 }
