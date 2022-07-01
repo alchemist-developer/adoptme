@@ -1,5 +1,5 @@
-const { Pet } = require("../../../database/models");
-const UserService = require("../../users/services/userService");
+const { Pet, User } = require("../../../database/models");
+const UserService = require("../../users/services/userService")
 const PetService = require('../services/petService')
 
 const PetController = {
@@ -11,10 +11,14 @@ const PetController = {
       
       const {image_pet01, image_pet02, image_pet03} = await PetService.registerImages(file)
       
+      const petOwner = await UserService.userExists(user_id)
+
       const newPet = await Pet.create({
         ...req.body,
         user_id,
         status:true,
+        mobile: petOwner.mobile,
+        phone: petOwner.phone,
         image_pet01,
         image_pet02,
         image_pet03
@@ -22,8 +26,8 @@ const PetController = {
 
       return res.status(201).json(newPet);
     } catch (error) {
-      return res.status(500).json("Não foi possível publicar o Pet");
-      console.log(error)
+      return res.status(500).json(error);
+      // return res.status(500).json("Não foi possível publicar o Pet");
     }
   },
 
@@ -74,7 +78,7 @@ const PetController = {
       const petByUser = await PetService.UserHasPet(user_id,pet_id)
 
       if (!petByUser) {
-        return res.status(404).json("Erro ao encontrar o pet!");
+        return res.status(404).json("Erro ao selecionar o Pet. É possível que ele não pertença ao usuário logado");
       }
 
       const findPet = await PetService.findPet(pet_id)

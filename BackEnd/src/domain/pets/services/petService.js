@@ -1,4 +1,5 @@
 const {Pet} = require('../../../database/models')
+const {User} = require('../../../database/models')
 const cloudinary = require("../../../configs/cloudinary")
 const fs = require('fs')
 
@@ -56,12 +57,14 @@ const PetService = {
     },
 
     async findAllPets(){
-      const allPets = await Pet.findAll()
+      const allPets = await Pet.findAll({
+        where:{status:true}
+      })
       return allPets
     },
 
     async findPetsByUser(user_id){
-      const findPetsByUser = await Pet.findOne({
+      const findPetsByUser = await Pet.findAll({
         where: {
           user_id,
           status:true
@@ -106,6 +109,21 @@ const PetService = {
           }
 
           return{image_pet01,image_pet02,image_pet03}
+    },
+
+    async updatePetPhone(user_id){
+        const userOfPet = await User.findByPk(user_id)
+
+        await Pet.update(
+          {
+            mobile:userOfPet.mobile,
+            phone:userOfPet.phone
+          }, {
+            where: {
+              user_id,
+            }
+          }
+        );
     }
 
 

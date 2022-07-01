@@ -9,8 +9,6 @@ module.exports = validate({
         city: Joi.string().required(),
         state: Joi.string().required(),
         comments: Joi.string().required(),
-        age: Joi.string().required(),
-        phone: Joi.string(),
-        mobile: Joi.string().required(),
+        age: Joi.string().required()
     })
 })

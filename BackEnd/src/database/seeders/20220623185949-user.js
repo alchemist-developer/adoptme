@@ -6,7 +6,7 @@ let seed = []
 const cripPassword = bcrypt.hashSync('123456',6)
 
 
-for(let i=10; i<20; i++) {
+for(let i=1; i<20; i++) {
   seed.push(
     {
       name_user: faker.name.findName(),
@@ -16,6 +16,7 @@ for(let i=10; i<20; i++) {
       mobile:	faker.finance.amount(),
       comments:faker.random.alpha(),
       status: faker.datatype.boolean(),
+      whats: faker.datatype.boolean(),
       image_user:faker.image.cats(),
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -30,9 +31,10 @@ module.exports = {
       email: 'carlos@hotmail.com',
       address: "Rua Sete de Setembro 401",
       password: bcrypt.hashSync('123456',6),
-      phone: "(11) 9889-7754",
+      mobile: "(11) 9889-7754",
       comments: "bla bla",
       status:true,
+      whats: true,
       image_user:"www.cloudinary.com",
       createdAt: new Date(),
       updatedAt: new Date(),
