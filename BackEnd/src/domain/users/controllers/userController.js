@@ -31,19 +31,22 @@ const UserController = {
 
     async listAllUsers(req, res) {
         try {
-            const listUsers = await User.findAll();
+            const listUsers = await User.findAll({where:{status:true}});
             return res.status(200).json(listUsers);
         } catch (error) {
             return res.status(500).json('Erro ao listar usuários');
-            console.log(error)
         }
     },
 
     async listPetsByUser(req, res) {
         try {
             const {user_id} = req.params;
-           
+            const userTokenId = req.auth.user_id
             const userExists = await UserService.userExists(user_id)
+
+            if(user_id != userTokenId){
+                return res.status(401).json('Usuário informado não coincide com o usuário logado')
+            }
 
             if (!userExists) {
                 return res.status(400).json('Usuário não encontrado');
@@ -97,9 +100,12 @@ const UserController = {
                 }
             });
 
+            const updatedPets = await PetService.updatePetPhone(user_id)
+
             const updatedUser = await UserService.userExists(user_id)           
             return res.status(201).json(updatedUser);
         } catch (error) {
+            console.log(error)
             return res.status(500).json('Erro ao atualizar o usuário');
         };
     },
