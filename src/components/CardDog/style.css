@@ -62,8 +62,7 @@ div.info-container {
     top: 80%;
     width: 100%;
     height: 90%;
-    background-color: rgba(255, 255, 255, 0.609);
-    box-shadow: 0px 25px 50px rgba(255, 255, 255, 0.208), 0px -10px 5px rgba(238, 238, 238, 0.213);
+    background-color: rgba(255, 255, 255, 0.501);
     display: flex;
     flex-direction: column;
     align-items: center;
