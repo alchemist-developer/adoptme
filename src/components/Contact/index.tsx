@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import './style.css'
-import Foto from '../../assets/cardd.webp'
+import Foto from '../../assets/cardd2.webp'
 
 export default function Contact() {
     return (
@@ -22,7 +22,7 @@ export default function Contact() {
                     <p>Para adotar ou saber mais fale com o Protetor</p>
                     <p>faleconosco@ongproteger.com.br</p>
                     <div className='whatsapp'>
-                        <h4>Entre em contato com a ONG Proteger no Whatsapp</h4>
+                        <h6>Entre em contato com a ONG Proteger no Whatsapp</h6>
                         <a href="">Contatar via Whatsapp</a>
                     </div>
                 </div>

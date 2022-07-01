@@ -14,7 +14,7 @@ img.contato-img {
 }
 
 div.body-contato {
-    display: block;
+    position: fixed
 }
 
 div.desc-contato {
@@ -28,7 +28,7 @@ div.desc-contato {
     color: black;
     text-align: start;
     padding: 6px;
-    background-color: rgba(255, 255, 255, 0.374);
+    background-color:transparent;
     border-radius: 10px;
 }
 
@@ -69,7 +69,8 @@ div.box-contato {
     padding: 0px 3px;
     background-color: #e6e6e6;
     text-align: center;
-    margin: 3%;
+    margin-left: 10px;
+    margin-right: 10px;
     gap: 5px;
     height: 275px;
     border-radius: 2px;
@@ -80,16 +81,20 @@ div.whatsapp {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0px 3px;
     text-align: center;
-    margin: 3%;
+    margin: 0 3%;
+}
+
+div.whatsapp h6 {
+    text-decoration: underline;
+    color: #242424cd;
 }
 
 div.whatsapp a {
     text-decoration: none;
-    background-color: rgba(180, 189, 76, 0.277);
+    background-color: #8F9799;
     padding: 3%;
-    color: rgb(73, 77, 81);
-    border-radius: 5px;
+    color: black;
+    border-radius: 1px;
     font-weight: bold;
 }
