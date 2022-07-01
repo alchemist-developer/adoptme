@@ -111,8 +111,8 @@ const FormPerfil = () => {
       />
 
 
-      <ButtonAdotar color='green' type='submit'>
-        Salvar informações
+      <ButtonAdotar color='#1E1E1E' type='submit'>
+        Salvar Perfil ✔
       </ButtonAdotar>
     </S.StyledForm>
   )

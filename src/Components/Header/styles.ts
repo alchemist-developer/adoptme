@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 interface props{
     position: string;
+    background: string;
 }
 
 export const StyledDiv = styled.div<props>`
@@ -9,7 +10,8 @@ export const StyledDiv = styled.div<props>`
     z-index: 99;
     display: flex;
     justify-content: space-between;
-    min-height: 32px;
+    min-height: 34px;
     width: 100%;
+    background: ${props =>props.background}
 `
 

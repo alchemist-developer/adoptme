@@ -11,8 +11,8 @@ import * as S from './styles'
 const Perfil = () => {
 
   return (
-    <Fragment>
-      <Header logo="center">
+    <S.StyledDiv>
+      <Header logo="center" background="rgba(255, 255, 255, 0.75)">
       <BackArrow display = {'center'} url = '/'/>
       <Logo margin = {'center'}/>
       <OptionMenu displayProfile="none"/>
@@ -21,7 +21,7 @@ const Perfil = () => {
         <S.StylesH3>Perfil</S.StylesH3>
         <FormPerfil/>
       </Container>
-    </Fragment>
+    </S.StyledDiv>
 
   )
 }

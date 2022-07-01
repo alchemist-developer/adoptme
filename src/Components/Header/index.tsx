@@ -4,12 +4,13 @@ import * as S from './styles';
 interface Props{
   children: ReactNode;
   logo: string
+  background: string
 }
 
-const Header = ({children, logo}:Props) => {
+const Header = ({children, logo, background}:Props) => {
 
   return(
-    <S.StyledDiv position = {logo}>
+    <S.StyledDiv position = {logo} background = {background}>
       {children}
     </S.StyledDiv>
 

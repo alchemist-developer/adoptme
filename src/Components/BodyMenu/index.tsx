@@ -8,37 +8,37 @@ const BodyMenu = () => {
   return (
     <Fragment>
         <S.SytledContainer>
-            <ButtonAdotar color='red'>
+            <ButtonAdotar color='#1E1E1E'>
                 Quero Adotar
             </ButtonAdotar>
 
-            <ButtonAdotar color='green'>
+            <ButtonAdotar color='white'>
                 Quero Doar
             </ButtonAdotar>
         </S.SytledContainer>
 
         <S.SytledContainer>
             <ConatinerContend>
-                <h4>Adote, não compre.</h4>
+                <S.H4 color='#ED7957'>Adote, não compre.</S.H4>
                 <h2>Adoçao responável</h2>
             </ConatinerContend>
         </S.SytledContainer>
         
         <S.SytledContainer>
             <ConatinerContend>
-                <h4>me.adota</h4>
+                <S.H4 color='#6079d1'>me.adota</S.H4>
                 <S.A>Adoçao responável</S.A>
             </ConatinerContend>
         </S.SytledContainer>
 
         <S.SytledContainer>
-            <h4>Aumigos</h4>
+            <S.H4 color='#77B291'>Aumigos</S.H4>
             <h2>Testemunhos</h2>
             <CarouselBody/>
         </S.SytledContainer>
 
         <S.SytledContainer>
-            <h4>Na plataforma</h4>
+            <S.H4 color='#FAD673'>Na plataforma</S.H4>
             <h2>Ongs Parceiras</h2>
             <CarouselBody/>
         </S.SytledContainer>
