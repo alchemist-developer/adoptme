@@ -1,11 +1,20 @@
 import * as S from './styles';
 import imgDefault from '../assets/img/imgDefault.png'
-import { Fragment, useState } from 'react';
+import { FormEvent, Fragment, useState } from 'react';
 
 
 const InputFile = () => {
 
     const [files, setFiles] = useState(imgDefault);
+    const [teste, setTeste] = useState('');
+
+    const takeImage = (e:any) => {
+      setFiles(URL.createObjectURL(e.target.files[0]));
+      setTeste(e.target.files[0].name);
+      
+    }
+
+    
 
   return (
     <Fragment>
@@ -13,7 +22,8 @@ const InputFile = () => {
       <S.StyledDiv>          
         <S.Img src={files}/>
         <S.StyledDivInput>
-          <S.Input type = 'file' name = 'inputFile' id = 'inputFile' onChange = { (e: any) => setFiles(URL.createObjectURL(e.target.files[0]))} />
+          <S.InputText type="text" value = {teste} disabled/>
+          <S.Input type = 'file'  name = 'inputFile' id = 'inputFile' onChange = { (e: any) =>takeImage(e) } />
           <S.StyledLabel htmlFor='inputFile'>
             Adcione uma imagem
           </S.StyledLabel>

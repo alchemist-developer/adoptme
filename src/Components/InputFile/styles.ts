@@ -27,16 +27,24 @@ export const StyledLabel = styled.label`
 `
 
 export const StyledDivInput = styled.div`
-    width: 60%;
+    width: 67%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 10%;
+    margin-left: 3%;
 
 `
 
 export const Input = styled(FormControl)`
     display: none;
+`
+
+export const InputText = styled.input`
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 3% 0px;
+    border: 1px solid black;
 `
 
 export const Label = styled.label`
