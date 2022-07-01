@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import './style.css'
-import Foto from '../../assets/cardd.webp'
+import Foto from '../../assets/cardd3.jpg'
+import Vetor from '../../assets/vector.png'
+import Share from '../../assets/share.png'
 // import { Container } from './styles';
 
 const CardDog: React.FC = () => (
@@ -14,13 +16,14 @@ const CardDog: React.FC = () => (
             <button className="button-return"> ⟵
             </button>
         </div>
-        <div><img src={Foto} alt="" /></div>
+        <div><img className='card-img' src={Foto} alt="" /></div>
         <div className="info-container">
             <div className="info-dog-column">
-            <div className="button-hover"><button className='btn-fromtop'>⮝</button></div>
+            <div className="button-hover">
+                <button className='btn-fromtop'><img src={Vetor} alt="" /></button></div>
                 <div className="dog-nome-row">
                     <h1>Bob</h1>
-                    <button className="compartilhar-btn">➲ compartilhar</button>
+                    <button className="compartilhar-btn"><img src={Share} alt="" /> Compartilhar</button>
                 </div>
                 <p className="doador">ONG Proteger</p>
                 <p className="local">Penha, São Paulo, BR.</p>

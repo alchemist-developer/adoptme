@@ -5,9 +5,9 @@ div.card-container {
     max-width: 100vw;
 }
 
-div img {
+div img.card-img {
     position: fixed;
-    width: 100%;
+    width: auto;
     height: 100%;
     background-size: cover;
     background-position: center;
@@ -24,7 +24,7 @@ div.dog-nome-row {
 
 button.compartilhar-btn {
     background-color: rgba(255, 255, 255, 0.603);
-    border: 1px solid rgba(0, 0, 0, 0.515);
+    border: 2px solid rgba(0, 0, 0, 0.515);
     color: rgb(0, 0, 0);
     padding: 15px 32px;
     text-align: center;
@@ -71,15 +71,24 @@ div.info-container {
     z-index: 2;
 }
 
+button.btn-fromtop img {
+    margin-top: 10px;
+}
+
+button.compartilhar-btn img {
+    margin-right: 3px;
+}
+
 div.info-container:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: fixed;
-    top: 2%;
+    top: 0;
     width: 100%;
     height: 100%;
     font-family: 'Roboto', sans-serif;
+    background-color: rgba(255, 255, 255, 0.842);
 }
 
 div.button-hover {
