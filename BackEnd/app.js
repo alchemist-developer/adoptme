@@ -6,6 +6,8 @@ const handleError = require('./src/middlewares/handleMiddleware');
 const db = require('./src/database');
 const upload = require('./src/configs/upload')
 
+// teste
+
 const app = express()
 app.use(cors())
 app.use(express.json())
