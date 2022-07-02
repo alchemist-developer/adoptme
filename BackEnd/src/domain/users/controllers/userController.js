@@ -9,6 +9,10 @@ const UserController = {
             const {password, email} = req.body;
             const newPassword = UserService.cripPassword(password)
             const file = req.files[0]
+
+            if(file==[]){
+                return res.status(400).json("É necessário enviar uma imagem do usuárip")
+              }
             
             if(await UserService.emailExists(email)){
                 return res.status(404).json("E-mail já cadastrado")

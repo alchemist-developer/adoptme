@@ -8,6 +8,10 @@ const PetController = {
       
       const {user_id} = req.auth;
       const file = req.files
+
+      if(file==[]){
+        return res.status(400).json("É necessário enviar ao menos uma imagem do pet")
+      }
       
       const {image_pet01, image_pet02, image_pet03} = await PetService.registerImages(file)
       
@@ -26,8 +30,7 @@ const PetController = {
 
       return res.status(201).json(newPet);
     } catch (error) {
-      return res.status(500).json(error);
-      // return res.status(500).json("Não foi possível publicar o Pet");
+      return res.status(500).json('Não foi possível publicar o Pet' + error);
     }
   },
 
