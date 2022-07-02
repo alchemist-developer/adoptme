@@ -52,7 +52,7 @@ const PetController = {
       const petByUser = await PetService.UserHasPet(user_id,pet_id)
       
       if (!petByUser) {
-        return res.status(404).json("Pet não existe ou não pertence a este usuário");
+        return res.status(404).json("Pet não existe, não pertence a este usuário ou foi desativado");
       }
 
       const {image_pet01, image_pet02, image_pet03} = await PetService.updateImages(file, pet_id)
