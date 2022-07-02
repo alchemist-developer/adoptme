@@ -57,7 +57,7 @@ const UserController = {
             }
 
             const petsByUser = await PetService.findPetsByUser(user_id)
-            if(!petsByUser){
+            if(petsByUser=[]){
                 return res.status(404).json('Usuário não possui pets cadastrados atualmente')
             }
 
