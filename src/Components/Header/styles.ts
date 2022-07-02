@@ -10,7 +10,7 @@ export const StyledDiv = styled.div<props>`
     z-index: 99;
     display: flex;
     justify-content: space-between;
-    min-height: 34px;
+    min-height: 38px;
     width: 100%;
     background: ${props =>props.background}
 `

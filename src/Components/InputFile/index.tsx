@@ -10,6 +10,8 @@ const InputFile = () => {
 
     const takeImage = (e:any) => {
       setFiles(URL.createObjectURL(e.target.files[0]));
+      console.log(e.target.files[0]);
+      
       setTeste(e.target.files[0].name);
       
     }

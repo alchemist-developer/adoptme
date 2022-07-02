@@ -1,5 +1,4 @@
-import React from 'react';
-import imgLogo from '../assets/img/logo1.svg'
+import imgLogo from '../assets/img/logo2.png'
 import * as S from './styles';
 
 interface Props{

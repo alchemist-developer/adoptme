@@ -10,6 +10,10 @@ export const Arrow = styled.div<props>`
     height: 100%;
     display: ${props=>props.display == 'center' ? 'block' : 'none'};
     z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 `
 
 export const StyledLink = styled(Link)`

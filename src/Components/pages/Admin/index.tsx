@@ -9,7 +9,7 @@ const Admin = () => {
 
   return (
     <Fragment>
-      <Header logo="center">
+      <Header logo="center" background = 'white'>
         <BackArrow display = {'center'} url = '/userprofile'/>
         <Logo margin = {'center'}/>
         <OptionMenu displayProfile="flex"/>
