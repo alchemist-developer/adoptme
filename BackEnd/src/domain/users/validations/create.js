@@ -7,7 +7,7 @@ module.exports = validate({
         password: Joi.string().min(6).required(),
         address: Joi.string().required(),
         phone: Joi.string(),
-        comments: Joi.string().required(),
+        comments: Joi.string(),
         mobile: Joi.string().required(),
         whats: Joi.boolean().required()
     })
