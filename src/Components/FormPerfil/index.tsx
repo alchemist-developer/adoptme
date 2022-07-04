@@ -10,6 +10,7 @@ import BackArrow from "../BackArrow";
 import OptionMenu from "../OptionMenu";
 import { useState } from 'react';
 import {FiLogIn} from 'react-icons/fi';
+import { Modal } from 'react-bootstrap';
 
 const FormPerfil = () => {
 
@@ -47,11 +48,13 @@ const FormPerfil = () => {
     },
     validationSchema,
     onSubmit: (values)=>{
-      console.log(values);      
+      console.log(values);
+      setShow(true)     
     }
   })
 
   const [changePage, setChangePage] = useState(true)
+  const [show, setShow] = useState(false)
 
   return (
     <>
@@ -75,6 +78,12 @@ const FormPerfil = () => {
             Avançar <FiLogIn/>
           </ButtonAdotar>
         </S.DivButton>
+
+      <Modal centered show={show} onHide={()=>setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Conta criada com sucesso!</Modal.Title>
+        </Modal.Header>
+      </Modal>
 
 
       </S.StyledForm>

@@ -6,7 +6,7 @@ interface props{
 }
 
 export const StyledForm = styled(Form)<props>`
-    background-color: ${props => props.display ? 'white' : '#C9D7C4;'};
+    background-color: white;
     padding: ${props => props.display ? '0% 0% 4% 0%' : '4% 2%'} ;
     min-height: 100vh;
 
