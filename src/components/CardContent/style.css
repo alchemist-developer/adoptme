@@ -168,18 +168,15 @@ button.btn-contatar {
     color: rgba(255, 255, 255, 0.81);
     font-weight: bold;
     padding: 10px;
-    text-align: center;
     text-decoration: none;
     font-size: 16px;
     cursor: pointer;
     border-radius: 8px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: 25px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
     letter-spacing: 1px;
-    font-weight: 100;
 }
 
 p.doador {

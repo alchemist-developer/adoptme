@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import './style.css'
-import Foto from '../../assets/cardd2.webp'
+import Foto from '../../assets/cardd3.jpg'
 
 export default function Contact() {
     return (
