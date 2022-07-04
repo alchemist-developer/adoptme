@@ -5,11 +5,14 @@ interface Prosp{
   children: ReactNode;
   color: string
   type?: string | any;
+  display: boolean;
+  margin?: number;
+  onclick?: ()=>void;
 }
 
-const ButtonAdotar = ({children, color, type}:Prosp) => {
+const ButtonAdotar = ({children, color, type, display, margin, onclick}:Prosp) => {
   return (
-    <S.Button color ={color} type ={type} >
+    <S.Button onClick={onclick} margin={margin} color ={color} type ={type} display ={display}>
         {children}
     </S.Button>
   )

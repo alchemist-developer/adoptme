@@ -5,5 +5,5 @@ export const StylesH3 = styled.h3`
 `
 
 export const StyledDiv = styled.div`
-    background-color: #C9D7C4;;
+
 `

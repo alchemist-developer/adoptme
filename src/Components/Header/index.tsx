@@ -5,13 +5,14 @@ interface Props{
   children: ReactNode;
   logo: string
   background: string
+  display: boolean
 }
 
-const Header = ({children, logo, background}:Props) => {
+const Header = (props:Props) => {
 
   return(
-    <S.StyledDiv position = {logo} background = {background}>
-      {children}
+    <S.StyledDiv display = {props.display} position = {props.logo} background = {props.background}>
+      {props.children}
     </S.StyledDiv>
 
     )

@@ -1,24 +1,40 @@
 import ButtonAdotar from '../ButtonAdotar';
-import Inputs from '../Inputs';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
 import * as S from './styles';
-import InputFile from '../InputFile';
+import FormCadastro from '../Cadastro';
+import FormPersonal from '../FormPersonal';
+import Header from "../Header";
+import Logo from "../Logo";
+import BackArrow from "../BackArrow";
+import OptionMenu from "../OptionMenu";
+import { useState } from 'react';
 
 const FormPerfil = () => {
 
   const validationSchema = Yup.object({
-    name: Yup.string().required('O nome é obrigatório'),
-    email: Yup.string().email('Insira um email valido').required('O email é obrigatório'),
+    name_user: Yup.string().required('Por favor preencha com seu nome'),
+
+    email: Yup.string().email('Por favor preencha com um email válido').required('Por favor preencha com seu email'),
+
+    password: Yup.string().required('Por favor preencha com uma password').min(8, 'Sua password deve ter no mínimo 8 caracteres').max(12, 'Sua password deve ter no máximo 12 caracteres'),
+
+    confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'As passwords não são iguais').required('Por favor preencha com uma password'),
+
     description: Yup.string(),
+
     address: Yup.string().required('O endereço é obrigatório'),
+
     phone: Yup.string(),
+
     cellphone: Yup.string().min(10,'Deve ter no mínimo 10 digitios').required('O telefone é obrigatório'),
   })
 
   const formik = useFormik({
     initialValues: {
-      name: '',
+      name_user: '',
+      password: '',
+      confirmPassword: '',
       email: '',
       image: '',
       description: '',
@@ -26,95 +42,40 @@ const FormPerfil = () => {
       phone: '',
       cellphone: '',
       check: '',
+
     },
     validationSchema,
     onSubmit: (values)=>{
-      console.log(values);
-      
+      console.log(values);      
     }
   })
 
+  const [changePage, setChangePage] = useState(true)
+
   return (
-    <S.StyledForm onSubmit = {formik.handleSubmit}>
+    <>
+      <Header display= {!changePage} logo="center" background="rgba(255, 255, 255, 0.75)">
+        <BackArrow display = {'center'} url = '' onclick = {()=>setChangePage(true)}/>
+        <Logo margin = {'center'}/>
+        <OptionMenu displayProfile="none"/>
+      </Header>
+      <S.StyledForm display = {changePage} onSubmit = {formik.handleSubmit}>
 
-      <InputFile/>
+        <FormCadastro display= {changePage} formik = {formik} />
 
-      <Inputs
-        textLabel='Adicione uma descrição '
-        as='textarea'
-        value = {formik.values.description}
-        id = 'description'
-        onchange={formik.handleChange}
-        isinvalid = {formik.touched.description && !!formik.errors.description}
-        isvalid = {formik.touched.description && !formik.errors.description}
-        erros = {formik.errors.description} 
-      />
+        <FormPersonal display= {!changePage} formik = {formik} />
 
+        <ButtonAdotar display= {!changePage} color='#1E1E1E' type='submit'>
+          Salvar Perfil ✔
+        </ButtonAdotar>
 
+        <ButtonAdotar onclick={()=>setChangePage(!changePage)} margin = {4} display= {changePage} color='#1E1E1E' type='button'>
+          Avançar
+        </ButtonAdotar>
 
-      <Inputs
-        textLabel='Nome'
-        typeInput='text'
-        value = {formik.values.name}
-        id = 'name'
-        onchange={formik.handleChange}
-        isinvalid = {formik.touched.name && !!formik.errors.name}
-        isvalid = {formik.touched.name && !formik.errors.name}
-        erros = {formik.errors.name} 
+      </S.StyledForm>
+    </>
 
-      />
-      <Inputs
-        textLabel='E-email'
-        typeInput='email'
-        value = {formik.values.email}
-        id = 'email'
-        onchange={formik.handleChange}
-        isinvalid = {formik.touched.email && !!formik.errors.email}
-        isvalid = {formik.touched.email && !formik.errors.email}
-        erros = {formik.errors.email}   
-      />
-      <Inputs
-        textLabel='Endereço'
-        typeInput='text'
-        value = {formik.values.address}
-        id = 'address'
-        onchange={formik.handleChange}
-        isinvalid = {formik.touched.address && !!formik.errors.address}
-        isvalid = {formik.touched.address && !formik.errors.address}
-        erros = {formik.errors.address}   
-      />
-      <Inputs
-        textLabel='Telefone (opcional)'
-        typeInput='tel'
-        value = {formik.values.phone}
-        id = 'phone'
-        onchange={formik.handleChange}
-        pattern="[0-9]{10}"  
-      />
-      <Inputs
-        textLabel='Telefone Celular'
-        typeInput='tel'
-        value = {formik.values.cellphone}
-        id = 'cellphone'
-        onchange={formik.handleChange}
-        isinvalid = {formik.touched.cellphone && !!formik.errors.cellphone}
-        isvalid = {formik.touched.cellphone && !formik.errors.cellphone}
-        erros = {formik.errors.cellphone}   
-      />
-
-      <S.Check 
-        type="checkbox"
-        name="check"
-        label="Possuo conta no Whatsapp com esse número e aceito receber mensagens de pessoas interessadas através dele."
-        value = 'true'
-        onChange={formik.handleChange} 
-      />
-
-
-      <ButtonAdotar color='#1E1E1E' type='submit'>
-        Salvar Perfil ✔
-      </ButtonAdotar>
-    </S.StyledForm>
   )
 }
 

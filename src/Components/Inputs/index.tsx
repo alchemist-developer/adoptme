@@ -13,10 +13,11 @@ interface Props{
   isvalid?: boolean;
   isinvalid?: boolean;
   erros?: any;
+  placeholder?: string;
 
 }
 
-const Inputs = ({textLabel, typeInput, rows, as, id, value, onchange, pattern, isvalid, isinvalid, erros}: Props) => {
+const Inputs = ({textLabel, typeInput, rows, as, id, value, onchange, pattern, isvalid, isinvalid, erros, placeholder}: Props) => {
   return (
     <Fragment>
         <S.Label>
@@ -35,6 +36,7 @@ const Inputs = ({textLabel, typeInput, rows, as, id, value, onchange, pattern, i
           pattern={pattern}
           isValid={isvalid}
           isInvalid={isinvalid}
+          placeholder={placeholder}
         />
     </Fragment>
 

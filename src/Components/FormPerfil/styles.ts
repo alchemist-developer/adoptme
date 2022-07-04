@@ -1,10 +1,13 @@
 import { Form, FormCheck } from "react-bootstrap";
 import styled from "styled-components";
 
-export const StyledForm = styled(Form)`
-    margin-top: 5%;
-    padding-bottom: 5%;
+interface props{
+    display: boolean;
+}
 
+export const StyledForm = styled(Form)<props>`
+    background-color: ${props => props.display ? 'white' : '#C9D7C4;'};
+    padding: 4% 2%;
 `
 
 export const Check = styled(FormCheck)`

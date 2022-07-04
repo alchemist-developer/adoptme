@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <Fragment>
-      <Header logo="none" background="white">
+      <Header display = {true} logo="none" background="white">
         <Logo margin = {'none'}/>
         <OptionMenu displayProfile="flex"/>
       </Header>
