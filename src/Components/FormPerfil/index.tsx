@@ -9,6 +9,7 @@ import Logo from "../Logo";
 import BackArrow from "../BackArrow";
 import OptionMenu from "../OptionMenu";
 import { useState } from 'react';
+import {FiLogIn} from 'react-icons/fi';
 
 const FormPerfil = () => {
 
@@ -69,9 +70,12 @@ const FormPerfil = () => {
           Salvar Perfil ✔
         </ButtonAdotar>
 
-        <ButtonAdotar onclick={()=>setChangePage(!changePage)} margin = {4} display= {changePage} color='#1E1E1E' type='button'>
-          Avançar
-        </ButtonAdotar>
+        <S.DivButton>
+          <ButtonAdotar onclick={()=>setChangePage(!changePage)} margin = {9} display= {changePage} color='#1E1E1E' type='button'>
+            Avançar <FiLogIn/>
+          </ButtonAdotar>
+        </S.DivButton>
+
 
       </S.StyledForm>
     </>

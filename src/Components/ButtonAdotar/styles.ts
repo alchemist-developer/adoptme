@@ -17,5 +17,7 @@ export const Button = styled.button<props>`
     border-radius: 8px;
     padding: 24px, 120px, 24px, 120px;
     display: ${props => props.display ? 'block' : 'none'};
+    
+
 
 `

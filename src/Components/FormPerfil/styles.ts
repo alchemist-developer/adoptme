@@ -7,10 +7,16 @@ interface props{
 
 export const StyledForm = styled(Form)<props>`
     background-color: ${props => props.display ? 'white' : '#C9D7C4;'};
-    padding: 4% 2%;
+    padding: ${props => props.display ? '0% 0% 4% 0%' : '4% 2%'} ;
+    min-height: 100vh;
+
 `
 
 export const Check = styled(FormCheck)`
     margin: 5% 0;
     font-size: 12px;
+`
+
+export const DivButton = styled.div`
+    padding: 0 2%;
 `

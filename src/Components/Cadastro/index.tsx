@@ -16,7 +16,7 @@ const FormCadastro = ({formik, display}: Props) => {
   return (
     <S.SytledDiv display={display}>
       <S.Img src= {banner} />
-      <>
+      <S.DivInput display = {true}>
       <Inputs
           textLabel='Email'
           placeholder='Digite seu email'
@@ -49,7 +49,7 @@ const FormCadastro = ({formik, display}: Props) => {
           isvalid = {formik.touched.confirmPassword && !formik.errors.confirmPassword}
           erros = {formik.errors.confirmPassword} 
         />
-      </>
+      </S.DivInput>
     </S.SytledDiv>
 
   )
