@@ -37,6 +37,12 @@ div.desc-contato {
     border-radius: 10px;
 }
 
+p img {
+    width: 15px;
+    height: 10px;
+    margin-right: 5px;
+}
+
 @media screen and (min-width: 375px) {
     div.desc-contato {
         margin-top: 60%;
@@ -91,8 +97,10 @@ div.whatsapp {
 }
 
 div.whatsapp h6 {
-    text-decoration: underline;
+    font-size: 0.8rem;
     color: #242424cd;
+    margin-bottom: 15px;
+    margin-top: 5px;
 }
 
 div.whatsapp a {

@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import './style.css'
 import Foto from '../../assets/cardd3.jpg'
+import Mail from '../../assets/mail.png'
 
 export default function Contact() {
     return (
@@ -20,7 +21,7 @@ export default function Contact() {
                 <div className="box-contato">
                     <h1>Quer adotar o Bob?</h1>
                     <p>Para adotar ou saber mais fale com o Protetor</p>
-                    <p>faleconosco@ongproteger.com.br</p>
+                    <p><img src={Mail} alt="" /> faleconosco@ongproteger.com.br</p>
                     <div className='whatsapp'>
                         <h6>Entre em contato com a ONG Proteger no Whatsapp</h6>
                         <a href="">Contatar via Whatsapp</a>
