@@ -49,6 +49,17 @@ const FormPerfil = () => {
     validationSchema,
     onSubmit: (values)=>{
       console.log(values);
+      let data = new FormData()
+      data.append('name_user', values.name_user)      
+      data.append('password', values.password)      
+      data.append('email', values.email)   
+      data.append('image', values.image)      
+      data.append('comments', values.comments)      
+      data.append('address', values.address)      
+      data.append('phone', values.phone)      
+      data.append('mobile', values.mobile)      
+      data.append('whats', values.whats)
+            
       setShow(true)     
     }
   })
@@ -84,7 +95,6 @@ const FormPerfil = () => {
           <Modal.Title>Conta criada com sucesso!</Modal.Title>
         </Modal.Header>
       </Modal>
-
 
       </S.StyledForm>
     </>

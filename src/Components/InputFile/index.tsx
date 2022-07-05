@@ -3,7 +3,7 @@ import imgDefault from '../../assets/imgDefault.png'
 import { Fragment, useState } from 'react';
 
 interface Props{
-  onchange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onchange: (e: any) => void;
   value: string;
   id: string;
 }
@@ -14,10 +14,8 @@ const InputFile = ({onchange, value, id}:Props) => {
     const [teste, setTeste] = useState('');
 
     const takeImage = (e:any) => {
-      {onchange(e)}      
+      onchange(e)
       setFiles(URL.createObjectURL(e.target.files[0]));
-      console.log(e.target.files[0]);
-      
       setTeste(e.target.files[0].name);
     }    
 
@@ -34,7 +32,8 @@ const InputFile = ({onchange, value, id}:Props) => {
             type = 'file'  
             id = {id}
             onChange={(e:any) => takeImage(e)} 
-            value ={value} 
+            value ={undefined}
+            name = {id} 
           />
 
           <S.StyledLabel htmlFor='image' >
