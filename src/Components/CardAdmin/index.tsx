@@ -1,5 +1,5 @@
 import * as S from './styles';
-import cat from '../assets/img/gato2.jpg'
+import cat from '../../assets/gato2.jpg'
 
 const CardAdmin = () => {
   return (

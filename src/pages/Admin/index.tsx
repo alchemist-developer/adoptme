@@ -1,16 +1,16 @@
 import { Fragment } from "react";
-import BackArrow from "../../BackArrow";
-import CardAdmin from "../../CardAdmin";
-import Header from "../../Header";
-import Logo from "../../Logo";
-import OptionMenu from "../../OptionMenu";
+import BackArrow from "../../components/BackArrow";
+import CardAdmin from "../../components/CardAdmin";
+import Header from "../../components/Header";
+import Logo from "../../components/Logo";
+import OptionMenu from "../../components/OptionMenu";
 
 const Admin = () => {
 
   return (
     <Fragment>
-      <Header logo="center" background = 'white'>
-        <BackArrow display = {'center'} url = '/userprofile'/>
+      <Header logo="center" background = 'white' display = {true}>
+        <BackArrow onclick={()=>{}} display = {'center'} url = '/userprofile'/>
         <Logo margin = {'center'}/>
         <OptionMenu displayProfile="flex"/>
       </Header>

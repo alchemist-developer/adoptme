@@ -1,5 +1,5 @@
 import * as S from './styles';
-import imgDefault from '../assets/img/imgDefault.png'
+import imgDefault from '../../assets/imgDefault.png'
 import { Fragment, useState } from 'react';
 
 interface Props{

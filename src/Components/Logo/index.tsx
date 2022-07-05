@@ -1,4 +1,4 @@
-import imgLogo from '../assets/img/logo2.png'
+import imgLogo from '../../assets/logo2.png'
 import * as S from './styles';
 
 interface Props{

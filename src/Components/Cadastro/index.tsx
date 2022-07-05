@@ -1,7 +1,4 @@
-import { Fragment } from 'react'
-import { Container } from 'react-bootstrap'
-import banner from '../assets/img/bannerCadastro.png'
-import ButtonAdotar from '../ButtonAdotar'
+import banner from '../../assets/bannerCadastro.png'
 import Inputs from '../Inputs'
 import * as S from './styles'
 

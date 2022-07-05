@@ -23,11 +23,6 @@ const FormPerfil = () => {
 
     confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'As passwords não são iguais').required('Por favor preencha com uma password'),
 
-    image: Yup.mixed().test("fileSize", "The file is too large", (value) => {
-      if (!value.length) return true // attachment is optional
-      return value[0].size <= 18000
-    }),
-
     comments: Yup.string(),
 
     address: Yup.string().required('O endereço é obrigatório'),

@@ -1,5 +1,5 @@
 import { Carousel } from 'react-bootstrap';
-import imgCat from '../assets/img/gato2.jpg'
+import imgCat from '../../assets/gato2.jpg'
 import './styles.css'
 
 const CarouselHome= () => {

@@ -1,5 +1,4 @@
-
-import FormPerfil from "../../FormPerfil";
+import FormPerfil from '../../components/FormPerfil';
 import * as S from './styles'
 
 const Perfil = () => {

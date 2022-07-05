@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import {AiOutlineClose} from 'react-icons/ai'
 import { BsPersonCircle } from 'react-icons/bs'
-import { useSelector } from 'react-redux';
-import collapse from '../assets/img/collapse.png'
-import { RootState } from '../store';
+import collapse from '../../assets/collapse.png'
 import * as S from './styles';
 
 const OptionMenu = ({displayProfile}:{displayProfile:string}) => {

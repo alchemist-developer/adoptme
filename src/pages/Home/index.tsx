@@ -1,10 +1,11 @@
 import { Fragment } from "react";
-import BodyMenu from "../../BodyMenu";
-import CarouselHome from "../../CarouselHome";
-import Footer from "../../Footer";
-import Header from "../../Header";
-import Logo from "../../Logo";
-import OptionMenu from "../../OptionMenu";
+import BodyMenu from "../../components/BodyMenu";
+import CarouselHome from "../../components/CarouselHome";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Logo from "../../components/Logo";
+import OptionMenu from "../../components/OptionMenu";
+
 
 const Home = () => {
 
