@@ -1,3 +1,7 @@
+body {
+    color: black;
+}
+
 div.container-contato {
     background-color: rgba(255, 255, 255, 0.618);
     display: flex;

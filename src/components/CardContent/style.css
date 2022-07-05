@@ -33,7 +33,7 @@ button.compartilhar-btn {
     font-size: 14px;
     margin: 4px 12px;
     cursor: pointer;
-    width: 125px;
+    width: auto;
     padding: 3px 5px;
     border-radius: 8px;
 }
@@ -57,12 +57,11 @@ div h1 {
 }
 
 div.info-container {
-    font-family: 'Roboto', sans-serif;
     position: fixed;
     top: 80%;
     width: 100%;
     height: 90%;
-    background-color: rgba(255, 255, 255, 0.501);
+    background-color: rgba(255, 255, 255, 0.346);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,7 +86,6 @@ div.info-container:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    font-family: 'Roboto', sans-serif;
     background-color: rgba(255, 255, 255, 0.842);
 }
 

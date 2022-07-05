@@ -36,11 +36,10 @@ function handleClick() {
               <div className="dog-nome-row">
                 <h1>Bob</h1>
                 <button className="compartilhar-btn">
-                  <img src={Share} alt="" /> Compartilhar
-                </button>
+                  <img src={Share} alt="" /></button>
               </div>
-              <p className="doador">ONG Proteger</p>
-              <p className="local">Penha, São Paulo, BR.</p>
+              <p className="doador"> <strong> ONG Proteger</strong></p>
+              <p className="local">São Paulo</p>
               <div className="row-container">
                 <div className="row-item1">Informação</div>
                 <div className="row-item2">Informação</div>
