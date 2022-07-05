@@ -9,11 +9,18 @@ interface Props{
 }
 
 const FormPersonal = (props: Props) => {
+
+    let onchange = (e: any) => {        
+        const files = e.target.files[0];
+        let myFiles = URL.createObjectURL(files)        
+        props.formik.setFieldValue("image", myFiles);
+    }
+
   return (
     <S.StyledDiv display = {props.display}>
         <h3>Perfil</h3>
         <InputFile 
-            onchange={props.formik.handleChange}
+            onchange={onchange}
             value={props.formik.values.image}
             id="image"
         />
