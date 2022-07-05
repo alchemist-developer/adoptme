@@ -32,12 +32,12 @@ const FormPersonal = (props: Props) => {
         <Inputs
             textLabel='Adicione uma descrição '
             as='textarea'
-            value = {props.formik.values.description}
-            id = 'description'
+            value = {props.formik.values.comments}
+            id = 'comments'
             onchange={props.formik.handleChange}
-            isinvalid = {props.formik.touched.description && !!props.formik.errors.description}
-            isvalid = {props.formik.touched.description && !props.formik.errors.description}
-            erros = {props.formik.errors.description} 
+            isinvalid = {props.formik.touched.comments && !!props.formik.errors.comments}
+            isvalid = {props.formik.touched.comments && !props.formik.errors.comments}
+            erros = {props.formik.errors.comments} 
         />
 
         <Inputs
@@ -63,17 +63,17 @@ const FormPersonal = (props: Props) => {
         <Inputs
             textLabel='Telefone Celular'
             typeInput='tel'
-            value = {props.formik.values.cellphone}
-            id = 'cellphone'
+            value = {props.formik.values.mobile}
+            id = 'mobile'
             onchange={props.formik.handleChange}
-            isinvalid = {props.formik.touched.cellphone && !!props.formik.errors.cellphone}
-            isvalid = {props.formik.touched.cellphone && !props.formik.errors.cellphone}
-            erros = {props.formik.errors.cellphone}   
+            isinvalid = {props.formik.touched.mobile && !!props.formik.errors.mobile}
+            isvalid = {props.formik.touched.mobile && !props.formik.errors.mobile}
+            erros = {props.formik.errors.mobile}   
         />
 
         <S.Check 
             type="checkbox"
-            name="check"
+            name="whats"
             label="Possuo conta no Whatsapp com esse número e aceito receber mensagens de pessoas interessadas através dele."
             value = 'true'
             onChange={props.formik.handleChange} 

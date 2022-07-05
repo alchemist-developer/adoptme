@@ -19,8 +19,7 @@ const InputFile = ({onchange, value, id}:Props) => {
       console.log(e.target.files[0]);
       
       setTeste(e.target.files[0].name);
-    }
-    
+    }    
 
   return (
     <Fragment>
@@ -30,7 +29,8 @@ const InputFile = ({onchange, value, id}:Props) => {
         <S.StyledDivInput>
           <S.InputText type="text" value = {teste} disabled/>
           
-          <S.Input 
+          <S.Input
+            accept="image/png,image/jpeg,image/jpg"
             type = 'file'  
             id = {id}
             onChange={(e:any) => takeImage(e)} 

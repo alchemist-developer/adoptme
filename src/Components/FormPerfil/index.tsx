@@ -23,13 +23,18 @@ const FormPerfil = () => {
 
     confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'As passwords não são iguais').required('Por favor preencha com uma password'),
 
-    description: Yup.string(),
+    image: Yup.mixed().test("fileSize", "The file is too large", (value) => {
+      if (!value.length) return true // attachment is optional
+      return value[0].size <= 18000
+    }),
+
+    comments: Yup.string(),
 
     address: Yup.string().required('O endereço é obrigatório'),
 
     phone: Yup.string(),
 
-    cellphone: Yup.string().min(10,'Deve ter no mínimo 10 digitios').required('O telefone é obrigatório'),
+    mobile: Yup.string().min(10,'Deve ter no mínimo 10 digitios').required('O telefone é obrigatório'),
   })
 
   const formik = useFormik({
@@ -39,11 +44,11 @@ const FormPerfil = () => {
       confirmPassword: '',
       email: '',
       image: '',
-      description: '',
+      comments: '',
       address: '',
       phone: '',
-      cellphone: '',
-      check: '',
+      mobile: '',
+      whats: '',
 
     },
     validationSchema,
