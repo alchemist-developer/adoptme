@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+main {
+    padding: 0 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+h3 {
+    font-size: 21px;
+    font-weight: 400;
+    margin: 30px 0 0 0;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+span {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.div-escolha-do-animal{
+    display: flex;
+    gap: 10px;
+}
+
+.inputRadio{
+    display: none;
+}
+
+label {
+    margin-top: 10px;
+    border: solid 1px;
+    /* padding: 3px 7px; */
+    /* font-size: 12px; */
+}
+
+.inputRadio:checked + label{
+    background-image: url('../../assets/img-quero-doar.png');
+}
+
+button {
+    margin-top: 30px;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    background: #8F9799;
+    border: 1px solid #000000;
+    padding: 20px 0;
+    font-size: 16px;
+}
