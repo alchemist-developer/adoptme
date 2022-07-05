@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 
-
-main {
-    padding: 0 16px;
-    font-family: 'Inter', sans-serif;
-}
-
 h3 {
     font-size: 21px;
     font-weight: 400;
@@ -62,7 +56,7 @@ textarea {
 
 span {
     font-size: 16px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 .div-escolha-do-animal{
@@ -78,10 +72,6 @@ span {
     border: solid 1px;
     padding: 3px 7px;
     font-size: 12px;
-}
-
-.inputRadio:checked + label{
-    background-color: #D9D9D9;
 }
 
 .inputCachorro:checked + label{

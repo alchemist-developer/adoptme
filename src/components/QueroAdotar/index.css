@@ -1,23 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;900&display=swap');
 
 main {
-    padding: 0 16px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
-h3 {
-    font-size: 21px;
-    font-weight: 400;
+#cardpug {
+    width: 100vw;
+    align-items: center;
+}
+
+form h3 {
+    font-size: 24px;
+    font-weight: bold;
     margin: 30px 0 0 0;
 }
 form {
     display: flex;
     flex-direction: column;
+    padding: 0 16px;
 }
 
-span {
+form span {
     font-size: 16px;
-    margin-top: 20px;
+    font-weight: bold;
+    /* margin-top: 20px; */
+    /* margin-bottom: 4px; */
+}
+
+form select {
+    border: solid 1px;
+    padding: 6px 16px;
+    border-radius: 5px;
+}
+
+form input::placeholder {
+    padding-left: 16px;
+    text-align: start;
+    font-weight: 500;
+    font-size: 12px;
 }
 
 .div-escolha-do-animal{
@@ -29,17 +49,6 @@ span {
     display: none;
 }
 
-label {
-    margin-top: 10px;
-    border: solid 1px;
-    /* padding: 3px 7px; */
-    /* font-size: 12px; */
-}
-
-.inputRadio:checked + label{
-    background-image: url('../../assets/img-quero-doar.png');
-}
-
 button {
     margin-top: 30px;
     color: #FFFFFF;
@@ -48,4 +57,48 @@ button {
     border: 1px solid #000000;
     padding: 20px 0;
     font-size: 16px;
+}
+
+
+#label-input-femea{
+    border: none;
+    background-image: url('../../assets/btnFemeaUnactive.png');
+    background-repeat: no-repeat;
+    width: 52px;
+    height: 69px;
+}
+
+.inputRadio:checked + #label-input-femea{
+    background-image: url('../../assets/btnFemeaActive.png');
+}
+
+#label-input-macho{
+    border: none;
+    background-image: url('../../assets/btnMachoUnactive.png');
+    background-repeat: no-repeat;
+    width: 52px;
+    height: 69px;
+}
+
+.inputRadio:checked + #label-input-macho{
+    background-image: url('../../assets/btnMachoActive.png');
+}
+
+#label-input-tanto-faz{
+    border: none;
+    background-image: url('../../assets/btnTantoFazUnactive.png');
+    background-repeat: no-repeat;
+    width: 52px;
+    height: 69px;
+    padding: 0;
+}
+
+.inputRadio:checked + #label-input-tanto-faz{
+    background-image: url('../../assets/btnTantoFazActive.png');
+}
+
+
+.input-escolha-sexo{
+    display: flex;
+    flex-direction: column;
 }

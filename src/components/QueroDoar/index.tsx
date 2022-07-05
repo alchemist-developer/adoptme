@@ -1,4 +1,4 @@
-import './index.css'
+// import './index.css'
 import imgQueroDoar from '../../assets/img-quero-doar.png'
 import { useState } from 'react'
 
