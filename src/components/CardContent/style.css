@@ -1,0 +1,227 @@
+div.card-container {
+    position: relative;
+    min-height: 100vh;
+    max-height: 100vh;
+    max-width: 100vw;
+}
+
+div img.card-img {
+    position: fixed;;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+div.dog-nome-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 5px;
+}
+
+button.compartilhar-btn {
+    background-color: rgba(255, 255, 255, 0.603);
+    border: 2px solid rgba(0, 0, 0, 0.515);
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 12px;
+    cursor: pointer;
+    width: auto;
+    padding: 3px 5px;
+    border-radius: 8px;
+}
+
+button.btn {
+    background-color: #a19e9e83;
+    border: none;
+    border-radius: 8px;
+    padding: 0px 3px;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.375);
+    font-weight: bold;
+    cursor: pointer;
+    width: 100px;
+    height: 25px;
+    margin-right: 20px;
+}
+
+div h1 {
+    margin: 6px;
+}
+
+div.info-container {
+    position: fixed;
+    top: 80%;
+    width: 100%;
+    height: 90%;
+    background-color: rgba(255, 255, 255, 0.346);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition-delay: 0.2s ease-in-out;
+    z-index: 2;
+}
+
+button.btn-fromtop img {
+    margin-top: 10px;
+}
+
+button.compartilhar-btn img {
+    margin-right: 3px;
+}
+
+div.info-container:hover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.842);
+}
+
+div.button-hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+button.btn-fromtop {
+    background-color: transparent;
+    border: none;
+    color: yellow;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+
+button.button-next {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 50%;
+    margin-right: 5%;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.17);
+    color: rgba(65, 62, 62, 0.249);
+    border: 0;
+    outline: none;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+button.button-return {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 50%;
+    margin-left: 5%;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.17);
+    color: rgba(65, 62, 62, 0.249);
+    border: 0;
+    outline: none;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+div.row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+p.descricao {
+    font-size: 0.9rem;
+    margin: 15px 2px;
+}
+
+button span {
+    margin-left: 10px;
+}
+
+div.observacoes {
+    height: auto;
+    margin: 8px;
+}
+
+button.btn-contatar {
+    width: 90%;
+    height: 55px;
+    border: none;
+    background-color: #1E1E1E;
+    color: rgba(255, 255, 255, 0.81);
+    font-weight: bold;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    letter-spacing: 1px;
+}
+
+p.doador {
+    margin: 4px 8px;
+}
+
+p.local {
+    margin-bottom: 25px;
+    margin-left: 8px;
+}
+
+div.row-item1 {
+    display: flex;
+    background-color: #77B291;
+    border-radius: 5px;
+    border: #1E1E1E 1px solid;
+    margin: 2px;
+    font-size: 14px;
+    padding: 4px 5px;
+}
+
+div.row-item2 {
+    display: block;
+    background-color: #6079D1;
+    border-radius: 5px;
+    border: #1E1E1E 1px solid;
+    margin: 2px;
+    font-size: 14px;
+    padding: 4px 5px;
+}
+
+div.row-item3 {
+    display: block;
+    background-color: #FAD673;
+    border-radius: 5px;
+    border: #1E1E1E 1px solid;
+    margin: 2px;
+    font-size: 14px;
+    padding: 4px 5px;
+}
+
+div.row-item4 {
+    display: block;
+    background-color: #ED7957;
+     border-radius: 5px;
+    border: #1E1E1E 1px solid;
+    margin: 2px;
+    font-size: 14px;
+    padding: 4px 5px;
+}
