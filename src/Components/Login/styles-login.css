@@ -1,0 +1,140 @@
+div.background-login{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(125, 125, 125);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    margin: 0%;
+    padding: 0%;
+}
+
+div.containerForm-login{
+    max-width: 380px;
+    min-width: 350px;
+    max-height: 700px;
+    min-height: 600px;
+    width: 28%;
+    height: 68%;
+    overflow-x: hidden;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #909090;
+    padding: 0%;
+}
+
+.divImageLogin, h3.titulo-login  {
+    text-align: center;
+}
+
+.divImageLogin img {
+    height: 200px;
+    width: 49vh;
+}
+
+div h3.tituo-login {
+    padding: 0%;
+    margin-bottom: 0% !important;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.esqueciSenha {
+    font-size: 12px;
+    padding: 25px;
+    margin-top: 0%;
+    padding-top: 0%;
+    display: flex;
+    text-align: start;
+}
+
+input::placeholder {
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    font-family: "Questrial";
+}
+
+button.botao-login {
+    background-color: black !important;
+    height:45px;
+    border: 0 none !important;
+    color: #fff !important;
+    font-weight: 300 !important;
+    transition: 0.4s ease-in-out !important;
+    font-size: 24px;
+    font-weight: 400;
+    width: 320px;
+
+}
+
+div .espaco-login{
+    padding-bottom: 15px;
+}
+
+div .linha-login{
+    width: 320px;
+    height: 35px;
+    margin: 8px;
+    border: 1px solid 
+    #191b18;
+    font-size: 24px;
+    
+}
+
+button.botao:hover {
+    background-color: #76BB4C !important;
+    border: transparent !important;
+    border-radius: 13px !important;
+    color: #000 !important;
+    font-weight: 600 !important;
+}
+
+div a.link-login {
+    padding-top: 20px;
+    text-decoration: none;
+    color: #555555;
+    font-size: 18px;
+    font-weight: 400;
+    transition: ease-in-out 0.2s;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s ease-in-out;
+}
+
+div a.link-login:hover {
+    color: #191b18 !important;
+}
+
+div :link.link-button-enviar {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    color: #909090;
+    background-color: #76BB4C;
+    font-size: 35px;
+}
+
+
+div :link{
+    text-decoration: none;
+    color: #909090;
+    font-size: 18px;
+}
