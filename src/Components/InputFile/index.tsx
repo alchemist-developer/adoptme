@@ -4,11 +4,13 @@ import { Fragment, useState } from 'react';
 
 interface Props{
   onchange: (e: any) => void;
-  value: string;
   id: string;
+  isvalid?: boolean;
+  isinvalid?: boolean;
+  erros?: any;
 }
 
-const InputFile = ({onchange, value, id}:Props) => {
+const InputFile = ({onchange, id, isvalid, isinvalid, erros}:Props) => {
 
     const [files, setFiles] = useState(imgDefault);
     const [teste, setTeste] = useState('');
@@ -26,14 +28,16 @@ const InputFile = ({onchange, value, id}:Props) => {
         <S.Img src={files}/>
         <S.StyledDivInput>
           <S.InputText type="text" value = {teste} disabled/>
-          
+          <small> {erros} </small>
           <S.Input
             accept="image/png,image/jpeg,image/jpg"
             type = 'file'  
             id = {id}
             onChange={(e:any) => takeImage(e)} 
             value ={undefined}
-            name = {id} 
+            name = {id}
+            isValid={isvalid}
+            isInvalid={isinvalid}
           />
 
           <S.StyledLabel htmlFor='image' >

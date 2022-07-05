@@ -11,6 +11,7 @@ import OptionMenu from "../OptionMenu";
 import { useState } from 'react';
 import {FiLogIn} from 'react-icons/fi';
 import { Modal } from 'react-bootstrap';
+import { cadastroUsuario } from '../../service/user';
 
 const FormPerfil = () => {
 
@@ -30,6 +31,8 @@ const FormPerfil = () => {
     phone: Yup.string(),
 
     mobile: Yup.string().min(10,'Deve ter no mínimo 10 digitios').required('O telefone é obrigatório'),
+
+    image: Yup.string().required('O image deve ser obrigatório'),
   })
 
   const formik = useFormik({
@@ -39,33 +42,43 @@ const FormPerfil = () => {
       confirmPassword: '',
       email: '',
       image: '',
-      comments: '',
+      comments: ' ',
       address: '',
       phone: '',
       mobile: '',
-      whats: '',
+      whats: 'true',
 
     },
     validationSchema,
-    onSubmit: (values)=>{
-      console.log(values);
+    onSubmit: async (values)=>{
       let data = new FormData()
       data.append('name_user', values.name_user)      
       data.append('password', values.password)      
       data.append('email', values.email)   
       data.append('image', values.image)      
-      data.append('comments', values.comments)      
+      // data.append('comments', values.comments)      
       data.append('address', values.address)      
-      data.append('phone', values.phone)      
+      // data.append('phone', values.phone)      
       data.append('mobile', values.mobile)      
       data.append('whats', values.whats)
+    
+      
+      
+      let a = await cadastroUsuario(data)
+
+      // let a = await cadastroUsuario(data)
+
+      console.log(a);
+      
+      
             
-      setShow(true)     
+      // setShow(true)     
     }
   })
 
   const [changePage, setChangePage] = useState(true)
   const [show, setShow] = useState(false)
+ 
 
   return (
     <>
