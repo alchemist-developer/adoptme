@@ -12,3 +12,8 @@
 
 
 </p>
+
+## O projeto
+
+A aplicação adopt.me tem como objetivo facilitar 
+A loja virtual LinkShare Softwares tem como objetivo trazer soluções na área de desenvolvimento através de uma loja virtual onde seus clientes poderão realizar compras.
