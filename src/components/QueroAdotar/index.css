@@ -32,12 +32,12 @@ span {
 label {
     margin-top: 10px;
     border: solid 1px;
-    padding: 3px 7px;
-    font-size: 12px;
+    /* padding: 3px 7px; */
+    /* font-size: 12px; */
 }
 
 .inputRadio:checked + label{
-    background-color: #D9D9D9;
+    background-image: url('../../assets/img-quero-doar.png');
 }
 
 button {

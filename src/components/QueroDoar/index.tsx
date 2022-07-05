@@ -22,7 +22,7 @@ function QueroDoar(){
                     <div className='div-input-file'>
                         <span>Envie um arquivo</span>
                         <label id='label-input-file' htmlFor="input-file">Procurar no dispositivo</label>
-                        <input type="file" name="input-file" id='input-file' onChange={showFile}/>
+                        <input type="file" accept="image/*" name="input-file" id='input-file' onChange={showFile}/>
                     </div>
                 </div>
                 <label htmlFor="nome-pet">Nome</label>
@@ -31,7 +31,7 @@ function QueroDoar(){
                 <textarea name="descricao-pet" id="descricao-pet" cols={30} rows={5}></textarea>
                 <span>Espécie</span>
                 <div className="div-escolha-do-animal">
-                    <input type="radio" className="inputRadio" id="cachorro" name="escolha-do-animal" value="cachorro"/>
+                    <input type="radio" className="inputRadio inputCachorro" style={{}} id="cachorro" name="escolha-do-animal" value="cachorro"/>
                     <label htmlFor="cachorro">Cachorro</label>
                     <input type="radio" className="inputRadio" id="gato" name="escolha-do-animal" value="gato"/>
                     <label htmlFor="gato">Gato</label>
@@ -40,7 +40,7 @@ function QueroDoar(){
                 </div>
                 <span>Porte</span>
                 <div className="div-escolha-do-animal">
-                    <input type="radio" className="inputRadio" id="pequeno" name="tamanho-do-animal" value="pequeno"/>
+                    <input type="radio" className="inputRadio inputCachorro" id="pequeno" name="tamanho-do-animal" value="pequeno"/>
                     <label htmlFor="pequeno">Pequeno</label>
                     <input type="radio" className="inputRadio" id="medio" name="tamanho-do-animal" value="medio"/>
                     <label htmlFor="medio">Médio</label>

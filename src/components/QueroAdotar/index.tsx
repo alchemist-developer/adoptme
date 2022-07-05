@@ -1,15 +1,25 @@
 import './index.css'
-import imgQueroAdotar from '../../assets/img-quero-adotar.png'
-import { CgTrack } from 'react-icons/cg'
+import wallpaperPug from '../../assets/wallpaper-pug.png'
+import femea from '../../assets/femea.png'
+import macho from '../../assets/macho.png'
+import tantofaz from '../../assets/tanto-faz.png'
 
 function QueroAdotar(){
     return(
         <main>
-        <img src={imgQueroAdotar} alt="img"/>
+        <img src={wallpaperPug} alt="img"/>
             <form>
                 <h3>Quero adotar</h3>
                 <span>Endereço</span>
                 <input type="text" />
+                <div className="div-escolha-do-animal">
+                    <input type="radio" className="inputRadio" id="femea" name="genero-do-animal" value="femea"/>
+                    <label htmlFor="femea"><img src={femea}/></label>
+                    <input type="radio" className="inputRadio" id="macho" name="genero-do-animal" value="macho"/>
+                    <label htmlFor="macho"><img src={macho}/></label>
+                    <input type="radio" className="inputRadio" id="tanto-faz" name="genero-do-animal" value="tanto-faz"/>
+                    <label htmlFor="tanto-faz"><img src={tantofaz}/></label>
+                </div>
                 <span>Estou procurando</span>
                 <div className="div-escolha-do-animal">
                     <input type="radio" className="inputRadio" id="cachorro" name="escolha-do-animal" value="cachorro"/>
@@ -27,15 +37,6 @@ function QueroAdotar(){
                     <label htmlFor="medio">Médio</label>
                     <input type="radio" className="inputRadio" id="grande" name="tamanho-do-animal" value="grande"/>
                     <label htmlFor="grande">Grande</label>
-                </div>
-                <span>Gênero</span>
-                <div className="div-escolha-do-animal">
-                    <input type="radio" className="inputRadio" id="femea" name="genero-do-animal" value="femea"/>
-                    <label htmlFor="femea">Fêmea</label>
-                    <input type="radio" className="inputRadio" id="macho" name="genero-do-animal" value="macho"/>
-                    <label htmlFor="macho">Macho</label>
-                    <input type="radio" className="inputRadio" id="tanto-faz" name="genero-do-animal" value="tanto-faz"/>
-                    <label htmlFor="tanto-faz">Tanto faz</label>
                 </div>
                 <span>Idade</span>
                 <div className="div-escolha-do-animal">

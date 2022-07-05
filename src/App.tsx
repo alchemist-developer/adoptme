@@ -5,7 +5,7 @@ import QueroDoar from "./components/QueroDoar"
 function App() {
   return (
     <div >
-      <QueroDoar/>
+      <QueroAdotar/>
     </div>
   )
 }
