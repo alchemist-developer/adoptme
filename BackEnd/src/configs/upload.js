@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
     }
   })
 
-  const maxSize = 1048576 //10 Mb
+  const maxSize = 10485760 //10 Mb
   const upload=multer({
     storage:storage,
     limits:{

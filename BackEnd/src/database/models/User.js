@@ -38,7 +38,6 @@ const User = db.define(
       type: DataTypes.STRING,
     },
     comments: {
-      allowNull: false,
       type: DataTypes.STRING,
     },
     status:{

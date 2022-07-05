@@ -25,7 +25,7 @@ routes.put("/user/delete/:user_id", auth, userDeleteValidation, UserController.d
 routes.post("/login", authLoginValidation, AuthController.login)
 
 routes.post("/pet", auth,petCreateValidation, PetController.create)
-routes.get("/pet", auth, PetController.listAllPets)
+routes.get("/pet", PetController.listAllPets)
 routes.put("/pet/:pet_id", auth, petUpdateValidation, PetController.updatePet)
 routes.put("/pet/delete/:pet_id", auth, petDeleteValidation, PetController.deletePet)
 
