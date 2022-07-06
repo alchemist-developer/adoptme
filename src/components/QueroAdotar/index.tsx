@@ -19,7 +19,7 @@ function QueroAdotar(props: any){
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));   
             props.setInputValues({values})
-
+            localStorage.setItem("@dadosInput", JSON.stringify(values))
             navigate("/adotar")
         }
     })
