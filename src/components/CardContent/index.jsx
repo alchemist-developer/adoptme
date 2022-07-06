@@ -71,7 +71,7 @@ function CardContent() {
               </div>
             </div>
             <button href="contato" className="btn-contatar">
-              Adotar pet <span>♥</span>
+              adotar pet <span>♥</span>
             </button>
           </div>
         </InfoDog>
