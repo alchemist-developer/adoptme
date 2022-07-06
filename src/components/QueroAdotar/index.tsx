@@ -1,26 +1,44 @@
-import React, { useState } from 'react';
 import * as S from './styles';
-import wallpaperPug from '../../assets/wallpaper-pug.png'
-import searchHeart from '../../assets/searchHeart.png'
 
 import { useFormik } from 'formik';
 import { useNavigate  } from 'react-router-dom';
+import { toast } from 'react-toastify'
 
+import wallpaperPug from '../../assets/wallpaper-pug.png'
+import searchHeart from '../../assets/searchHeart.png'
 
 
 function QueroAdotar(props: any){
 
+     const arrEstados = ["Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espirito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantis"]
+
     const navigate = useNavigate();
+
+
 
     const formik = useFormik({
         initialValues: {
-            estado: '',
+            estado: 'Acre',
+            cidade: '',
+            generoDoAnimal: '',
+            escolhaDoAnimal: '',
+            tamanhoDoAnimal: '',
+            idadeDoAnimal: '',
         },
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));   
-            props.setInputValues({values})
-            localStorage.setItem("@dadosInput", JSON.stringify(values))
-            navigate("/adotar")
+            try {
+                if(values.cidade === '' || values.escolhaDoAnimal === '' || values.estado === '' || values.generoDoAnimal === '' || values.idadeDoAnimal === '' || values.tamanhoDoAnimal ===''){
+                    toast.warn('Preencha todos os campos!')
+                    return
+                }
+                // alert(JSON.stringify(values, null, 2));   
+                props.setInputValues({values})
+                localStorage.setItem("@dadosInput", JSON.stringify(values))
+                navigate("/adotar")
+            } catch (error) {
+                console.log('Deu erro:' + error)
+            }
+
         }
     })
 
@@ -33,13 +51,16 @@ function QueroAdotar(props: any){
             <S.CardPug src={wallpaperPug} alt="Card cachorro Pug preto"/>
                 <S.Form onSubmit={formik.handleSubmit}>
                     <S.H3>Quero adotar</S.H3>
-                    <span>Estado</span>
-                    <S.FormSelect onChange={formik.handleChange} name="estado" form="">
-                        <option value="acre">Acre</option>
-                        <option value="alagoas">Alagoas</option>
-                        <option value="amazonas">Amazonas</option>
-                        <option value="bahia">Bahia</option>
+                    <S.LabelInputText>Estado</S.LabelInputText>
+                    <S.FormSelect onChange={formik.handleChange} name="estado">
+                        {arrEstados.map((estado) => {
+                            return(
+                                <option value={estado}>{estado}</option>
+                            )
+                        })}
                     </S.FormSelect>
+                    <S.LabelInputText htmlFor="cidade">Cidade</S.LabelInputText>
+                    <S.InputText onChange={formik.handleChange} value={formik.values.cidade} placeholder='Insira o nome da cidade' id='cidade' name='cidade' type="text" />
                     <S.DivSexoAnimal>
                         <S.DivInputSexoAnimal>
                             <S.InputFemea onChange={formik.handleChange} value="femea" type="radio" className="inputRadio" id="femea" name="generoDoAnimal"/>
@@ -89,20 +110,6 @@ function QueroAdotar(props: any){
                         <S.Label htmlFor="idoso">Idoso</S.Label>
                         <S.InputQuartaCor onChange={formik.handleChange} type="radio" id="idade-tanto-faz" name="idadeDoAnimal" value="idadeTantoFaz"/>
                         <S.Label htmlFor="idade-tanto-faz">Tanto faz</S.Label>
-                    </S.DivInputRadio>
-                    <S.Span>Considera adotar um pet com deficiência?</S.Span>
-                    <S.DivInputRadio>
-                        <S.InputPrimeiraCor onChange={formik.handleChange} type="radio" id="sim-deficiencia" name="animalDeficiente" value="simDeficiencia"/>
-                        <S.Label htmlFor="sim-deficiencia">Sim</S.Label>
-                        <S.InputSegundaCor onChange={formik.handleChange} type="radio" id="nao-deficiencia" name="animalDeficiente" value="naoDeficiencia"/>
-                        <S.Label htmlFor="nao-deficiencia">Não</S.Label>
-                    </S.DivInputRadio>
-                    <S.Span>Considera adotar um pet que está em tratamento?</S.Span>
-                    <S.DivInputRadio>
-                        <S.InputPrimeiraCor onChange={formik.handleChange} type="radio" id="sim-tratamento" name="animalTratamento" value="simTratamento"/>
-                        <S.Label htmlFor="sim-tratamento">Sim</S.Label>
-                        <S.InputSegundaCor onChange={formik.handleChange} type="radio" id="nao-tratamento" name="animalTratamento" value="naoTratamento"/>
-                        <S.Label htmlFor="nao-tratamento">Não</S.Label>
                     </S.DivInputRadio>
                     <S.Button type='submit'>Buscar amigo <S.ImgButton src={searchHeart} /></S.Button>
                 </S.Form>

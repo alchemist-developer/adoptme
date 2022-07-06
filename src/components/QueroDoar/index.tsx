@@ -68,22 +68,6 @@ function QueroDoar(){
                         <S.InputTerceiraCor type="radio" id="idoso" name="idade-do-animal" value="idoso"/>
                         <S.LabelInput htmlFor="idoso">Idoso</S.LabelInput>
                     </div>
-                    <S.SpanInfo>Pet com deficiência?</S.SpanInfo>
-                    <div>
-                        <S.InputPrimeiraCor type="radio" id="sim-deficiencia" name="animal-deficiente" value="sim-deficiencia"/>
-                        <S.LabelInput htmlFor="sim-deficiencia">Sim</S.LabelInput>
-                        <S.InputSegundaCor type="radio" id="nao-deficiencia" name="animal-deficiente" value="nao-deficiencia"/>
-                        <S.LabelInput htmlFor="nao-deficiencia">Não</S.LabelInput>
-                    </div>
-                    <S.SpanInfo>Pet está em tratamento?</S.SpanInfo>
-                    <div>
-                        <S.InputPrimeiraCor type="radio" id="sim-tratamento" name="animal-tratamento" value="sim-tratamento"/>
-                        <S.LabelInput htmlFor="sim-tratamento">Sim</S.LabelInput>
-                        <S.InputSegundaCor type="radio" id="nao-tratamento" name="animal-tratamento" value="nao-tratamento"/>
-                        <S.LabelInput htmlFor="nao-tratamento">Não</S.LabelInput>
-                    </div>
-                    <S.LabelCaracteristicas htmlFor="caracteristicas-pet">Características do animal</S.LabelCaracteristicas>
-                    <S.TextArea name="caracteristicas-pet" id="caracteristicas-pet" cols={30} rows={2}></S.TextArea>
                     <S.Button>Incluir pet <S.ImgButton src={holdingHeart}/></S.Button>
                 </form>
             </S.Main>

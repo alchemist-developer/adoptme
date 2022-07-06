@@ -30,9 +30,32 @@ export const H3 = styled.h3`
 `
 
 export const FormSelect = styled.select`
-    border: solid 1px;
+    border: 1.3px solid #1E1E1E;
     padding: 6px 16px;
     border-radius: 5px;
+`
+
+
+export const LabelInputText = styled.label`
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 14px;
+    color: #1E1E1E;
+    display: block;
+    margin: 24px 0 5px 0;
+`
+
+export const InputText = styled.input`
+    border: 1.3px solid #1E1E1E;
+    padding: 6px 16px;
+    border-radius: 4px;
+    width: 100%;
+    ::placeholder{
+        text-align: start;
+        font-size: 12px;
+        line-height: 14px;
+        color: #3F3F3F;
+    }
 `
 
 export const LabelFemea = styled.label`
@@ -167,4 +190,3 @@ export const ImgButton = styled.img`
     width: 24px;
     height: 24px;
 `
-
