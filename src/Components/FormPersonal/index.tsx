@@ -11,9 +11,8 @@ interface Props{
 const FormPersonal = (props: Props) => {
 
     let onchange = (e: any) => {        
-        const files = e.target.files[0];
-        let myFiles = URL.createObjectURL(files)        
-        props.formik.setFieldValue("image", myFiles);
+        const files = e.target.files[0];        
+        props.formik.setFieldValue("image", files);
     }
 
   return (
@@ -21,8 +20,10 @@ const FormPersonal = (props: Props) => {
         <h3>Perfil</h3>
         <InputFile 
             onchange={onchange}
-            value={props.formik.values.image}
             id="image"
+            isinvalid = {props.formik.touched.image && !!props.formik.errors.image}
+            isvalid = {props.formik.touched.image && !props.formik.errors.image}
+            erros = {props.formik.errors.image}  
         />
 
         <Inputs

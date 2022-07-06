@@ -1,14 +1,14 @@
 import { SignIn, User } from '../types';
 import baseAPI from "./baseAPI"
+import baseAPICreated from "./baseAPI"
 
 
-export const cadastroUsuario = async (user: Omit<User, "id">) => {
+export const cadastroUsuario = async (user:any) => {
     try {
-        const response = await baseAPI.post("/user", user)
-        console.log(`${response.data}`);        
+        const response = await baseAPICreated.post("/user", user)       
         return response.data
     } catch (error: any) {
-        alert("Error:"+ error.response.data)
+        return "Error: deu esse erro "+ JSON.stringify(error.response.data)
     }
 }
 
