@@ -13,7 +13,42 @@
 
 </p>
 
-## O projeto
+## 🐶 O projeto
+A aplicação adopt.me tem como objetivo facilitar a conexão entre protetores de animais e pessoas que desejam adotar algum animal de estimação. 
+Trata-se do projeto final do curso Gama Experience - XP41, envolvendo estudantes de product design e desenvolvedores web (back e front-end). O grupo do projeto foi responsável por sua concepção, planejamento e execução.
 
-A aplicação adopt.me tem como objetivo facilitar 
-A loja virtual LinkShare Softwares tem como objetivo trazer soluções na área de desenvolvimento através de uma loja virtual onde seus clientes poderão realizar compras.
+## 🚀 Tecnologias Usadas
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+- [NodeJS](https://nodejs.org/en/)
+- [Keroku](https://dashboard.heroku.com/)
+
+## 📔 Linguagens
+Esse projeto foi desenvolvido nas seguintes linguagens:
+
+- JavaScript
+- TypeScript
+- SQL
+- HTML5
+- CSS3
+
+
+## ✍🏻 Layout
+O layout do projeto pode ser visualizado no Figma, através [desse link](https://www.figma.com/file/iiXhhQDAWXsk70izMFejET/Desafio-do-Chef%C3%A3o-G4).  
+
+## 🔨 Deploy da Aplicação
+O deploy da aplicação foi realizado no [Keroku](https://adoptme-app.herokuapp.com/)
+
+## ⚡ Executando o Projeto
+
+#### Clonando o projeto
+```sh
+$ git clone https://github.com/Alchemist-developer/adoptme
+$ cd adoptme
+```
+
+#### Iniciando o Frontend
+```sh
+$ npm start
+```
+
