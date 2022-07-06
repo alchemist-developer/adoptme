@@ -1,4 +1,4 @@
-import {AiOutlineArrowLeft} from 'react-icons/ai'
+import arrowLeft from '../../assets/arrowLeft.png'
 import * as S from './styles';
 
 interface Props{
@@ -11,7 +11,7 @@ const BackArrow = ({display, url, onclick}: Props) => {
   return (
     <S.Arrow display={display} onClick = {onclick}>
       <S.StyledLink to={url}>
-        <AiOutlineArrowLeft size={25}/>
+        <img src= {arrowLeft} alt="" />
       </S.StyledLink>
     </S.Arrow>
   )
