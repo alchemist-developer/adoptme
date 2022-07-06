@@ -38,7 +38,7 @@ Esse projeto foi desenvolvido nas seguintes linguagens:
 O layout do projeto pode ser visualizado no Figma, através [desse link](https://www.figma.com/file/iiXhhQDAWXsk70izMFejET/Desafio-do-Chef%C3%A3o-G4).  
 
 ## 🔨 Deploy da Aplicação
-O deploy da aplicação foi realizado no [Keroku](https://adoptme-app.herokuapp.com/)
+O deploy da aplicação foi realizado no [Keroku](https://adoptme-app.herokuapp.com/).
 
 ## ⚡ Executando o Projeto
 
