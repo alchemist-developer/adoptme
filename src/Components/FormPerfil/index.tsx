@@ -6,13 +6,15 @@ import FormCadastro from '../Cadastro';
 import FormPersonal from '../FormPersonal';
 import Header from "../Header";
 import Logo from "../Logo";
+import dogTurtle from '../../assets/dogTurtle.gif'
+import success from '../../assets/success.gif'
+import errorCat from '../../assets/errorCat.gif'
 import BackArrow from "../BackArrow";
 import OptionMenu from "../OptionMenu";
 import { useState } from 'react';
 import {FiLogIn} from 'react-icons/fi';
 import { Modal } from 'react-bootstrap';
 import { cadastroUsuario } from '../../service/user';
-import { log } from 'console';
 
 const FormPerfil = () => {
 
@@ -70,17 +72,22 @@ const FormPerfil = () => {
       data.append('mobile', values.mobile)      
       data.append('whats', values.whats)
     
+      setShow(true)
+      setErro('Enviando dados...')
+      setimagemModal(dogTurtle)  
       
-      
-      let a = await cadastroUsuario(data)     
+      let a = await cadastroUsuario(data)
+   
       console.log(a);
       
       if (a.user_id) {
         setShow(true)
         setErro('Conta criada com sucesso!')
+        setimagemModal(success)
       }
       else{
         setShow(true)
+        setimagemModal(errorCat)
         setErro(a)
       }  
     }
@@ -90,6 +97,7 @@ const FormPerfil = () => {
   const [aviso, setAviso] = useState(false)
   const [show, setShow] = useState(false)
   const [erro, setErro] = useState('')
+  const [imagemModal, setimagemModal] = useState(dogTurtle)
 
   const advance = () => {
     if (formik.values.email && !formik.errors.confirmPassword) {
@@ -131,6 +139,9 @@ const FormPerfil = () => {
         <Modal.Header closeButton>
           <Modal.Title>{erro}</Modal.Title>
         </Modal.Header>
+        <S.Modalbody>
+            <S.Img src={imagemModal} />
+        </S.Modalbody>
       </Modal>
 
       </S.StyledForm>

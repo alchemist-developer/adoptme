@@ -1,4 +1,4 @@
-import { Form, FormCheck } from "react-bootstrap";
+import { Form, FormCheck, ModalBody } from "react-bootstrap";
 import styled from "styled-components";
 
 interface props{
@@ -24,4 +24,13 @@ export const DivButton = styled.div`
 export const Aviso = styled.small<props>`
     display: ${props =>props.display ? 'block' : 'none'};
     color: red;
+`
+
+export const Img = styled.img`
+    width: 100%;
+    margin: auto;
+`
+
+export const Modalbody = styled(ModalBody)`
+    display: flex;
 `
