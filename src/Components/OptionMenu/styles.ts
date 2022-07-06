@@ -13,7 +13,6 @@ export const Option = styled.div<props>`
     border: 1px solid black;
     margin: 1%;
     background-color: white;
-    padding: 2%;
     display: ${props =>props.open ? 'none': 'flex'};
 `
 
@@ -28,12 +27,14 @@ export const StyledButton = styled.button<props>`
     justify-content: end;
     padding: 0;
     width: 10%;
+    margin: auto 0;
+    margin-right: 1%;
     border: none;
     display: ${props =>props.open ? 'flex': 'none'};
 `
 
 export const StyledImg = styled.img`
-    width: 100%;
+    width: 80%;
 `
 
 export const StyledDivLink = styled.div`
@@ -48,6 +49,7 @@ export const StyledTeste = styled.div`
     width: 100%;
     display: flex;
     justify-content: end;
+    min-height: 49px;
 `
 
 export const StyledLink = styled(Link)<props>`

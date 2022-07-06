@@ -11,7 +11,7 @@ export const StyledDiv = styled.div<props>`
     z-index: 99;
     display: flex;
     justify-content: space-between;
-    min-height: 38px;
+    min-height: 49px;
     width: 100%;
     background: ${props =>props.background};
     display: ${props =>props.display ? 'flex' : 'none'};

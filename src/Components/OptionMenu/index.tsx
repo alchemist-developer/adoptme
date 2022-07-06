@@ -23,7 +23,7 @@ const OptionMenu = ({displayProfile}:{displayProfile:string}) => {
                 </S.StyledButton>               
             </S.StyledDivClose>
             <S.StyledDivLink>
-                <S.StyledLink to={'/userprofile'} display =  {displayProfile}>
+                <S.StyledLink to={'/cadastro'} display =  {displayProfile}>
                     Editar Perfil
                 </S.StyledLink>
 
