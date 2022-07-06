@@ -8,7 +8,7 @@ export const cadastroUsuario = async (user:any) => {
         const response = await baseAPICreated.post("/user", user)       
         return response.data
     } catch (error: any) {
-        return "Error: deu esse erro "+ JSON.stringify(error.response.data)
+        return "Erro: "+ JSON.stringify(error.response.data)
     }
 }
 

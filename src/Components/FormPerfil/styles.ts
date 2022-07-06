@@ -20,3 +20,8 @@ export const Check = styled(FormCheck)`
 export const DivButton = styled.div`
     padding: 0 2%;
 `
+
+export const Aviso = styled.small<props>`
+    display: ${props =>props.display ? 'block' : 'none'};
+    color: red;
+`

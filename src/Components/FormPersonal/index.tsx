@@ -27,8 +27,9 @@ const FormPersonal = (props: Props) => {
         />
 
         <Inputs
-            textLabel='Digite seu nome'
+            textLabel='Nome'
             typeInput='text'
+            placeholder='Digite seu nome'
             value = {props.formik.values.name_user}
             id = 'name_user'
             onchange={props.formik.handleChange}
@@ -38,8 +39,9 @@ const FormPersonal = (props: Props) => {
         />
 
         <Inputs
-            textLabel='Adicione uma descrição '
+            textLabel='Sobre (Opocional)'
             as='textarea'
+            placeholder='Insira uma informação'
             value = {props.formik.values.comments}
             id = 'comments'
             onchange={props.formik.handleChange}
@@ -51,6 +53,7 @@ const FormPersonal = (props: Props) => {
         <Inputs
             textLabel='Endereço'
             typeInput='text'
+            placeholder='Digite um endereço'
             value = {props.formik.values.address}
             id = 'address'
             onchange={props.formik.handleChange}
@@ -60,8 +63,9 @@ const FormPersonal = (props: Props) => {
         />
 
         <Inputs
-            textLabel='Telefone (opcional)'
+            textLabel='Telefone Fixo (Opcional)'
             typeInput='tel'
+            placeholder='(99) 9999-9999'
             value = {props.formik.values.phone}
             id = 'phone'
             onchange={props.formik.handleChange}
@@ -71,6 +75,7 @@ const FormPersonal = (props: Props) => {
         <Inputs
             textLabel='Telefone Celular'
             typeInput='tel'
+            placeholder='(99) 9999-9999'
             value = {props.formik.values.mobile}
             id = 'mobile'
             onchange={props.formik.handleChange}

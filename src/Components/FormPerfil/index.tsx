@@ -12,6 +12,7 @@ import { useState } from 'react';
 import {FiLogIn} from 'react-icons/fi';
 import { Modal } from 'react-bootstrap';
 import { cadastroUsuario } from '../../service/user';
+import { log } from 'console';
 
 const FormPerfil = () => {
 
@@ -32,7 +33,7 @@ const FormPerfil = () => {
 
     mobile: Yup.string().min(10,'Deve ter no mínimo 10 digitios').required('O telefone é obrigatório'),
 
-    image: Yup.string().required('O imagem deve ser obrigatório'),
+    image: Yup.string().required('A imagem deve ser obrigatório'),
   })
 
   const formik = useFormik({
@@ -72,14 +73,34 @@ const FormPerfil = () => {
       
       
       let a = await cadastroUsuario(data)     
+      console.log(a);
       
-            
-      // setShow(true)     
+      if (a.user_id) {
+        setShow(true)
+        setErro('Conta criada com sucesso!')
+      }
+      else{
+        setShow(true)
+        setErro(a)
+      }  
     }
   })
 
   const [changePage, setChangePage] = useState(true)
+  const [aviso, setAviso] = useState(false)
   const [show, setShow] = useState(false)
+  const [erro, setErro] = useState('')
+
+  const advance = () => {
+    if (formik.values.email && !formik.errors.confirmPassword) {
+      console.log('Entrou');
+      setChangePage(!changePage)
+      setAviso(false)      
+    }
+    else{
+      setAviso(true)
+    }
+  }
 
   return (
     <>
@@ -97,16 +118,18 @@ const FormPerfil = () => {
         <ButtonAdotar display= {!changePage} color='#1E1E1E' type='submit'>
           Salvar Perfil ✔
         </ButtonAdotar>
-
+    
         <S.DivButton>
-          <ButtonAdotar onclick={()=>setChangePage(!changePage)} margin = {9} display= {changePage} color='#1E1E1E' type='button'>
+          <S.Aviso display = {aviso} >Não é possívle avançar! Algum dos dados estão incorretos ou não foram preenchidos. Corrija e clique em Avançar.</S.Aviso>
+
+          <ButtonAdotar onclick={advance} margin = {9} display= {changePage} color='#1E1E1E' type='button'>
             Avançar <FiLogIn/>
           </ButtonAdotar>
         </S.DivButton>
 
       <Modal centered show={show} onHide={()=>setShow(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Conta criada com sucesso!</Modal.Title>
+          <Modal.Title>{erro}</Modal.Title>
         </Modal.Header>
       </Modal>
 
