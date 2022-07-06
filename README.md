@@ -52,6 +52,6 @@ $ cd adoptme
 $ npm start
 ```
 
-## ⚡ Integrantes do Grupo
-Product Designers: Alessandro Sales, Luciane Oliveira, Juliana Rocha, Mariana Cruz.
-Devs: Adryel Simon Moraes, Júnior Dering, Vinicius Alves, Natã Vergueiro, Lucas Veiga, Luiza Trocino, Pedro Utz, Deyvison Vianna e Ademir Sott. 
+## 🙋‍♀️ Integrantes da Equipe
+- Product Designers: Alessandro Sales, Luciane Oliveira, Juliana Rocha, Mariana Cruz.
+- Devs: Adryel Simon Moraes, Júnior Dering, Vinicius Alves, Natã Vergueiro, Lucas Veiga, Luiza Trocino, Pedro Utz, Deyvison Vianna e Ademir Sott. 
