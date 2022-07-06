@@ -1,12 +1,14 @@
 import { Fragment } from 'react';
 import ButtonAdotar from '../ButtonAdotar';
-import CarouselBody from '../CarouselBody';
+import CarouselTestemunho from '../CarouselTestemunho';
 import ConatinerContend from '../ContainerContend';
 import handHeart from '../../assets/handHeart.png'
 import searchHeartWhite from '../../assets/searchHeartWhite.png'
 import ale from '../../assets/ale.png'
 import lucas from '../../assets/lucas.png'
 import * as S from './styles';
+import CarouselOngs from '../CarouselOngs';
+
 
 const BodyMenu = () => {
   return (
@@ -83,15 +85,23 @@ const BodyMenu = () => {
         </S.SytledContainer>
 
         <S.SytledContainer>
-            <S.H4 color='#77B291'>Aumigos</S.H4>
-            <h2>Testemunhos</h2>
-            <CarouselBody/>
+            <ConatinerContend>
+                <S.H4 color='#6079D1'>Testemunhos</S.H4>
+                <CarouselTestemunho/>
+            </ConatinerContend>
+
         </S.SytledContainer>
 
         <S.SytledContainer>
-            <S.H4 color='#FAD673'>Na plataforma</S.H4>
-            <h2>Ongs Parceiras</h2>
-            <CarouselBody/>
+            <ConatinerContend>
+                <S.H4 color='#77B291'>Na plataforma</S.H4>
+                <CarouselOngs/>
+                <S.H1>ONGs Parceiras</S.H1>
+                <S.P bold='500'>
+                    Quer conhecer um pouco mais sobre outras iniciativas? Aqui estão alguns dos nossos parceiros:  
+                </S.P>
+            </ConatinerContend>
+
         </S.SytledContainer>
 
 

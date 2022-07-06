@@ -2,13 +2,20 @@
     display: flex;
 }
 
-.carousel-indicators [data-bs-target] {
+.carousel-indicators [aria-label] {
     border-radius: 100%;
     width: 10px !important;
     height: 10px !important;
     opacity: 1 !important;
+    border: 1px black solid !important;
 }
 
-.carousel-indicators .active{
+.carousel-indicators .active[aria-label = 'Slide 2']{
     background-color: #FAD673 !important;
+}
+.carousel-indicators .active[aria-label = 'Slide 1']{
+    background-color: blue !important;
+}
+.carousel-indicators .active[aria-label = 'Slide 3']{
+    background-color: red !important;
 }

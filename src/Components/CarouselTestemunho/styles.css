@@ -1,0 +1,22 @@
+.carousel-body .carousel-indicators{
+    margin-bottom: 345px;
+    position: absolute;
+}
+
+.carosuel-body{
+    border-radius: 8px;
+    border: 1px black solid;
+    margin-bottom: 10%;
+}
+
+.carouselItem{
+    min-height: 570px;
+}
+
+h4, p {
+    margin-left: 0;
+}
+
+h4{
+    font-weight: bold !important;
+}
