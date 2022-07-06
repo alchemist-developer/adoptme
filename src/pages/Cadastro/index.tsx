@@ -1,7 +1,7 @@
 import FormPerfil from '../../components/FormPerfil';
 import * as S from './styles'
 
-const Perfil = () => {
+const Cadastro = () => {
 
   return (
     <S.StyledDiv>
@@ -11,4 +11,4 @@ const Perfil = () => {
   )
 }
 
-export default Perfil;
+export default Cadastro;

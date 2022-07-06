@@ -6,7 +6,7 @@ import {
 import AdotarPet from "../pages/AdotarPet";
 import Contatar from "../pages/Contatar";
 import Home from '../pages/Home';
-import Perfil from '../pages/Perfil'
+import Cadastro from '../pages/Cadastro'
 import Admin from '../pages/Admin'
 import Login from '../pages/Login'
 import QueroDoar from '../components/QueroDoar'
@@ -24,10 +24,9 @@ function Routes() {
         <Route path="/adotar" element={<AdotarPet inputValues={inputValues} />} />
         <Route path="/contato" element={<Contatar />} />
         <Route path="/" element={<Home/>}/>
-        <Route path="/userprofile" element={<Perfil/>} />
+        <Route path="/cadastro" element={<Cadastro/>} />
         <Route path= '/admin' element = {<Admin/>}/>
         <Route path='/login' element={<Login />} />
-
         <Route path= '/querodoar' element = {<QueroDoar/>}/>
         <Route path='/queroadotar' element={<QueroAdotar setInputValues={setInputValues}/>} />
       </WrapperRoutes>
