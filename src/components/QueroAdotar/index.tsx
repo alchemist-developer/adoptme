@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as S from './styles';
 import wallpaperPug from '../../assets/wallpaper-pug.png'
-import searchHeartt from '../../assets/searchHeartt.svg'
+import searchHeart from '../../assets/searchHeart.png'
 
 import { useFormik } from 'formik';
 import { useNavigate  } from 'react-router-dom';
@@ -104,7 +104,7 @@ function QueroAdotar(props: any){
                         <S.InputSegundaCor onChange={formik.handleChange} type="radio" id="nao-tratamento" name="animalTratamento" value="naoTratamento"/>
                         <S.Label htmlFor="nao-tratamento">Não</S.Label>
                     </S.DivInputRadio>
-                    <S.Button type='submit'>Buscar amigo <img src={searchHeartt} /></S.Button>
+                    <S.Button type='submit'>Buscar amigo <S.ImgButton src={searchHeart} /></S.Button>
                 </S.Form>
             </S.Main>
         </>
