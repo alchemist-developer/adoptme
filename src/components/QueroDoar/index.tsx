@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import * as S from './styles';
+import { useFormik } from 'formik';
+import { toast } from 'react-toastify'
 
 import holdingHeart from '../../assets/hand-holding-heart.png'
 import imgQueroDoar from '../../assets/img-quero-doar.png'
@@ -7,12 +9,45 @@ import imgQueroDoar from '../../assets/img-quero-doar.png'
 function QueroDoar(){
 
     const [urlImg, setUrlImg] = useState(imgQueroDoar)
+    const arrEstados = ["Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espirito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantis"]
 
     
     function showFile(event: any){
         const imgTarget = event.target.files[0]
          setUrlImg(URL.createObjectURL(imgTarget))
+         formik.values.imagemDoPet = URL.createObjectURL(imgTarget)
+         console.log(URL.createObjectURL(imgTarget))
     }
+
+
+    const formik = useFormik({
+        initialValues: {
+            estado: 'Acre',
+            cidade: '',
+            generoDoAnimal: '',
+            escolhaDoAnimal: '',
+            tamanhoDoAnimal: '',
+            idadeDoAnimal: '',
+            nomeDoPet: '',
+            descricaoDoPet: '',
+            imagemDoPet: '',
+        },
+        onSubmit: values => {
+            try {
+                if(values.nomeDoPet === '' || values.descricaoDoPet === ''|| values.imagemDoPet === ''|| values.cidade === '' || values.escolhaDoAnimal === '' || values.estado === '' || values.generoDoAnimal === '' || values.idadeDoAnimal === '' || values.tamanhoDoAnimal ===''){
+                    toast.warn('Preencha todos os campos!')
+                    return
+                }
+                alert(JSON.stringify(values, null, 2));   
+                // props.setInputValues({values})
+                localStorage.setItem("@dadosInput", JSON.stringify(values))
+                // navigate("/adotar")
+            } catch (error) {
+                console.log('Deu erro:' + error)
+            }
+
+        }
+    })
 
     return(
         <>
@@ -21,54 +56,70 @@ function QueroDoar(){
             </header>
             <S.Main>
             <S.H3>Queremos saber sobre o pet</S.H3>
-                <form>
+                <form  onSubmit={formik.handleSubmit}>
                     <S.Span id='span-add-img'>Adicione uma imagem do Pet</S.Span>
+
+
                     <S.DivUpload>
-                        <S.InputImg id='img-input-file' src={urlImg} alt="img"/>
-                        <S.DivLabelImg className='div-input-file'>
+                        <S.InputImg id='imgInputFile' src={urlImg} alt="imagem do pet"/>
+                        <S.DivLabelImg>
                             <S.LabelImg id='label-input-file' htmlFor="input-file">Procurar imagem</S.LabelImg>
                             <S.Input type="file" accept="image/*" name="input-file" id='input-file' onChange={showFile}/>
                         </S.DivLabelImg>
                     </S.DivUpload>  
-                    <S.LabelInputText htmlFor="nome-pet">Nome</S.LabelInputText>
-                    <S.InputText placeholder='Insira o nome do pet' id='nome-pet' name='nome-pet' type="text" />
-                    <S.LabelInputText htmlFor="descricao-pet">Descrição</S.LabelInputText>
-                    <S.TextArea placeholder='Insira uma informação' name="descricao-pet" id="descricao-pet" cols={30} rows={5}></S.TextArea>
+
+
+                    <S.LabelInputText htmlFor="nomeDoPet">Nome</S.LabelInputText>
+                    <S.InputText onChange={formik.handleChange} value={formik.values.nomeDoPet} placeholder='Insira o nome do pet' id='nomeDoPet' name='nomeDoPet' type="text" />
+                    <S.LabelInputText htmlFor="descricaoDoPet">Descrição</S.LabelInputText>
+                    <S.TextArea onChange={formik.handleChange} value={formik.values.descricaoDoPet} placeholder='Insira uma informação' name="descricaoDoPet" id="descricaoDoPet" cols={30} rows={5}></S.TextArea>
+                    
+                    <S.LabelInputText>Estado</S.LabelInputText>
+                    <S.FormSelect onChange={formik.handleChange} name="estado">
+                        {arrEstados.map((estado) => {
+                            return(
+                                <option value={estado}>{estado}</option>
+                            )
+                        })}
+                    </S.FormSelect>
+                    <S.LabelInputText htmlFor="cidade">Cidade</S.LabelInputText>
+                    <S.InputText onChange={formik.handleChange} value={formik.values.cidade} placeholder='Insira o nome da cidade' id='cidade' name='cidade' type="text" />                  
+                    
                     <S.SpanInfo>Espécie</S.SpanInfo>
                     <div>
-                        <S.InputPrimeiraCor type="radio" id="cachorro" name="escolha-do-animal" value="cachorro"/>
+                        <S.InputPrimeiraCor onChange={formik.handleChange} type="radio" id="cachorro" name="escolhaDoAnimal" value="cachorro"/>
                         <S.LabelInput htmlFor="cachorro">Cachorro</S.LabelInput>
-                        <S.InputSegundaCor type="radio" id="gato" name="escolha-do-animal" value="gato"/>
+                        <S.InputSegundaCor onChange={formik.handleChange} type="radio" id="gato" name="escolhaDoAnimal" value="gato"/>
                         <S.LabelInput htmlFor="gato">Gato</S.LabelInput>
-                        <S.InputTerceiraCor type="radio" id="outros" name="escolha-do-animal" value="outros"/>
+                        <S.InputTerceiraCor onChange={formik.handleChange} type="radio" id="outros" name="escolhaDoAnimal" value="outros"/>
                         <S.LabelInput htmlFor="outros">Outros</S.LabelInput>
                     </div>
                     <S.SpanInfo>Porte</S.SpanInfo>
                     <div>
-                        <S.InputPrimeiraCor type="radio" id="pequeno" name="tamanho-do-animal" value="pequeno"/>
+                        <S.InputPrimeiraCor onChange={formik.handleChange} type="radio" id="pequeno" name="tamanhoDoAnimal" value="pequeno"/>
                         <S.LabelInput htmlFor="pequeno">Pequeno</S.LabelInput>
-                        <S.InputSegundaCor type="radio" id="medio" name="tamanho-do-animal" value="medio"/>
+                        <S.InputSegundaCor onChange={formik.handleChange} type="radio" id="medio" name="tamanhoDoAnimal" value="medio"/>
                         <S.LabelInput htmlFor="medio">Médio</S.LabelInput>
-                        <S.InputTerceiraCor type="radio" id="grande" name="tamanho-do-animal" value="grande"/>
+                        <S.InputTerceiraCor onChange={formik.handleChange} type="radio" id="grande" name="tamanhoDoAnimal" value="grande"/>
                         <S.LabelInput htmlFor="grande">Grande</S.LabelInput>
                     </div>
                     <S.SpanInfo>Gênero</S.SpanInfo>
                     <div>
-                        <S.InputPrimeiraCor type="radio" id="femea" name="genero-do-animal" value="femea"/>
+                        <S.InputPrimeiraCor onChange={formik.handleChange} type="radio" id="femea" name="generoDoAnimal" value="femea"/>
                         <S.LabelInput htmlFor="femea">Fêmea</S.LabelInput>
-                        <S.InputSegundaCor type="radio" id="macho" name="genero-do-animal" value="macho"/>
+                        <S.InputSegundaCor onChange={formik.handleChange} type="radio" id="macho" name="generoDoAnimal" value="macho"/>
                         <S.LabelInput htmlFor="macho">Macho</S.LabelInput>
                     </div>
                     <S.SpanInfo>Idade</S.SpanInfo>
                     <div>
-                        <S.InputPrimeiraCor type="radio" id="filhote" name="idade-do-animal" value="filhote"/>
+                        <S.InputPrimeiraCor onChange={formik.handleChange} type="radio" id="filhote" name="idadeDoAnimal" value="filhote"/>
                         <S.LabelInput htmlFor="filhote">Filhote</S.LabelInput>
-                        <S.InputSegundaCor type="radio" id="adulto" name="idade-do-animal" value="adulto"/>
+                        <S.InputSegundaCor onChange={formik.handleChange} type="radio" id="adulto" name="idadeDoAnimal" value="adulto"/>
                         <S.LabelInput htmlFor="adulto">Adulto</S.LabelInput>
-                        <S.InputTerceiraCor type="radio" id="idoso" name="idade-do-animal" value="idoso"/>
+                        <S.InputTerceiraCor onChange={formik.handleChange} type="radio" id="idoso" name="idadeDoAnimal" value="idoso"/>
                         <S.LabelInput htmlFor="idoso">Idoso</S.LabelInput>
                     </div>
-                    <S.Button>Incluir pet <S.ImgButton src={holdingHeart}/></S.Button>
+                    <S.Button type='submit'>Incluir pet <S.ImgButton src={holdingHeart}/></S.Button>
                 </form>
             </S.Main>
         </>

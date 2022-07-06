@@ -171,3 +171,9 @@ export const ImgButton = styled.img`
     width: 24px;
     height: 24px;
 `
+
+export const FormSelect = styled.select`
+    border: 1.3px solid #1E1E1E;
+    padding: 6px 16px;
+    border-radius: 5px;
+`
