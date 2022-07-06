@@ -108,7 +108,7 @@ export const Label = styled.label`
     font-size: 12px;
     font-weight: 500;
     border: 1px solid;
-    border-radius: 5px;
+    border-radius: 4px;
     width: 77px;
     cursor: pointer;
     text-align: center;
@@ -159,5 +159,12 @@ export const Button = styled.button`
     border-radius: 8px;
     padding: 15px 0;
     align-items: center;
+`
+
+export const ImgButton = styled.img`
+    margin-left: 25px;
+    align-items: center;
+    width: 24px;
+    height: 24px;
 `
 

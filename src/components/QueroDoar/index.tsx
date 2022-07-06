@@ -1,6 +1,8 @@
-// import './index.css'
-import imgQueroDoar from '../../assets/img-quero-doar.png'
 import { useState } from 'react'
+import * as S from './styles';
+
+import holdingHeart from '../../assets/hand-holding-heart.png'
+import imgQueroDoar from '../../assets/img-quero-doar.png'
 
 function QueroDoar(){
 
@@ -13,75 +15,79 @@ function QueroDoar(){
     }
 
     return(
-        <main>
-        <h3>Quero doar</h3>
-            <form>
-                <span id='span-add-img'>Adicione uma imagem do Pet</span>
-                <div className='div-img'>
-                    <img id='img-input-file' src={urlImg} alt="img"/>
-                    <div className='div-input-file'>
-                        <span>Envie um arquivo</span>
-                        <label id='label-input-file' htmlFor="input-file">Procurar no dispositivo</label>
-                        <input type="file" accept="image/*" name="input-file" id='input-file' onChange={showFile}/>
+        <>
+            <header>
+                <h1>MENU</h1>
+            </header>
+            <S.Main>
+            <S.H3>Queremos saber sobre o pet</S.H3>
+                <form>
+                    <S.Span id='span-add-img'>Adicione uma imagem do Pet</S.Span>
+                    <S.DivUpload>
+                        <S.InputImg id='img-input-file' src={urlImg} alt="img"/>
+                        <S.DivLabelImg className='div-input-file'>
+                            <S.LabelImg id='label-input-file' htmlFor="input-file">Procurar imagem</S.LabelImg>
+                            <S.Input type="file" accept="image/*" name="input-file" id='input-file' onChange={showFile}/>
+                        </S.DivLabelImg>
+                    </S.DivUpload>  
+                    <S.LabelInputText htmlFor="nome-pet">Nome</S.LabelInputText>
+                    <S.InputText placeholder='Insira o nome do pet' id='nome-pet' name='nome-pet' type="text" />
+                    <S.LabelInputText htmlFor="descricao-pet">Descrição</S.LabelInputText>
+                    <S.TextArea placeholder='Insira uma informação' name="descricao-pet" id="descricao-pet" cols={30} rows={5}></S.TextArea>
+                    <S.SpanInfo>Espécie</S.SpanInfo>
+                    <div>
+                        <S.InputPrimeiraCor type="radio" id="cachorro" name="escolha-do-animal" value="cachorro"/>
+                        <S.LabelInput htmlFor="cachorro">Cachorro</S.LabelInput>
+                        <S.InputSegundaCor type="radio" id="gato" name="escolha-do-animal" value="gato"/>
+                        <S.LabelInput htmlFor="gato">Gato</S.LabelInput>
+                        <S.InputTerceiraCor type="radio" id="outros" name="escolha-do-animal" value="outros"/>
+                        <S.LabelInput htmlFor="outros">Outros</S.LabelInput>
                     </div>
-                </div>
-                <label htmlFor="nome-pet">Nome</label>
-                <input id='nome-pet' name='nome-pet' type="text" />
-                <label htmlFor="descricao-pet">Descrição</label>
-                <textarea name="descricao-pet" id="descricao-pet" cols={30} rows={5}></textarea>
-                <span>Espécie</span>
-                <div className="div-escolha-do-animal">
-                    <input type="radio" className="inputRadio inputCachorro" style={{}} id="cachorro" name="escolha-do-animal" value="cachorro"/>
-                    <label htmlFor="cachorro">Cachorro</label>
-                    <input type="radio" className="inputRadio" id="gato" name="escolha-do-animal" value="gato"/>
-                    <label htmlFor="gato">Gato</label>
-                    <input type="radio" className="inputRadio" id="outros" name="escolha-do-animal" value="outros"/>
-                    <label htmlFor="outros">Outros</label>
-                </div>
-                <span>Porte</span>
-                <div className="div-escolha-do-animal">
-                    <input type="radio" className="inputRadio inputCachorro" id="pequeno" name="tamanho-do-animal" value="pequeno"/>
-                    <label htmlFor="pequeno">Pequeno</label>
-                    <input type="radio" className="inputRadio" id="medio" name="tamanho-do-animal" value="medio"/>
-                    <label htmlFor="medio">Médio</label>
-                    <input type="radio" className="inputRadio" id="grande" name="tamanho-do-animal" value="grande"/>
-                    <label htmlFor="grande">Grande</label>
-                </div>
-                <span>Gênero</span>
-                <div className="div-escolha-do-animal">
-                    <input type="radio" className="inputRadio" id="femea" name="genero-do-animal" value="femea"/>
-                    <label htmlFor="femea">Fêmea</label>
-                    <input type="radio" className="inputRadio" id="macho" name="genero-do-animal" value="macho"/>
-                    <label htmlFor="macho">Macho</label>
-                </div>
-                <span>Idade</span>
-                <div className="div-escolha-do-animal">
-                    <input type="radio" className="inputRadio" id="filhote" name="idade-do-animal" value="filhote"/>
-                    <label htmlFor="filhote">Filhote</label>
-                    <input type="radio" className="inputRadio" id="adulto" name="idade-do-animal" value="adulto"/>
-                    <label htmlFor="adulto">Adulto</label>
-                    <input type="radio" className="inputRadio" id="idoso" name="idade-do-animal" value="idoso"/>
-                    <label htmlFor="idoso">Idoso</label>
-                </div>
-                <span>Pet com deficiência?</span>
-                <div className="div-escolha-do-animal">
-                    <input type="radio" className="inputRadio" id="sim-deficiencia" name="animal-deficiente" value="sim-deficiencia"/>
-                    <label htmlFor="sim-deficiencia">Sim</label>
-                    <input type="radio" className="inputRadio" id="nao-deficiencia" name="animal-deficiente" value="nao-deficiencia"/>
-                    <label htmlFor="nao-deficiencia">Não</label>
-                </div>
-                <span>Pet está em tratamento?</span>
-                <div className="div-escolha-do-animal">
-                    <input type="radio" className="inputRadio" id="sim-tratamento" name="animal-tratamento" value="sim-tratamento"/>
-                    <label htmlFor="sim-tratamento">Sim</label>
-                    <input type="radio" className="inputRadio" id="nao-tratamento" name="animal-tratamento" value="nao-tratamento"/>
-                    <label htmlFor="nao-tratamento">Não</label>
-                </div>
-                <label htmlFor="caracteristicas-pet">Características do animal</label>
-                <textarea name="caracteristicas-pet" id="caracteristicas-pet" cols={30} rows={2}></textarea>
-                <button>Salvar</button>
-            </form>
-        </main>
+                    <S.SpanInfo>Porte</S.SpanInfo>
+                    <div>
+                        <S.InputPrimeiraCor type="radio" id="pequeno" name="tamanho-do-animal" value="pequeno"/>
+                        <S.LabelInput htmlFor="pequeno">Pequeno</S.LabelInput>
+                        <S.InputSegundaCor type="radio" id="medio" name="tamanho-do-animal" value="medio"/>
+                        <S.LabelInput htmlFor="medio">Médio</S.LabelInput>
+                        <S.InputTerceiraCor type="radio" id="grande" name="tamanho-do-animal" value="grande"/>
+                        <S.LabelInput htmlFor="grande">Grande</S.LabelInput>
+                    </div>
+                    <S.SpanInfo>Gênero</S.SpanInfo>
+                    <div>
+                        <S.InputPrimeiraCor type="radio" id="femea" name="genero-do-animal" value="femea"/>
+                        <S.LabelInput htmlFor="femea">Fêmea</S.LabelInput>
+                        <S.InputSegundaCor type="radio" id="macho" name="genero-do-animal" value="macho"/>
+                        <S.LabelInput htmlFor="macho">Macho</S.LabelInput>
+                    </div>
+                    <S.SpanInfo>Idade</S.SpanInfo>
+                    <div>
+                        <S.InputPrimeiraCor type="radio" id="filhote" name="idade-do-animal" value="filhote"/>
+                        <S.LabelInput htmlFor="filhote">Filhote</S.LabelInput>
+                        <S.InputSegundaCor type="radio" id="adulto" name="idade-do-animal" value="adulto"/>
+                        <S.LabelInput htmlFor="adulto">Adulto</S.LabelInput>
+                        <S.InputTerceiraCor type="radio" id="idoso" name="idade-do-animal" value="idoso"/>
+                        <S.LabelInput htmlFor="idoso">Idoso</S.LabelInput>
+                    </div>
+                    <S.SpanInfo>Pet com deficiência?</S.SpanInfo>
+                    <div>
+                        <S.InputPrimeiraCor type="radio" id="sim-deficiencia" name="animal-deficiente" value="sim-deficiencia"/>
+                        <S.LabelInput htmlFor="sim-deficiencia">Sim</S.LabelInput>
+                        <S.InputSegundaCor type="radio" id="nao-deficiencia" name="animal-deficiente" value="nao-deficiencia"/>
+                        <S.LabelInput htmlFor="nao-deficiencia">Não</S.LabelInput>
+                    </div>
+                    <S.SpanInfo>Pet está em tratamento?</S.SpanInfo>
+                    <div>
+                        <S.InputPrimeiraCor type="radio" id="sim-tratamento" name="animal-tratamento" value="sim-tratamento"/>
+                        <S.LabelInput htmlFor="sim-tratamento">Sim</S.LabelInput>
+                        <S.InputSegundaCor type="radio" id="nao-tratamento" name="animal-tratamento" value="nao-tratamento"/>
+                        <S.LabelInput htmlFor="nao-tratamento">Não</S.LabelInput>
+                    </div>
+                    <S.LabelCaracteristicas htmlFor="caracteristicas-pet">Características do animal</S.LabelCaracteristicas>
+                    <S.TextArea name="caracteristicas-pet" id="caracteristicas-pet" cols={30} rows={2}></S.TextArea>
+                    <S.Button>Incluir pet <S.ImgButton src={holdingHeart}/></S.Button>
+                </form>
+            </S.Main>
+        </>
     )
 }
 
