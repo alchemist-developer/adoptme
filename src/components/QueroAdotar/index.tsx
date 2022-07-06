@@ -4,10 +4,13 @@ import wallpaperPug from '../../assets/wallpaper-pug.png'
 import searchHeartt from '../../assets/searchHeartt.svg'
 
 import { useFormik } from 'formik';
+import { useNavigate  } from 'react-router-dom';
 
 
 
 function QueroAdotar(props: any){
+
+    const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: {
@@ -16,6 +19,8 @@ function QueroAdotar(props: any){
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));   
             props.setInputValues({values})
+
+            navigate("/adotar")
         }
     })
 

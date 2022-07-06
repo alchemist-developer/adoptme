@@ -11,6 +11,7 @@ import Admin from '../pages/Admin'
 import Login from '../pages/Login'
 import QueroDoar from '../components/QueroDoar'
 import QueroAdotar from '../components/QueroAdotar'
+
 import { useState } from "react";
 
 function Routes() {
@@ -20,9 +21,9 @@ function Routes() {
   return (
     <BrowserRouter>
       <WrapperRoutes>
-        <Route path="/adotar" element={<AdotarPet />} />
+        <Route path="/adotar" element={<AdotarPet inputValues={inputValues} />} />
         <Route path="/contato" element={<Contatar />} />
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Home/>}/>
         <Route path="/userprofile" element={<Perfil/>} />
         <Route path= '/admin' element = {<Admin/>}/>
         <Route path='/login' element={<Login />} />
