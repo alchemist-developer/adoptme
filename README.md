@@ -14,8 +14,8 @@
 </p>
 
 ## 🐶 O projeto
-A aplicação adopt.me tem como objetivo facilitar a conexão entre protetores de animais e pessoas que desejam adotar algum animal de estimação. 
-Trata-se do projeto final do curso Gama Experience - XP41, envolvendo estudantes de product design e desenvolvedores web (back e front-end). O grupo do projeto foi responsável por sua concepção, planejamento e execução.
+A aplicação adopt.me tem como objetivo facilitar a conexão entre protetores de animais e pessoas que desejam adotar algum pet. 
+Trata-se do projeto final do curso Gama Experience - XP41, envolvendo estudantes de product design e desenvolvedores web (back e front-end). O grupo do projeto foi responsável pela concepção, planejamento e execução do app.
 
 ## 🚀 Tecnologias Usadas
 O projeto foi desenvolvido utilizando as seguintes tecnologias:
