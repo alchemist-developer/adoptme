@@ -6,6 +6,7 @@ div.container-contato {
     background-color: rgba(255, 255, 255, 0.618);
     display: flex;
     flex-direction: column;
+    
 }
 
 img.contato-img {
@@ -17,14 +18,12 @@ img.contato-img {
     background-position: top;
     background-repeat: no-repeat;
     box-shadow: 0px 13px 21px rgba(0, 0, 0, 0.452);
+    margin-top: 50px;
 }
 
-img-contact {
+.img-contact {
     border-radius: 20px;
-}
-
-div.body-contato {
-
+    display: block; 
 }
 
 div.desc-contato {
