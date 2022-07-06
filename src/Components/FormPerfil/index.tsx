@@ -32,7 +32,7 @@ const FormPerfil = () => {
 
     mobile: Yup.string().min(10,'Deve ter no mínimo 10 digitios').required('O telefone é obrigatório'),
 
-    image: Yup.string().required('O image deve ser obrigatório'),
+    image: Yup.string().required('O imagem deve ser obrigatório'),
   })
 
   const formik = useFormik({
@@ -42,11 +42,11 @@ const FormPerfil = () => {
       confirmPassword: '',
       email: '',
       image: '',
-      comments: ' ',
+      comments: '',
       address: '',
       phone: '',
       mobile: '',
-      whats: 'true',
+      whats: 'false',
 
     },
     validationSchema,
@@ -55,21 +55,23 @@ const FormPerfil = () => {
       data.append('name_user', values.name_user)      
       data.append('password', values.password)      
       data.append('email', values.email)   
-      data.append('image', values.image)      
-      // data.append('comments', values.comments)      
-      data.append('address', values.address)      
-      // data.append('phone', values.phone)      
+      data.append('image', values.image)
+
+      if (values.comments) {       
+        data.append('comments', values.comments)  
+      }      
+          
+      if (values.phone) {
+        data.append('phone', values.phone) 
+      }
+
+      data.append('address', values.address)     
       data.append('mobile', values.mobile)      
       data.append('whats', values.whats)
     
       
       
-      let a = await cadastroUsuario(data)
-
-      // let a = await cadastroUsuario(data)
-
-      console.log(a);
-      
+      let a = await cadastroUsuario(data)     
       
             
       // setShow(true)     
@@ -78,7 +80,6 @@ const FormPerfil = () => {
 
   const [changePage, setChangePage] = useState(true)
   const [show, setShow] = useState(false)
- 
 
   return (
     <>

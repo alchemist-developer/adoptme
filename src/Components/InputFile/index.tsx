@@ -27,8 +27,15 @@ const InputFile = ({onchange, id, isvalid, isinvalid, erros}:Props) => {
       <S.StyledDiv>          
         <S.Img src={files}/>
         <S.StyledDivInput>
-          <S.InputText type="text" value = {teste} disabled/>
+          <S.InputText 
+            type="text" 
+            value = {teste} 
+            disabled
+            color = {erros}
+          />
+
           <small> {erros} </small>
+
           <S.Input
             accept="image/png,image/jpeg,image/jpg"
             type = 'file'  
@@ -36,8 +43,7 @@ const InputFile = ({onchange, id, isvalid, isinvalid, erros}:Props) => {
             onChange={(e:any) => takeImage(e)} 
             value ={undefined}
             name = {id}
-            isValid={isvalid}
-            isInvalid={isinvalid}
+
           />
 
           <S.StyledLabel htmlFor='image' >
