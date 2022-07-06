@@ -71,12 +71,7 @@ const FormPerfil = () => {
     
       
       
-      let a = await cadastroUsuario(data)
-
-      // let a = await cadastroUsuario(data)
-
-      console.log(a);
-      
+      let a = await cadastroUsuario(data)     
       
             
       // setShow(true)     
@@ -85,7 +80,6 @@ const FormPerfil = () => {
 
   const [changePage, setChangePage] = useState(true)
   const [show, setShow] = useState(false)
- 
 
   return (
     <>
