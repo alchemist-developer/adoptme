@@ -16,6 +16,7 @@
 ## 🐶 O projeto
 A aplicação adopt.me tem como objetivo facilitar a conexão entre protetores de animais e pessoas que desejam adotar algum pet. 
 <br>
+</br>
 Trata-se do projeto final do curso Gama Experience - XP41, envolvendo estudantes de product design e desenvolvedores web (back e front-end). O grupo do projeto foi responsável pela concepção, planejamento e desenvolvimento do app.
 
 ## 🚀 Tecnologias Usadas
@@ -36,6 +37,8 @@ Esse projeto foi desenvolvido nas seguintes linguagens:
 - SQL
 - HTML5
 - CSS3
+- JSX
+- TSX
 
 
 ## ✍🏻 Layout
