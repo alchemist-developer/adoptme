@@ -4,6 +4,7 @@ export const Main = styled.main`
     @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;900&display=swap');
     font-family: 'Raleway', sans-serif;
     padding: 0 16px;
+    padding-top: 25px;
 `
 
 export const H3 = styled.h3`

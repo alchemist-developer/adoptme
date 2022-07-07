@@ -9,8 +9,8 @@ import Home from '../pages/Home';
 import Cadastro from '../pages/Cadastro'
 import Admin from '../pages/Admin'
 import Login from '../pages/Login'
-import QueroDoar from '../components/QueroDoar'
-import QueroAdotar from '../components/QueroAdotar'
+import QueroDoar from '../pages/QueroDoar'
+import QueroAdotar from '../pages/QueroAdotar'
 
 import { useState } from "react";
 

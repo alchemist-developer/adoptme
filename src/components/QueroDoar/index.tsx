@@ -69,9 +69,6 @@ function QueroDoar(){
 
     return(
         <>
-            <header>
-                <h1>MENU</h1>
-            </header>
             <S.Main>
             <S.H3>Queremos saber sobre o pet</S.H3>
                 <form  onSubmit={formik.handleSubmit}>
