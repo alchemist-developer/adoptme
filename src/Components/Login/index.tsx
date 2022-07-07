@@ -10,8 +10,6 @@ import "./styles-login.css";
 import baseAPI from '../../service/baseAPI';
 import Banner from "../../assets/bannerCadastro.png";
 
-
-
 // import { Container } from './styles';
 
 const FormLogin = () => {
@@ -29,7 +27,7 @@ const FormLogin = () => {
         }),
         onSubmit: async values => {
           const { token, user} = await loginUsuario(values);
-          dispatch(signIn({token}));
+          dispatch(signIn({token, user}));
           //@ts-ignore
           baseAPI.defaults.headers["Authorization"] = `Bearer ${token}`
           navigate("/cadastro")
