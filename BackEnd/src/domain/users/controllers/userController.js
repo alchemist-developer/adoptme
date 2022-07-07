@@ -11,7 +11,7 @@ const UserController = {
             const file = req.files[0]
 
             if(file==[]){
-                return res.status(400).json("É necessário enviar uma imagem do usuárip")
+                return res.status(400).json("É necessário enviar uma imagem do usuário")
               }
             
             if(await UserService.emailExists(email)){
