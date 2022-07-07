@@ -69,7 +69,7 @@ function CardContent() {
           <button className="button-return"> ⟵</button>
         </div> */}
                 <div>
-                  <img className="card-img" src={pet.image_pet01} alt="" />
+                  <img className="card-img" src={`http://res.cloudinary.com/luizatrocino/image/upload/` + pet.image_pet01} alt="" />
                 </div>
                 <InfoDog active={active}>
                   <div className="info-dog-column">
