@@ -4,6 +4,7 @@ import styled from 'styled-components'
 interface props{
     open?: boolean;
     display?: string;
+    margin?: string;
 }
 
 export const Option = styled.div<props>`
@@ -14,6 +15,7 @@ export const Option = styled.div<props>`
     margin: 1%;
     background-color: white;
     display: ${props =>props.open ? 'none': 'flex'};
+    padding: 2%;
 `
 
 export const StyledDivClose = styled.div`
@@ -37,6 +39,12 @@ export const StyledImg = styled.img`
     width: 80%;
 `
 
+export const StyledIcon = styled.img`
+    width: 12%;
+    height: 70%;
+    margin-right: 5%;
+`
+
 export const StyledDivLink = styled.div`
     display: flex;
     flex-direction: column;
@@ -56,4 +64,7 @@ export const StyledLink = styled(Link)<props>`
     text-decoration: none;
     color: black;
     display: ${props => props.display};
+    margin-top: ${props => props.margin};
+    width: 100%;
+
 `

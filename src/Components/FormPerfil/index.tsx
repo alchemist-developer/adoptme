@@ -15,6 +15,12 @@ import { useState } from 'react';
 import {FiLogIn} from 'react-icons/fi';
 import { Modal } from 'react-bootstrap';
 import { cadastroUsuario } from '../../service/user';
+import LinkOptionMenu from '../LinkOptionMenu';
+import userProfile from '../../assets/userProfile.png'
+import handHeart from '../../assets/handHeart.png'
+import heart from '../../assets/heart.png'
+import searchHeartBlack from '../../assets/searchHeartBlack.png'
+import signOut from '../../assets/signOut.png'
 
 const FormPerfil = () => {
 
@@ -115,7 +121,25 @@ const FormPerfil = () => {
       <Header display= {!changePage} logo="center" background="rgba(255, 255, 255, 0.75)">
         <BackArrow display = {'center'} url = '' onclick = {()=>setChangePage(true)}/>
         <Logo margin = {'center'}/>
-        <OptionMenu displayProfile="none"/>
+        <OptionMenu  user_name='usuario'>
+
+          <LinkOptionMenu rota='/' icon= {userProfile} >
+            Editar perfil
+          </LinkOptionMenu>
+          <LinkOptionMenu rota='/' icon= {handHeart} >
+            Meus pets
+          </LinkOptionMenu>
+          <LinkOptionMenu rota='/' icon= {heart} >
+            Interessados
+          </LinkOptionMenu>
+          <LinkOptionMenu rota='/' icon= {searchHeartBlack} >
+            Buscar amigo
+          </LinkOptionMenu>
+          <LinkOptionMenu rota='/' icon= {signOut} >
+            Sair da conta
+          </LinkOptionMenu>
+
+        </OptionMenu>
       </Header>
       <S.StyledForm display = {changePage} onSubmit = {formik.handleSubmit}>
 
