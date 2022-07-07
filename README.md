@@ -39,6 +39,7 @@ Esse projeto foi desenvolvido nas seguintes linguagens:
 - CSS3
 - JSX
 - TSX
+- Sass
 
 
 ## ✍🏻 Layout
