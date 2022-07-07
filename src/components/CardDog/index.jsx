@@ -12,39 +12,7 @@ import { useEffect, useState } from "react";
 // import { Container } from './styles';
 
 function CardDog(props) {
-  var INPUT = JSON.parse(localStorage.getItem("@dadosInput"));
 
-  const [pets, setPets] = useState({});
-  useEffect(() => {
-    const loadPets = async () => {
-      try {
-        const response = await listarTodos();
-        setPets(response);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    loadPets();
-  }, []);
-  // console.log(pets);
-
-  const array = [];
-  async function newPets() {
-    pets.forEach((pet) => {
-      if (
-        pet.state === INPUT.estado &&
-        pet.gender === INPUT.generoDoAnimal &&
-        pet.size === INPUT.tamanhoDoAnimal &&
-        pet.type === INPUT.escolhaDoAnimal &&
-        pet.age === INPUT.idadeDoAnimal
-      ) {
-        array.push(pet);
-      }
-    });
-    console.log(array);
-  }
-
-  newPets();
 
   return (
     <>
@@ -59,12 +27,6 @@ function CardDog(props) {
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        <SwiperSlide>
-          <CardContent />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardContent />
-        </SwiperSlide>
         <SwiperSlide>
           <CardContent />
         </SwiperSlide>

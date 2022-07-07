@@ -29,3 +29,10 @@ export const loginUsuario = async (signIn: SignIn) => {
         alert("Error:"+ error.response.data)
     }
 }
+
+export const listarTodosDonos = async () => {
+    try{return baseAPICreated.get('/user').then (response => response.data)}
+    catch (error: any) {
+   return "Deu erro: "+ JSON.stringify(error.response.data)
+}
+}
