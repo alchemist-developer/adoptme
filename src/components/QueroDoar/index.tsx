@@ -2,7 +2,9 @@ import { useState } from 'react'
 import * as S from './styles';
 import { useFormik } from 'formik';
 import { toast } from 'react-toastify'
-
+import { cadastroPet } from '../../service/pet'
+import baseAPI from '../../service/baseAPI'
+ 
 import holdingHeart from '../../assets/hand-holding-heart.png'
 import imgQueroDoar from '../../assets/img-quero-doar.png'
 
@@ -14,9 +16,8 @@ function QueroDoar(){
     
     function showFile(event: any){
         const imgTarget = event.target.files[0]
-         setUrlImg(URL.createObjectURL(imgTarget))
-         formik.values.imagemDoPet = URL.createObjectURL(imgTarget)
-         console.log(URL.createObjectURL(imgTarget))
+        setUrlImg(URL.createObjectURL(imgTarget))
+         formik.values.imagemDoPet = event.target.files[0]
     }
 
 
@@ -32,16 +33,33 @@ function QueroDoar(){
             descricaoDoPet: '',
             imagemDoPet: '',
         },
-        onSubmit: values => {
+        onSubmit: async values => {
             try {
                 if(values.nomeDoPet === '' || values.descricaoDoPet === ''|| values.imagemDoPet === ''|| values.cidade === '' || values.escolhaDoAnimal === '' || values.estado === '' || values.generoDoAnimal === '' || values.idadeDoAnimal === '' || values.tamanhoDoAnimal ===''){
                     toast.warn('Preencha todos os campos!')
                     return
                 }
                 alert(JSON.stringify(values, null, 2));   
-                // props.setInputValues({values})
+
                 localStorage.setItem("@dadosInput", JSON.stringify(values))
                 // navigate("/adotar")
+
+                let data = new FormData()
+                data.append('state', values.estado)
+                data.append('city', values.cidade)
+                data.append('gender', values.generoDoAnimal)
+                data.append('type', values.escolhaDoAnimal)
+                data.append('size', values.tamanhoDoAnimal)
+                data.append('age', values.idadeDoAnimal)
+                data.append('name_pet', values.nomeDoPet)
+                data.append('comments', values.descricaoDoPet)
+                data.append('image', values.imagemDoPet)
+
+                //@ts-ignore
+                baseAPI.defaults.headers["Authorization"] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMywiZW1haWwiOiJlbWFpbC51c3VhcmlvQGdtYWlsLmNvbSIsIm5hbWVfdXNlciI6Ik5vbWUgZG8gdXN1w6FyaW8gQXR1YWxpemFkbyIsImFkZHJlc3MiOiJSdWEgZG8gVXN1w6FyaW8sIDEwMSAiLCJwaG9uZSI6IigxMSkgMTIzNC01Njc4IiwiaWF0IjoxNjU2Nzc5NTYxfQ.FN79EI59dh3xt1mk62r3Qcif02SAHUR5aqxjHfsW5AI`
+                await cadastroPet(data)
+                toast.success('Seu pet foi cadastrado com sucesso!')
+
             } catch (error) {
                 console.log('Deu erro:' + error)
             }
