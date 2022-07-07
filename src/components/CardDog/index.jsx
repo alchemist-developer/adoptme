@@ -7,22 +7,45 @@ import Header from "../../components/Header";
 import Logo from "../../components/Logo";
 import OptionMenu from "../../components/OptionMenu";
 import axios from "axios";
-
+import { listarTodos } from "../../service/pet";
+import { useEffect, useState } from "react";
 // import { Container } from './styles';
 
 function CardDog(props) {
-  function handlePesquisa() {
-    axios.get("https://adoptme-app.herokuapp.com/pet/").then((response) => 
-      console.log(response.data))
+  var INPUT = JSON.parse(localStorage.getItem("@dadosInput"));
+  const [active, setActive] = useState(false);
+  function handleClick() {
+    setActive((oldActive) => !oldActive);
   }
-  handlePesquisa()
+  const [pets, setPets] = useState({});
+  useEffect(() => {
+    const loadPets = async () => {
+      try {
+        const response = await listarTodos();
+        setPets(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    loadPets();
+  }, [setPets]);
+  console.log(pets);
 
+  const array = [];
+  pets.forEach((pet) => {
+    if (pet.state === INPUT.estado)
+    console.log(pet)
+  })
+
+
+ 
   return (
     <>
       <Header display={"true"} logo="none" background="white">
         <Logo margin={"none"} />
         <OptionMenu displayProfile="flex" />
       </Header>
+
       <Swiper
         spaceBetween={0.9}
         slidesPerView={1}

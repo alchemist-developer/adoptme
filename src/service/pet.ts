@@ -8,3 +8,10 @@ export const cadastroPet = async (pet: any) => {
         return "Deu erro: "+ JSON.stringify(error.response.data)
     }
 }
+
+export const listarTodos = async () => {
+         try{return baseAPICreated.get('/pet').then (response => response.data)}
+         catch (error: any) {
+        return "Deu erro: "+ JSON.stringify(error.response.data)
+    }
+}

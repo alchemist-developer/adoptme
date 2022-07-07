@@ -8,11 +8,7 @@ import InfoDog from "../InfoDog";
 // import { Container } from './styles';
 
 function CardContent() {
-  const [active, setActive] = useState(false);
-  function handleClick() {
-    setActive((oldActive) => !oldActive);
-  }
-
+  
   return (
     <>
       <div className="card-container">
