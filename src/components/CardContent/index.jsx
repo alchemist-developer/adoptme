@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
-import Foto from "../../assets/cardd3.jpg";
 import Vetor from "../../assets/vector.png";
 import Share from "../../assets/share.png";
 import InfoDog from "../InfoDog";
@@ -12,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 // import { Container } from './styles';
 
 function CardContent() {
+
   const navigate = useNavigate();
   const [active, setActive] = useState(false);
   function handleClick() {
@@ -35,6 +35,7 @@ function CardContent() {
   // console.log(pets);
 
   const array = [];
+
   async function newPets() {
     pets.forEach((pet) => {
       if (
@@ -45,6 +46,7 @@ function CardContent() {
         pet.age === INPUT.idadeDoAnimal
       ) {
        array.push(pet); 
+  
       }
     });
     console.log(array);
@@ -61,13 +63,10 @@ function CardContent() {
         onSwiper={(swiper) => console.log(swiper)}
       >
         {array.map((pet) => {
+         {/* setInfoPet(pet); */}
           return (
             <SwiperSlide>
               <div className="card-container">
-                {/* <div>
-          <button className="button-next"> ⟶</button>
-          <button className="button-return"> ⟵</button>
-        </div> */}
                 <div>
                   <img className="card-img" src={`http://res.cloudinary.com/luizatrocino/image/upload/` + pet.image_pet01} alt="" />
                 </div>

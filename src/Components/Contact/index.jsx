@@ -10,11 +10,11 @@ import baseAPI from "../../service/baseAPI";
 import { useParams } from "react-router-dom";
 import user from "../../store/user";
 
-export default function Contact() {
-  const [users, setUsers] = useState({});
-  const [usuario, setUsuario] = useState({});
+export default function Contact(props) {
+  const [users, setUsers] = useState();
+  // const [usuario, setUsuario] = useState({});
   const { id } = useParams();
-
+  console.log(props.infoPet, 'oi')
   const array = [];
 
   useEffect(() => {
@@ -26,31 +26,24 @@ export default function Contact() {
         ] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMywiZW1haWwiOiJlbWFpbC51c3VhcmlvQGdtYWlsLmNvbSIsIm5hbWVfdXNlciI6Ik5vbWUgZG8gdXN1w6FyaW8gQXR1YWxpemFkbyIsImFkZHJlc3MiOiJSdWEgZG8gVXN1w6FyaW8sIDEwMSAiLCJwaG9uZSI6IigxMSkgMTIzNC01Njc4IiwiaWF0IjoxNjU2Nzc5NTYxfQ.FN79EI59dh3xt1mk62r3Qcif02SAHUR5aqxjHfsW5AI`;
         const response = await listarTodosDonos();
         setUsers(response);
-        console.log(response);
+        // console.log(response);
       } catch (error) {
         console.log(error);
       }
     };
     loadUsers();
   }, []);
-  console.log(users);
-function acharUsuario(id){
-    for (let i = 0; i < users.length; i++) {
-      if (users[i].user_id === id) {
-        return users[i];
-      }
-    }
-}
+  // console.log(users);
+  var usuario = {};
 
-  //     //   await users.forEach((user) => {
-  //     if (
-  //         user.user_id === Number(id)
-  //     ) {
-  //      setUsuario(user);
-  //      console.log(user);
-  //     //     console.log(typeof(user.user_id));
-  //     }
-  //   });
+  async function acharUsuario() {
+    await users.forEach((user) => {
+      if (user.user_id === Number(id)) {
+        usuario = user;
+      }
+    });
+  }
+  acharUsuario();
 
   return (
     <>
@@ -64,20 +57,20 @@ function acharUsuario(id){
         </div>
         <div className="body-contato">
           <div className="desc-contato">
-            <h1>{acharUsuario(id).name_user}</h1>
+            <h1>{usuario.name_user}</h1>
             <p className="local-contato"></p>
             <p> </p>
           </div>
 
           <div className="box-contato">
-            <h1>Quer adotar o Bob?</h1>
+              <h1>Quer adotar o {}</h1>
             <p>Para adotar ou saber mais fale com o Protetor</p>
             <p>
               <img src={Mail} alt="" /> faleconosco@ongproteger.com.br
             </p>
             <div className="whatsapp">
               <h6>Entre em contato com a ONG Proteger no Whatsapp</h6>
-              <a href="">Contatar via Whatsapp</a>
+              <a href={`https://wa.me/`}>Contatar via Whatsapp</a>
             </div>
           </div>
         </div>

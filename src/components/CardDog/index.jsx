@@ -1,14 +1,10 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import CardContent from "../CardContent";
 import Header from "../../components/Header";
 import Logo from "../../components/Logo";
 import OptionMenu from "../../components/OptionMenu";
-import axios from "axios";
-import { listarTodos } from "../../service/pet";
-import { useEffect, useState } from "react";
 // import { Container } from './styles';
 
 function CardDog(props) {
