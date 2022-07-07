@@ -30,7 +30,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [Formik](https://formik.org/docs/overview)
 
 ## 📔 Linguagens
-Esse projeto foi desenvolvido nas seguintes linguagens:
+Este projeto foi desenvolvido nas seguintes linguagens:
 
 - JavaScript
 - TypeScript
@@ -62,6 +62,6 @@ $ npm run dev
 ```
 
 ## 🙋‍♀️ Integrantes da Equipe
-- Product Designers: Alessandro Sales, Luciane Oliveira, Juliana Rocha, Mariana Cruz.
+- Product designers: Alessandro Sales, Luciane Oliveira, Juliana Rocha, Mariana Cruz.
 - Devs frontend: Adryel Simon Moraes, Júnior Dering, Vinicius Alves, Lucas Veiga. 
 - Devs backend:  Natã Vergueiro, Luiza Trocino, Pedro Utz, Deyvison Vianna e Ademir Sott.
