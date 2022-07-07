@@ -11,6 +11,7 @@ import Admin from '../pages/Admin'
 import Login from '../pages/Login'
 import QueroDoar from '../components/QueroDoar'
 import QueroAdotar from '../components/QueroAdotar'
+import ProfileUser from '../pages/ProfileUser'
 
 import { useState } from "react";
 
@@ -29,6 +30,7 @@ function Routes() {
         <Route path='/login' element={<Login />} />
         <Route path= '/querodoar' element = {<QueroDoar/>}/>
         <Route path='/queroadotar' element={<QueroAdotar setInputValues={setInputValues}/>} />
+        <Route path='/userprofile' element={<ProfileUser/>} />
       </WrapperRoutes>
     </BrowserRouter>
   );

@@ -11,6 +11,14 @@ export const cadastroUsuario = async (user:any) => {
         return "Erro: "+ JSON.stringify(error.response.data)
     }
 }
+export const EditarUsuario = async (id:number, user:any) => {
+    try {
+        const response = await baseAPICreated.put(`/user/${id}`, user)       
+        return response.data
+    } catch (error: any) {
+        return "Erro: "+ JSON.stringify(error.response.data)
+    }
+}
 
 export const loginUsuario = async (signIn: SignIn) => {
     try {
