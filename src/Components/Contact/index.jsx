@@ -10,22 +10,12 @@ import baseAPI from "../../service/baseAPI";
 import { useParams } from "react-router-dom";
 import user from "../../store/user";
 
-<<<<<<< HEAD
-export default function Contact() {
-
-  const { id } = useParams();
-
-  const [users, setUsers] = useState();
-
-
-=======
 export default function Contact(props) {
   const [users, setUsers] = useState();
   // const [usuario, setUsuario] = useState({});
   const { id } = useParams();
   console.log(props.infoPet, 'oi')
   const array = [];
->>>>>>> 62c8724c466ca991e853df24f458c78dae7d8f1a
 
   useEffect(() => {
     const loadUsers = async () => {
@@ -36,10 +26,7 @@ export default function Contact(props) {
         
         const response = await listarTodosDonos();
         setUsers(response);
-<<<<<<< HEAD
-=======
         // console.log(response);
->>>>>>> 62c8724c466ca991e853df24f458c78dae7d8f1a
       } catch (error) {
         console.log(error);
       }
