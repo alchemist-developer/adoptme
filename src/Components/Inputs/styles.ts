@@ -14,7 +14,11 @@ export const Input = styled(FormControl)<props>`
         box-shadow: none;
         border: 1px solid black;
         outline: none;
-    }
+    };
+    ::placeholder{
+        text-align: start;
+        font-size: 18px;
+    };
 `
 
 export const Label = styled.label`

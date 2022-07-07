@@ -49,6 +49,7 @@ export const InputText = styled.input<props>`
     border-radius: 10px;
     padding: 3% 0px;
     border: ${props => props.color ? '1px solid red': '1px solid black' };
+
 `
 
 export const Label = styled.label`
