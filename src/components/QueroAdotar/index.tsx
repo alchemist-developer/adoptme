@@ -33,10 +33,11 @@ function QueroAdotar(props: any){
                 }
                 // alert(JSON.stringify(values, null, 2));   
                 props.setInputValues({values})
+                // console.log(values)
                 localStorage.setItem("@dadosInput", JSON.stringify(values))
                 navigate("/adotar")
             } catch (error) {
-                console.log('Deu erro:' + error)
+                console.log(error)
             }
 
         }
@@ -53,9 +54,9 @@ function QueroAdotar(props: any){
                     <S.H3>Quero adotar</S.H3>
                     <S.LabelInputText>Estado</S.LabelInputText>
                     <S.FormSelect onChange={formik.handleChange} name="estado">
-                        {arrEstados.map((estado) => {
+                        {arrEstados.map((estado, i) => {
                             return(
-                                <option value={estado}>{estado}</option>
+                                <option key={i} value={estado}>{estado}</option>
                             )
                         })}
                     </S.FormSelect>

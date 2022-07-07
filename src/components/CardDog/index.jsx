@@ -13,9 +13,24 @@ import axios from "axios";
 function CardDog(props) {
   function handlePesquisa() {
     axios.get("https://adoptme-app.herokuapp.com/pet/").then((response) => 
-      console.log(response.data))
-  }
+      console.log(response.data)
+ )}
+
   handlePesquisa()
+
+  const x = axios.get("https://adoptme-app.herokuapp.com/pet/")
+
+//   useEffect(() => {
+//     const dadosInput = localStorage.getItem("@dadosInput")
+//     dadosInput(JSON.parse(minhaLista) || [])
+// }, [])
+
+var INPUT = JSON.parse(localStorage.getItem('@dadosInput'));
+console.log(INPUT.estado)
+
+  // const x =localStorage.getItem("@dadosInput")
+  // setDadosInput(JSON.parse(x))
+  // // console.log(setDadosInput)
 
   return (
     <>

@@ -17,6 +17,7 @@ function QueroDoar(){
     function showFile(event: any){
         const imgTarget = event.target.files[0]
         setUrlImg(URL.createObjectURL(imgTarget))
+        //  formik.values.imagemDoPet = urlImg
          formik.values.imagemDoPet = event.target.files[0]
     }
 
