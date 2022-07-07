@@ -2,13 +2,22 @@ import ButtonAdotar from '../ButtonAdotar';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
 import * as S from './styles';
-import FormPersonal from '../FormPersonal';
+import jwt_decode from "jwt-decode";
 import { cadastroUsuario } from '../../service/user';
 import { toast } from 'react-toastify'
 import InputFile from '../InputFile';
 import Inputs from '../Inputs';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { User } from '../../types';
 
 const FormPerfil = () => {
+
+  var token = useSelector((state: RootState)=>state.persistedReducer.accessToken)
+  var decoded: User = jwt_decode(token);
+  if (decoded.phone == null) {
+    decoded.phone = ''
+  }  
 
   const validationSchema = Yup.object({
     name_user: Yup.string().required('Por favor preencha com seu nome'),
@@ -30,13 +39,13 @@ const FormPerfil = () => {
 
   const formik = useFormik({
     initialValues: {
-      name_user: '',
+      name_user: decoded.name_user,
       password: '',
       confirmPassword: '',
       image: '',
       comments: '',
-      address: '',
-      phone: '',
+      address: decoded.address,
+      phone: decoded.phone,
       mobile: '',
       whats: 'false',
 
