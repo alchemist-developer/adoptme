@@ -10,6 +10,7 @@ import baseAPI from "../../service/baseAPI";
 import { useParams } from "react-router-dom";
 import user from "../../store/user";
 
+<<<<<<< HEAD
 export default function Contact() {
 
   const { id } = useParams();
@@ -17,6 +18,14 @@ export default function Contact() {
   const [users, setUsers] = useState();
 
 
+=======
+export default function Contact(props) {
+  const [users, setUsers] = useState();
+  // const [usuario, setUsuario] = useState({});
+  const { id } = useParams();
+  console.log(props.infoPet, 'oi')
+  const array = [];
+>>>>>>> 62c8724c466ca991e853df24f458c78dae7d8f1a
 
   useEffect(() => {
     const loadUsers = async () => {
@@ -27,6 +36,10 @@ export default function Contact() {
         
         const response = await listarTodosDonos();
         setUsers(response);
+<<<<<<< HEAD
+=======
+        // console.log(response);
+>>>>>>> 62c8724c466ca991e853df24f458c78dae7d8f1a
       } catch (error) {
         console.log(error);
       }
@@ -34,28 +47,16 @@ export default function Contact() {
     loadUsers();
   }, []);
   // console.log(users);
-  // const [usuario, setUsuario] = useState({});
+  var usuario = {};
 
-  // async function acharUsuario(){
-  //   users.forEach((user) => {
-  //     if( user.user_id === Number(id))
-  //     setUsuario(user)
-      
-  //   })
-  // }
-
-  var usuario = {}
-
-  async function acharUsuario(){
-    for (let index = 0; index < users.length; index++) {
-      if(users[index].user_id === Number(id)){
-        usuario = (users[index])
-        console.log(usuario)
-        break
+  async function acharUsuario() {
+    await users.forEach((user) => {
+      if (user.user_id === Number(id)) {
+        usuario = user;
       }
-    }
+    });
   }
-  acharUsuario()
+  acharUsuario();
 
   return (
     <>
@@ -75,14 +76,14 @@ export default function Contact() {
           </div>
 
           <div className="box-contato">
-            <h1>Quer adotar o Bob?</h1>
+              <h1>Quer adotar o {}</h1>
             <p>Para adotar ou saber mais fale com o Protetor</p>
             <p>
               <img src={Mail} alt="" /> faleconosco@ongproteger.com.br
             </p>
             <div className="whatsapp">
               <h6>Entre em contato com a ONG Proteger no Whatsapp</h6>
-              <a href="">Contatar via Whatsapp</a>
+              <a href={`https://wa.me/`}>Contatar via Whatsapp</a>
             </div>
           </div>
         </div>

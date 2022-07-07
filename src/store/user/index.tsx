@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { UserState } from "../../types"
+import { User, UserState } from "../../types"
 
 const initialState: UserState = {
     isLogged: false,
     accessToken: "",
+    user: {} as User
 }
 
 const usersSlice = createSlice({
@@ -14,8 +15,8 @@ const usersSlice = createSlice({
         signIn(state, action){
             Object.assign(state, {
                 isLogged: true,
-                accessToken: action.payload.accessToken,
-
+                accessToken: action.payload.token,
+                user: action.payload.user
             })
         },
         //SignOut

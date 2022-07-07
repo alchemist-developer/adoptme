@@ -18,12 +18,13 @@ import { useState } from "react";
 function Routes() {
 
   const [inputValues, setInputValues] = useState({})
+  const [infoPet, setInfoPet] = useState([])
 
   return (
     <BrowserRouter>
       <WrapperRoutes>
-        <Route path="/adotar" element={<AdotarPet inputValues={inputValues} />} />
-        <Route path="/contato/:id" element={<Contatar />} />
+        <Route path="/adotar" element={<AdotarPet inputValues={inputValues} setInfoPet={setInfoPet} />} />
+        <Route path="/contato/:id" element={<Contatar infoPet={infoPet} />} />
         <Route path="/" element={<Home/>}/>
         <Route path="/cadastro" element={<Cadastro/>} />
         <Route path= '/admin' element = {<Admin/>}/>
