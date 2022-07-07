@@ -21,11 +21,6 @@ export const DivButton = styled.div`
     padding: 0 2%;
 `
 
-export const Aviso = styled.small<props>`
-    display: ${props =>props.display ? 'block' : 'none'};
-    color: red;
-`
-
 export const Img = styled.img`
     width: 100%;
     margin: auto;

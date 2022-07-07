@@ -7,16 +7,11 @@ import Header from "../../components/Header";
 import Logo from "../../components/Logo";
 import OptionMenu from "../../components/OptionMenu";
 import axios from "axios";
-
+import { listarTodos } from "../../service/pet";
+import { useEffect, useState } from "react";
 // import { Container } from './styles';
 
 function CardDog(props) {
-  function handlePesquisa() {
-    axios.get("https://adoptme-app.herokuapp.com/pet/").then((response) => 
-      console.log(response.data)
- )}
-
-  handlePesquisa()
 
   const x = axios.get("https://adoptme-app.herokuapp.com/pet/")
 
@@ -38,18 +33,13 @@ console.log(INPUT.estado)
         <Logo margin={"none"} />
         <OptionMenu displayProfile="flex" />
       </Header>
+
       <Swiper
         spaceBetween={0.9}
         slidesPerView={1}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        <SwiperSlide>
-          <CardContent />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardContent />
-        </SwiperSlide>
         <SwiperSlide>
           <CardContent />
         </SwiperSlide>

@@ -5,12 +5,10 @@ import { Fragment, useState } from 'react';
 interface Props{
   onchange: (e: any) => void;
   id: string;
-  isvalid?: boolean;
-  isinvalid?: boolean;
   erros?: any;
 }
 
-const InputFile = ({onchange, id, isvalid, isinvalid, erros}:Props) => {
+const InputFile = ({onchange, id, erros}:Props) => {
 
     const [files, setFiles] = useState(imgDefault);
     const [teste, setTeste] = useState('');

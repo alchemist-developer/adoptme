@@ -16,6 +16,7 @@ export const Option = styled.div<props>`
     background-color: white;
     display: ${props =>props.open ? 'none': 'flex'};
     padding: 2%;
+    z-index: ${props => props.open ? '87': '100'};
 `
 
 export const StyledDivClose = styled.div`
@@ -51,9 +52,8 @@ export const StyledDivLink = styled.div`
     margin-top: 8%;
 `
 
-export const StyledTeste = styled.div`
+export const StyledTeste = styled.div<props>`
     position: absolute;
-    z-index: 88;
     width: 100%;
     display: flex;
     justify-content: end;

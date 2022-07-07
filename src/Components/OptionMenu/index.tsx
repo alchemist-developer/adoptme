@@ -1,7 +1,5 @@
 import { ReactNode, useState } from 'react';
 import {AiOutlineClose} from 'react-icons/ai'
-import { BsPersonCircle } from 'react-icons/bs'
-
 import userLogin from '../../assets/userLogin.png'
 import collapse from '../../assets/collapse.png'
 import * as S from './styles';

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import imgLogo from '../../assets/logo2.png'
 import * as S from './styles';
 
@@ -7,7 +8,10 @@ interface Props{
 
 const Logo = ({margin}:Props) => {
   return (
-    <S.Img src={imgLogo} margin={margin} />
+    <S.StyledLink to={'/'} margin={margin}>
+          <S.Img src={imgLogo}  />
+    </S.StyledLink>
+
   );
 }
 
