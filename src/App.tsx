@@ -1,5 +1,6 @@
 import { Provider } from "react-redux"
 import { store } from "./store"
+// @ts-ignore
 import Routes from './routes'
 
 import { ToastContainer } from 'react-toastify'
