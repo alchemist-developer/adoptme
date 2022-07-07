@@ -13,10 +13,7 @@ import { useEffect, useState } from "react";
 
 function CardDog(props) {
   var INPUT = JSON.parse(localStorage.getItem("@dadosInput"));
-  const [active, setActive] = useState(false);
-  function handleClick() {
-    setActive((oldActive) => !oldActive);
-  }
+
   const [pets, setPets] = useState({});
   useEffect(() => {
     const loadPets = async () => {
@@ -28,17 +25,27 @@ function CardDog(props) {
       }
     };
     loadPets();
-  }, [setPets]);
-  console.log(pets);
+  }, []);
+  // console.log(pets);
 
   const array = [];
-  pets.forEach((pet) => {
-    if (pet.state === INPUT.estado)
-    console.log(pet)
-  })
+  async function newPets() {
+    pets.forEach((pet) => {
+      if (
+        pet.state === INPUT.estado &&
+        pet.gender === INPUT.generoDoAnimal &&
+        pet.size === INPUT.tamanhoDoAnimal &&
+        pet.type === INPUT.escolhaDoAnimal &&
+        pet.age === INPUT.idadeDoAnimal
+      ) {
+        array.push(pet);
+      }
+    });
+    console.log(array);
+  }
 
+  newPets();
 
- 
   return (
     <>
       <Header display={"true"} logo="none" background="white">

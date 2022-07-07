@@ -8,6 +8,12 @@ import InfoDog from "../InfoDog";
 // import { Container } from './styles';
 
 function CardContent() {
+    const [active, setActive] = useState(false);
+  function handleClick() {
+    setActive((oldActive) => !oldActive);
+  }
+
+
   
   return (
     <>
@@ -28,42 +34,34 @@ function CardContent() {
             </div>
             <div className="dog-content">
               <div className="dog-nome-row">
-                <h1>Bob</h1>
+                <h1>{}</h1>
                 <button className="compartilhar-btn">
                   <img src={Share} alt="" />
                 </button>
               </div>
               <p className="doador">
                 {" "}
-                <strong> ONG Proteger</strong>
+                <strong>{}</strong>
               </p>
-              <p className="local">São Paulo</p>
+              <p className="local">{}</p>
               <div className="row-container">
-                <div className="row-item1">Informação</div>
-                <div className="row-item2">Informação</div>
-                <div className="row-item3">Informação</div>
-                <div className="row-item4">Informação</div>
+                <div className="row-item1">{}</div>
+                <div className="row-item2">{}</div>
+                <div className="row-item3">{}</div>
+                <div className="row-item4">{}</div>
               </div>
               <p className="descricao">
-                O Bob é um cachorro resgatado na rua. Acreditamos que foi
-                abandonado por uma família nos arredores da ONG de propósito.
-                Está conosco há 2 meses e ainda é um pouco desconfiado e sente
-                saudades da antiga família.
+                {}
               </p>
               <div className="observacoes">
                 <p>Observações importantes</p>
-                <ul>
-                  <li>Precisa de espaço para brincar</li>
-                  <li>É desconfiada</li>
-                  <li>É desconfiada</li>
-                  <li>É desconfiada</li>
-                </ul>
+                <p>{}</p>
               </div>
               <div className="row-container">
-                <div className="row-item1">Informação</div>
-                <div className="row-item2">Informação</div>
-                <div className="row-item3">Informação</div>
-                <div className="row-item4">Informação</div>
+                <div className="row-item1">{}</div>
+                <div className="row-item2">{}</div>
+                <div className="row-item3">{}</div>
+                <div className="row-item4">{}</div>
               </div>
             </div>
             <button href="contato" className="btn-contatar">
