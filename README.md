@@ -62,7 +62,7 @@ $ cd adoptme
 $ npm run dev
 ```
 
-## 🗒♀️ Documentação APIs
+## 📄 Documentação APIs
 A documentação das APIs do projeto foi publicada através do PostMan e pode ser acessada [neste link](https://documenter.getpostman.com/view/21559218/UzBsHjau#70788b09-5d76-46a9-8bdb-dabec37e5522).
 
 ## 🙋‍♀️ Integrantes da Equipe
