@@ -11,46 +11,51 @@ import { useParams } from "react-router-dom";
 import user from "../../store/user";
 
 export default function Contact() {
-  const [users, setUsers] = useState({});
-  const [usuario, setUsuario] = useState({});
+
   const { id } = useParams();
 
-  const array = [];
+  const [users, setUsers] = useState();
+
+
 
   useEffect(() => {
     const loadUsers = async () => {
       try {
-        //@ts-ignore
         baseAPI.defaults.headers[
           "Authorization"
         ] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMywiZW1haWwiOiJlbWFpbC51c3VhcmlvQGdtYWlsLmNvbSIsIm5hbWVfdXNlciI6Ik5vbWUgZG8gdXN1w6FyaW8gQXR1YWxpemFkbyIsImFkZHJlc3MiOiJSdWEgZG8gVXN1w6FyaW8sIDEwMSAiLCJwaG9uZSI6IigxMSkgMTIzNC01Njc4IiwiaWF0IjoxNjU2Nzc5NTYxfQ.FN79EI59dh3xt1mk62r3Qcif02SAHUR5aqxjHfsW5AI`;
+        
         const response = await listarTodosDonos();
         setUsers(response);
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
     };
     loadUsers();
   }, []);
-  console.log(users);
-function acharUsuario(id){
-    for (let i = 0; i < users.length; i++) {
-      if (users[i].user_id === id) {
-        return users[i];
+  // console.log(users);
+  // const [usuario, setUsuario] = useState({});
+
+  // async function acharUsuario(){
+  //   users.forEach((user) => {
+  //     if( user.user_id === Number(id))
+  //     setUsuario(user)
+      
+  //   })
+  // }
+
+  var usuario = {}
+
+  async function acharUsuario(){
+    for (let index = 0; index < users.length; index++) {
+      if(users[index].user_id === Number(id)){
+        usuario = (users[index])
+        console.log(usuario)
+        break
       }
     }
-}
-
-  //     //   await users.forEach((user) => {
-  //     if (
-  //         user.user_id === Number(id)
-  //     ) {
-  //      setUsuario(user);
-  //      console.log(user);
-  //     //     console.log(typeof(user.user_id));
-  //     }
-  //   });
+  }
+  acharUsuario()
 
   return (
     <>
@@ -64,7 +69,7 @@ function acharUsuario(id){
         </div>
         <div className="body-contato">
           <div className="desc-contato">
-            <h1>{acharUsuario(id).name_user}</h1>
+            <h1>{usuario.name_user}</h1>
             <p className="local-contato"></p>
             <p> </p>
           </div>
