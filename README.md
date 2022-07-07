@@ -57,7 +57,7 @@ $ cd adoptme
 
 #### Iniciando o Frontend
 ```sh
-$ npm start
+$ npm run dev
 ```
 
 ## 🙋‍♀️ Integrantes da Equipe
