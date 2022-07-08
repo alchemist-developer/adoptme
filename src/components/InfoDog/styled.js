@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 export const InfoContainer = styled.div`
   position: fixed;
-  transform: translateY(86%);
+  transform: translateY(91%);
   width: 100%;
   height: 90%;
   background-image: linear-gradient(
@@ -26,9 +26,9 @@ export const InfoContainer = styled.div`
       flex-direction: column;
       align-items: center;
       position: fixed;
-      transform: translateY(12%);
+      transform: translateY(10%);
       width: 100%;
-      height: 90%;
+      height: 93%;
     `}
 `;
 
