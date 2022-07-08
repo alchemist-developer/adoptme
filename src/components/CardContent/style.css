@@ -12,6 +12,7 @@ div img.card-img {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    margin-top: 34px;
 }
 
 div.dog-nome-row {
@@ -69,11 +70,6 @@ button.btn {
     margin-right: 20px;
 }
 
-
-button.btn-fromtop img {
-    margin-top: 10px;
-}
-
 button.compartilhar-btn {
     display: flex;
     justify-content: center;
@@ -97,13 +93,7 @@ button.btn-fromtop {
     border: none;
     color: yellow;
     font-size: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-button.btn-fromtop img {
-    margin: 0;
-    padding: 0;
+    padding-top: 17px;
 }
 
 div.row-container {
@@ -120,7 +110,12 @@ p.descricao {
 }
 
 button span {
-    margin-left: 15px;
+    margin-left: 21px;
+}
+
+span img {
+    width: 15px;
+    height: 15px;
 }
 
 button.btn-contatar {
@@ -129,7 +124,6 @@ button.btn-contatar {
     border: none;
     background-color: #1E1E1E;
     color: rgba(255, 255, 255, 0.81);
-    font-weight: bold;
     padding: 5px;
     text-decoration: none;
     font-size: 16px;
