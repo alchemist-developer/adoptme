@@ -30,7 +30,7 @@ const FormLogin = () => {
           dispatch(signIn({token, user}));
           //@ts-ignore
           baseAPI.defaults.headers["Authorization"] = `Bearer ${token}`
-          navigate("/cadastro")
+          navigate("/")
         }
       });
 
