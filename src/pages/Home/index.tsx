@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import BodyMenu from "../../components/BodyMenu";
+import BodyMenu from "../../components/BodyHome";
 import CarouselHome from "../../components/CarouselHome";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";

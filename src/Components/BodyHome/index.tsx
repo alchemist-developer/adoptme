@@ -11,7 +11,7 @@ import CarouselOngs from '../CarouselOngs';
 import { useNavigate } from 'react-router-dom';
 
 
-const BodyMenu = () => {
+const BodyHome = () => {
 
     const navigate = useNavigate();
 
@@ -114,4 +114,4 @@ const BodyMenu = () => {
   );
 }
 
-export default BodyMenu;
+export default BodyHome;
