@@ -14,11 +14,18 @@ import { useState } from 'react';
 import {FiLogIn} from 'react-icons/fi';
 import { Modal } from 'react-bootstrap';
 import { cadastroUsuario } from '../../service/user';
-import OptionMenuCadastro from '../OptionMenuCadastro';
 import { toast } from 'react-toastify'
 import { User } from '../../types';
+import OptionMenu from '../OptionMenu';
+import LinkOptionMenu from '../LinkOptionMenu';
+import searchHeartBlack from '../../assets/searchHeartBlack.png'
+import handHeart from '../../assets/handHeart.png'
+import { useNavigate } from 'react-router-dom';
+
 
 const FormPerfil = () => {
+
+  const navigate = useNavigate()
 
   const validationSchema = Yup.object({
     name_user: Yup.string().required('Por favor preencha com seu nome'),
@@ -101,8 +108,8 @@ const FormPerfil = () => {
 
   const advance = () => {
     if (formik.values.email && !formik.errors.confirmPassword) {
-      setChangePage(!changePage)
-      toast.success("Agora preencha o seu perfil!", {
+      setChangePage(false)
+      toast.success("Para criar sua conta é necessário preencher os campos abaixo!", {
         position: toast.POSITION.TOP_CENTER
       });
        
@@ -112,23 +119,38 @@ const FormPerfil = () => {
     }
   }
 
+  const back = () => {
+    if(changePage){
+      console.log(changePage)
+      return navigate('/')
+    }
+    return setChangePage(true)
+  }
+
   return (
     <>
       <Header 
-        display= {!changePage} 
+        display= {true} 
         logo="center" 
         background="rgba(255, 255, 255, 0.75)"
       >
 
         <BackArrow 
-          display = {'center'} 
+          display = {changePage ?'none' : 'center'} 
           url = '' 
-          onclick = {()=>setChangePage(true)}
+          onclick = {()=>back()}
         />
         
-        <Logo margin = {'center'}/>
+        <Logo margin = {changePage ?'none' : 'center'}/>
 
-        <OptionMenuCadastro user={'usuario'} />
+        <OptionMenu user_name='login' >
+        <LinkOptionMenu display = {true} rota="/queroadotar" icon= {searchHeartBlack} >
+            Buscar um amigo
+          </LinkOptionMenu>
+          <LinkOptionMenu display = {true} rota="/login" icon= {handHeart} >
+            Doar um amigo
+          </LinkOptionMenu>
+        </OptionMenu>
 
       </Header>
 

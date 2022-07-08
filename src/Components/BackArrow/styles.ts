@@ -8,9 +8,8 @@ interface props{
 export const Arrow = styled.div<props>`
     position: absolute;
     height: 100%;
-    display: ${props=>props.display == 'center' ? 'block' : 'none'};
+    display: ${props=>props.display == 'center' ? 'flex' : 'none'};
     z-index: 999;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 1%;

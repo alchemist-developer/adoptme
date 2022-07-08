@@ -31,6 +31,7 @@ const FormLogin = () => {
           //@ts-ignore
           baseAPI.defaults.headers["Authorization"] = `Bearer ${token}`
           navigate("/")
+          console.log(user)
         }
       });
 
