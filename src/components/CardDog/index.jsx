@@ -7,9 +7,7 @@ import Logo from "../../components/Logo";
 import OptionMenu from "../../components/OptionMenu";
 // import { Container } from './styles';
 
-function CardDog(props) {
-
-
+function CardDog() {
   return (
     <>
       <Header display={"true"} logo="none" background="white">
@@ -17,16 +15,7 @@ function CardDog(props) {
         <OptionMenu displayProfile="flex" />
       </Header>
 
-      <Swiper
-        spaceBetween={0.9}
-        slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
-      >
-        <SwiperSlide>
-          <CardContent />
-        </SwiperSlide>
-      </Swiper>
+      <CardContent />
     </>
   );
 }
