@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { listarTodos } from "../../service/pet";
 import { useNavigate } from "react-router-dom";
+import Coracao from "../../assets/Vector (4).png";
 
 // import { Container } from './styles';
 
@@ -97,7 +98,8 @@ function CardContent() {
                       </div>
                       <div className="observacoes">
                         <p>Observações importantes:</p>
-                      <p className="descricao">{pet.comments}</p>
+                      <p className="desimport { Img } from './../Logo/styles';
+cricao">{pet.comments}</p>
                         <p></p>
                       </div>
                     </div>
@@ -110,7 +112,7 @@ function CardContent() {
                       href="/contato"
                       className="btn-contatar"
                     >
-                      adotar pet <span>♥</span>
+                      Adotar pet <span><img src={Coracao}></img></span>
                     </button>
                     </div>
                   </div>
