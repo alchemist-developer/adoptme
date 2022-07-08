@@ -8,18 +8,22 @@ import ale from '../../assets/ale.png'
 import lucas from '../../assets/lucas.png'
 import * as S from './styles';
 import CarouselOngs from '../CarouselOngs';
+import { useNavigate } from 'react-router-dom';
 
 
 const BodyMenu = () => {
+
+    const navigate = useNavigate();
+
   return (
     <Fragment>
         <S.SytledContainer>
-            <ButtonAdotar display = {true}  color='#1E1E1E'>
+            <ButtonAdotar onclick={() => navigate('/queroadotar')}  display = {true}  color='#1E1E1E'>
                 Adotar um amigo
                 <S.Img src= {searchHeartWhite}/> 
             </ButtonAdotar>
 
-            <ButtonAdotar display = {true} color='white' margin={4}>
+            <ButtonAdotar onclick={() => navigate('/login')} display = {true} color='white' margin={4}>
                 Quero Doar
                 <S.Img src= {handHeart}/>
             </ButtonAdotar>

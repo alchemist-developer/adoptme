@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 interface props{
     open?: boolean;
-    display?: string;
+    display?: boolean;
     margin?: string;
 }
 
@@ -17,4 +17,5 @@ export const StyledLink = styled(Link)<props>`
     text-decoration: none;
     color: black;
     margin-top: ${props => props.margin};
+    display: ${props =>props.display ? 'block' : 'none'};
 `
