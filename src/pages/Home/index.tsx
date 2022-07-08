@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../store/user";
+import { User } from "../../types";
 
 
 
@@ -22,26 +23,38 @@ const Home = () => {
 
   const dispatch = useDispatch()
 
-  let takeUser = useSelector((state: RootState)=> state.persistedReducer.isLogged)
-  const [changeRota, setChangeRota] = useState(takeUser)
+  let takeUser = useSelector((state: RootState)=> state.persistedReducer.user) as User
+  const [changeRota, setChangeRota] = useState(false)
+  const [infoUser, setInfoUser] = useState('usuario')
 
   const optionExit = () =>{
     dispatch(signOut())
     setChangeRota(false)
+    setInfoUser('usuario')
   }
+
+  useEffect(() =>{
+    const takeInfoUser = () =>{
+      if (Object.keys(takeUser).length > 0) {
+        setInfoUser(takeUser.name_user)
+        setChangeRota(true)
+      }
+    }
+    takeInfoUser()
+  },[])
 
   return (
     <Fragment>
       <Header display = {true} logo="none" background="white">
         <Logo margin = {'none'}/>
-        <OptionMenu  user_name= {'user'}>
+        <OptionMenu  user_name= {infoUser}>
           <LinkOptionMenu display = {!changeRota} rota="/queroadotar" icon= {searchHeartBlack} >
             Buscar um amigo
           </LinkOptionMenu>
           <LinkOptionMenu display = {!changeRota} rota="/login" icon= {handHeart} >
             Doar um amigo
           </LinkOptionMenu>
-          <LinkOptionMenu display = {changeRota} rota='/' icon= {userProfile} >
+          <LinkOptionMenu display = {changeRota} rota='/userprofile' icon= {userProfile} >
             Editar perfil
           </LinkOptionMenu>
           <LinkOptionMenu display = {changeRota}  rota='/' icon= {handHeart} >

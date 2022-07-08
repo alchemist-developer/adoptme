@@ -35,14 +35,20 @@ export const StyledButton = styled.button<props>`
     border: none;
     display: ${props =>props.open ? 'flex': 'none'};
 `
+export const StyledButtonX = styled.button`
+    padding: 0;
+    background-color: transparent;
+    height: 0;
+    border: none;    
+`
 
 export const StyledImg = styled.img`
     width: 80%;
 `
 
 export const StyledIcon = styled.img`
-    width: 12%;
-    height: 70%;
+    width: 20px;
+    height: 20px;
     margin-right: 5%;
 `
 

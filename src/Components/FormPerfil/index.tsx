@@ -16,6 +16,7 @@ import { Modal } from 'react-bootstrap';
 import { cadastroUsuario } from '../../service/user';
 import OptionMenuCadastro from '../OptionMenuCadastro';
 import { toast } from 'react-toastify'
+import { User } from '../../types';
 
 const FormPerfil = () => {
 
@@ -77,7 +78,8 @@ const FormPerfil = () => {
       setErro('Enviando dados...')
       setimagemModal(dogTurtle)  
       
-      let response = await cadastroUsuario(data)
+      
+      let response = await cadastroUsuario(data as unknown as User)
       
       if (response.user_id) {
         setShow(true)

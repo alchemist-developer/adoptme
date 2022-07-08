@@ -1,4 +1,4 @@
-import { Form, FormCheck } from "react-bootstrap";
+import { Form, FormCheck, ModalBody } from "react-bootstrap";
 import styled from "styled-components";
 
 export const StyledForm = styled(Form)`
@@ -15,4 +15,7 @@ export const Check = styled(FormCheck)`
 export const Img = styled.img`
     width: 100%;
     margin: auto;
+`
+export const Modalbody = styled(ModalBody)`
+    display: flex;
 `

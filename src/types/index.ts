@@ -4,6 +4,7 @@ export interface SignIn {
 }
 
 export interface User extends SignIn {
+    user_id: number,
     name_user: string,
     email: string,
     password: string,

@@ -21,7 +21,9 @@ const FormPersonal = (props: Props) => {
         <InputFile 
             onchange={onchange}
             id="image"
-            erros = {props.formik.errors.image}  
+            erros = {props.formik.errors.image}
+            isinvalid = {props.formik.touched.image && !!props.formik.errors.image}
+            isvalid = {props.formik.touched.image && !props.formik.errors.image}  
         />
 
         <Inputs

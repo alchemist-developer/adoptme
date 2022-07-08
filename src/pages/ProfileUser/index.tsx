@@ -15,7 +15,7 @@ const ProfileUser = () => {
 
         <BackArrow 
           display = {'center'} 
-          url = '' 
+          url = '/' 
           onclick = {()=>{}}
         />
         

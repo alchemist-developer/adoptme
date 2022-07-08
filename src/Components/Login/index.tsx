@@ -14,7 +14,7 @@ import Banner from "../../assets/bannerCadastro.png";
 
 const FormLogin = () => {
 
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
