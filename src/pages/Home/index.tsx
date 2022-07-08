@@ -16,12 +16,14 @@ import { RootState } from "../../store";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../store/user";
 import { User } from "../../types";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Home = () => {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   let takeUser = useSelector((state: RootState)=> state.persistedReducer.user) as User
   const [changeRota, setChangeRota] = useState(false)
@@ -31,6 +33,10 @@ const Home = () => {
     dispatch(signOut())
     setChangeRota(false)
     setInfoUser('usuario')
+    navigate('/')
+
+
+    
   }
 
   useEffect(() =>{

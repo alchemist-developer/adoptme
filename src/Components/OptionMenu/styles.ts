@@ -72,5 +72,6 @@ export const StyledLink = styled(Link)<props>`
     display: ${props => props.display};
     margin-top: ${props => props.margin};
     width: 100%;
+    align-items: center;
 
 `
