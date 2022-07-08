@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 
 export const InfoContainer = styled.div`
-  font-family: "Roboto", sans-serif;
   position: fixed;
   transform: translateY(89%);
   width: 100%;

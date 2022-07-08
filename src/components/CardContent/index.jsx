@@ -84,10 +84,10 @@ function CardContent() {
                           <img src={Share} alt="" />
                         </button>
                       </div>
-                      <p className="doador">
+                      {/* <p className="doador">
                         {" "}
                         <strong>{}</strong>
-                      </p>
+                      </p> */}
                       <p className="local">{pet.city + ", " + pet.state}</p>
                       <div className="row-container">
                         <div className="row-item2">{pet.type}</div>
@@ -95,12 +95,13 @@ function CardContent() {
                         <div className="row-item3">{pet.gender}</div>
                         <div className="row-item1">{pet.size}</div>
                       </div>
-                      <p className="descricao">{pet.comments}</p>
                       <div className="observacoes">
-                        <p>Observações importantes</p>
+                        <p>Observações importantes:</p>
+                      <p className="descricao">{pet.comments}</p>
                         <p></p>
                       </div>
                     </div>
+                    <div className="flex-end">
                     <button
                       onClick={() => {
                         navigate("/contato/"+pet.user_id);
@@ -111,6 +112,7 @@ function CardContent() {
                     >
                       adotar pet <span>♥</span>
                     </button>
+                    </div>
                   </div>
                 </InfoDog>
               </div>
