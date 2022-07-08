@@ -17,7 +17,7 @@ const Home = () => {
       <Header display = {true} logo="none" background="white">
         <Logo margin = {'none'}/>
         <OptionMenu  user_name="usuario">
-          <LinkOptionMenu rota="/cadastro" icon= {searchHeartBlack} >
+          <LinkOptionMenu rota="/queroadotar" icon= {searchHeartBlack} >
             Buscar um amigo
           </LinkOptionMenu>
           <LinkOptionMenu rota="/" icon= {handHeart} >
