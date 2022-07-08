@@ -34,18 +34,15 @@ div.containerForm-login{
 }
 
 .divImageLogin img {
-    height: 200px;
     width: 100vw;
     max-width: 390px;
 }
 
 h1.titulo-login{
     font-weight: bold;
-    font-size: 24px;
     color: #000;
 }
 p.cadastro{
-    font-weight: bold;
     font-size: 15px;
 }
 
@@ -58,7 +55,6 @@ p.cadastro{
 }
 
 p.infoInput{
-    font-weight: 900;
     color: black;
     padding-left: 10px;
     margin: 0%;
@@ -91,7 +87,7 @@ Button.botao-login {
     background-color: black !important;
     height:45px;
     color: #fff !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     font-size: 24px;
     width: 360px;
     margin: 0%;

@@ -13,6 +13,8 @@ const FormCadastro = ({formik, display}: Props) => {
   return (
     <S.SytledDiv display={display}>
       <S.Img src= {banner} />
+      <S.H1 className='cadastro'>Cadastre-se</S.H1>
+      <S.P className='retornaLogin'>Já possui conta? <a href='/login'>Entre aqui</a></S.P>
       <S.DivInput display = {true}>
       <Inputs
           textLabel='Email'

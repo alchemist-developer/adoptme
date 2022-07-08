@@ -16,4 +16,14 @@ export const DivInput = styled.div<props>`
 export const Img = styled.img`
     width: 100%;
 `
+export const H1 = styled.h1`
+    text-align: center;
+    font-weight: bold;
+
+`
+export const P = styled.p`
+    text-align: center;
+    font-size: 15px;
+    margin: 0%;
+`
 
