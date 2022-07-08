@@ -10,31 +10,29 @@ import "./styles-login.css";
 import baseAPI from '../../service/baseAPI';
 import Banner from "../../assets/bannerCadastro.png";
 
-
-
 // import { Container } from './styles';
 
 const FormLogin = () => {
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: ''
-    },
-    validationSchema: Yup.object({
-      email: Yup.string().email('Por favor preencha com um email válido').required('Por favor preencha com seu email'),
-      password: Yup.string().required('Por favor preencha com uma senha valida').min(6, 'Sua password deve ter no mínimo 8 caracteres').max(12, 'Sua password deve ter no máximo 12 caracteres'),
-    }),
-    onSubmit: async values => {
-      const { token, user } = await loginUsuario(values);
-      dispatch(signIn({ token }));
-      //@ts-ignore
-      baseAPI.defaults.headers["Authorization"] = `Bearer ${token}`
-      navigate("/cadastro")
-    }
-  });
+    const navigate = useNavigate();
+    const formik = useFormik({
+        initialValues: {
+          email: '',
+          password: ''
+        },
+        validationSchema: Yup.object({
+          email: Yup.string().email('Por favor preencha com um email válido').required('Por favor preencha com seu email'),
+          password: Yup.string().required('Por favor preencha com uma senha valida').min(6, 'Sua password deve ter no mínimo 8 caracteres').max(12, 'Sua password deve ter no máximo 12 caracteres'),
+        }),
+        onSubmit: async values => {
+          const { token, user} = await loginUsuario(values);
+          dispatch(signIn({token, user}));
+          //@ts-ignore
+          baseAPI.defaults.headers["Authorization"] = `Bearer ${token}`
+          navigate("/cadastro")
+        }
+      });
 
   return (
 

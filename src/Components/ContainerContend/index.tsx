@@ -4,10 +4,10 @@ import dog from '../../assets/gato1.jpg'
 
 const ConatinerContend = ({children}:{children:ReactNode}) => {
   return (
-    <Fragment>
+    <S.StyledDiv>
       {children}
-      <S.Img src= {dog} />
-    </Fragment>    
+      
+    </S.StyledDiv>    
   )
 }
 

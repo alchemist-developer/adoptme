@@ -8,11 +8,15 @@ export interface User extends SignIn {
     email: string,
     password: string,
     confirmPassword?: string,
+    image: string,
+    comments?: string,
+    address: string,
+    phone?: string,
+    mobile: string,
+    whats: string,
 }
 export interface UserState {
     isLogged: boolean,
     accessToken: string,
-    id?: number,
-    name_user?: string,
-    email?: string,
+    user: {}
 }

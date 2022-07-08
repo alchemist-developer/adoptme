@@ -6,11 +6,16 @@ import FormCadastro from '../Cadastro';
 import FormPersonal from '../FormPersonal';
 import Header from "../Header";
 import Logo from "../Logo";
+import dogTurtle from '../../assets/dogTurtle.gif'
+import success from '../../assets/success.gif'
+import errorCat from '../../assets/errorCat.gif'
 import BackArrow from "../BackArrow";
-import OptionMenu from "../OptionMenu";
 import { useState } from 'react';
 import {FiLogIn} from 'react-icons/fi';
 import { Modal } from 'react-bootstrap';
+import { cadastroUsuario } from '../../service/user';
+import OptionMenuCadastro from '../OptionMenuCadastro';
+import { toast } from 'react-toastify'
 
 const FormPerfil = () => {
 
@@ -30,6 +35,8 @@ const FormPerfil = () => {
     phone: Yup.string(),
 
     mobile: Yup.string().min(10,'Deve ter no mínimo 10 digitios').required('O telefone é obrigatório'),
+
+    image: Yup.string().required('A imagem deve ser obrigatório'),
   })
 
   const formik = useFormik({
@@ -43,57 +50,124 @@ const FormPerfil = () => {
       address: '',
       phone: '',
       mobile: '',
-      whats: '',
+      whats: 'false',
 
     },
     validationSchema,
-    onSubmit: (values)=>{
-      console.log(values);
+    onSubmit: async (values)=>{
       let data = new FormData()
       data.append('name_user', values.name_user)      
       data.append('password', values.password)      
       data.append('email', values.email)   
-      data.append('image', values.image)      
-      data.append('comments', values.comments)      
-      data.append('address', values.address)      
-      data.append('phone', values.phone)      
+      data.append('image', values.image)
+
+      if (values.comments) {       
+        data.append('comments', values.comments)  
+      }      
+          
+      if (values.phone) {
+        data.append('phone', values.phone) 
+      }
+
+      data.append('address', values.address)     
       data.append('mobile', values.mobile)      
       data.append('whats', values.whats)
-            
-      setShow(true)     
+    
+      setShow(true)
+      setErro('Enviando dados...')
+      setimagemModal(dogTurtle)  
+      
+      let response = await cadastroUsuario(data)
+      
+      if (response.user_id) {
+        setShow(true)
+        setErro('Conta criada com sucesso!')
+        setimagemModal(success)
+      }
+      else{
+        setShow(true)
+        setimagemModal(errorCat)
+        setErro(response)
+      }  
     }
   })
 
   const [changePage, setChangePage] = useState(true)
   const [show, setShow] = useState(false)
+  const [erro, setErro] = useState('')
+  const [imagemModal, setimagemModal] = useState(dogTurtle)
+
+  const advance = () => {
+    if (formik.values.email && !formik.errors.confirmPassword) {
+      setChangePage(!changePage)
+      toast.success("Agora preencha o seu perfil!", {
+        position: toast.POSITION.TOP_CENTER
+      });
+       
+    }
+    else{
+      toast.warn('Preencha todos os campos!')  
+    }
+  }
 
   return (
     <>
-      <Header display= {!changePage} logo="center" background="rgba(255, 255, 255, 0.75)">
-        <BackArrow display = {'center'} url = '' onclick = {()=>setChangePage(true)}/>
+      <Header 
+        display= {!changePage} 
+        logo="center" 
+        background="rgba(255, 255, 255, 0.75)"
+      >
+
+        <BackArrow 
+          display = {'center'} 
+          url = '' 
+          onclick = {()=>setChangePage(true)}
+        />
+        
         <Logo margin = {'center'}/>
-        <OptionMenu displayProfile="none"/>
+
+        <OptionMenuCadastro user={'usuario'} />
+
       </Header>
-      <S.StyledForm display = {changePage} onSubmit = {formik.handleSubmit}>
 
-        <FormCadastro display= {changePage} formik = {formik} />
+      <S.StyledForm 
+        display = {changePage} 
+        onSubmit = {formik.handleSubmit}
+      >
 
-        <FormPersonal display= {!changePage} formik = {formik} />
+        <FormCadastro display= {changePage} formik = {formik}/>
 
-        <ButtonAdotar display= {!changePage} color='#1E1E1E' type='submit'>
+        <FormPersonal display= {!changePage} formik = {formik}/>
+
+        <ButtonAdotar 
+          display= {!changePage} 
+          color='#1E1E1E' 
+          type='submit'
+        >
           Salvar Perfil ✔
         </ButtonAdotar>
-
+    
         <S.DivButton>
-          <ButtonAdotar onclick={()=>setChangePage(!changePage)} margin = {9} display= {changePage} color='#1E1E1E' type='button'>
-            Avançar <FiLogIn/>
+
+          <ButtonAdotar 
+            onclick={advance} 
+            margin = {9} 
+            display= {changePage} 
+            color='#1E1E1E' 
+            type='button'
+          >
+            Avançar 
+          <FiLogIn/>
           </ButtonAdotar>
         </S.DivButton>
 
       <Modal centered show={show} onHide={()=>setShow(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Conta criada com sucesso!</Modal.Title>
+          <Modal.Title>{erro}</Modal.Title>
         </Modal.Header>
+        <S.Modalbody>
+            <S.Img src={imagemModal} />
+        </S.Modalbody>
       </Modal>
 
       </S.StyledForm>

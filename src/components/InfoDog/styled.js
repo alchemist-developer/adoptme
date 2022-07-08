@@ -6,12 +6,12 @@ export const InfoContainer = styled.div`
   transform: translateY(89%);
   width: 100%;
   height: 90%;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0.7371323529411764) 58%,
-    rgba(238, 238, 238, 0.7175245098039216) 67%
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 1) 20%
   );
+  backdrop-filter: blur(2px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +29,6 @@ export const InfoContainer = styled.div`
       transform: translateY(12%);
       width: 100%;
       height: 90%;
-      font-family: "Roboto", sans-serif;
-      background-color: rgba(255, 255, 255, 0.842);
     `}
 `;
+
