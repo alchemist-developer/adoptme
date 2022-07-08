@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import Vetor from "../../assets/vector.png";
-import Share from "../../assets/share.png";
+import Share from "../../assets/Vector.svg";
 import InfoDog from "../InfoDog";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -12,7 +12,6 @@ import Coracao from "../../assets/Vector (4).png";
 // import { Container } from './styles';
 
 function CardContent() {
-
   const navigate = useNavigate();
   const [active, setActive] = useState(false);
   function handleClick() {
@@ -46,8 +45,7 @@ function CardContent() {
         pet.type === INPUT.escolhaDoAnimal &&
         pet.age === INPUT.idadeDoAnimal
       ) {
-       array.push(pet); 
-  
+        array.push(pet);
       }
     });
     console.log(array);
@@ -64,12 +62,21 @@ function CardContent() {
         onSwiper={(swiper) => console.log(swiper)}
       >
         {array.map((pet) => {
-         {/* setInfoPet(pet); */}
+          {
+            /* setInfoPet(pet); */
+          }
           return (
             <SwiperSlide>
               <div className="card-container">
                 <div>
-                  <img className="card-img" src={`http://res.cloudinary.com/luizatrocino/image/upload/` + pet.image_pet01} alt="" />
+                  <img
+                    className="card-img"
+                    src={
+                      `http://res.cloudinary.com/luizatrocino/image/upload/` +
+                      pet.image_pet01
+                    }
+                    alt=""
+                  />
                 </div>
                 <InfoDog active={active}>
                   <div className="info-dog-column">
@@ -98,22 +105,29 @@ function CardContent() {
                       </div>
                       <div className="observacoes">
                         <p>Observações importantes:</p>
-                      <p className="desimport { Img } from './../Logo/styles';
-cricao">{pet.comments}</p>
+                        <p
+                          className="desimport { Img } from './../Logo/styles';
+cricao"
+                        >
+                          {pet.comments}
+                        </p>
                         <p></p>
                       </div>
                     </div>
                     <div className="flex-end">
-                    <button
-                      onClick={() => {
-                        navigate("/contato/"+pet.user_id);
-                      }}
-                      type="button"
-                      href="/contato"
-                      className="btn-contatar"
-                    >
-                      Adotar pet <span><img src={Coracao}></img></span>
-                    </button>
+                      <button
+                        onClick={() => {
+                          navigate("/contato/" + pet.user_id);
+                        }}
+                        type="button"
+                        href="/contato"
+                        className="btn-contatar"
+                      >
+                        Adotar pet{" "}
+                        <span>
+                          <img src={Coracao}></img>
+                        </span>
+                      </button>
                     </div>
                   </div>
                 </InfoDog>
