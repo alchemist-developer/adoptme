@@ -34,8 +34,6 @@ const Home = () => {
     setChangeRota(false)
     setInfoUser('usuario')
     navigate('/')
-
-
     
   }
 
