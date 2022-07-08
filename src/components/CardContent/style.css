@@ -20,7 +20,6 @@ div.dog-nome-row {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 2px;
 }
 
 div.info-dog-column {
@@ -38,13 +37,13 @@ div.flex-end {
 
 div.observacoes {
     margin-top: 1rem;
+    padding: 2px;
 }
 
 button.compartilhar-btn {
-    background-color: rgba(255, 255, 255, 0.603);
+    background-color: rgba(255, 255, 255, 0.43);
     border: 2px solid rgba(0, 0, 0, 0.515);
     color: rgb(0, 0, 0);
-    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -55,6 +54,7 @@ button.compartilhar-btn {
     padding: 3px 5px;
     border-radius: 8px;
 }
+
 
 button.btn {
     background-color: #a19e9e83;
@@ -93,7 +93,7 @@ button.btn-fromtop {
     border: none;
     color: yellow;
     font-size: 20px;
-    padding-top: 17px;
+    padding-top: 10px; 
 }
 
 div.row-container {
