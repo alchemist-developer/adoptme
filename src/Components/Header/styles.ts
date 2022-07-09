@@ -15,5 +15,7 @@ export const StyledDiv = styled.div<props>`
     width: 100%;
     background: ${props =>props.background};
     display: ${props =>props.display ? 'flex' : 'none'};
+    padding-bottom: 1%;
+
 `
 

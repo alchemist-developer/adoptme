@@ -21,3 +21,9 @@ export interface UserState {
     accessToken: string,
     user: {}
 }
+
+export const  TypeErros = {
+    'Erro: "E-mail já cadastrado"': 'E-mail já cadastrado. Retorne a tela anterior e escolha outro e-mail!',
+
+    'Erro: undefined': 'Erro indefinido. Fale com a nossa central!'
+  }

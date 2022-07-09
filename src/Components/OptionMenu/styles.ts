@@ -39,8 +39,7 @@ export const StyledButton = styled.button<props>`
     justify-content: end;
     padding: 0;
     width: 10%;
-    margin: auto 0;
-    margin-right: 1%;
+    margin: 1% 1% 0% 0%;
     border: none;
     display: ${props =>props.open ? 'flex': 'none'};
 `
@@ -52,7 +51,8 @@ export const StyledButtonX = styled.button`
 `
 
 export const StyledImg = styled.img`
-    width: 80%;
+    width: 100%;
+    height: 100%;
 `
 
 export const StyledIcon = styled.img`

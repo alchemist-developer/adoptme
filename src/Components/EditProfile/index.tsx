@@ -15,6 +15,7 @@ import errorCat from '../../assets/errorCat.gif'
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { signIn } from '../../store/user';
+import { TypeErros } from '../../types';
 
 const FormPerfil = () => {
 
@@ -22,8 +23,6 @@ const FormPerfil = () => {
   var token = useSelector((state: RootState)=>state.persistedReducer.accessToken)
 
   var takeUser  = useSelector((state: RootState)=>state.persistedReducer.user) as User
-
-  console.log(takeUser);
   
 
   const validationSchema = Yup.object({
@@ -82,7 +81,15 @@ const FormPerfil = () => {
       setimagemModal(dogTurtle) 
 
       let response = await EditarUsuario(takeUser.user_id, data as unknown as User)
-      console.log(response);
+              
+      //@ts-ignore
+      if(TypeErros[response]){
+        //@ts-ignore
+        setErro(TypeErros[response])
+      }      
+      else{
+        setErro(response)
+      }
       
       if (response.user_id) {
         setShow(true)
@@ -93,7 +100,6 @@ const FormPerfil = () => {
       else{
         setShow(true)
         setimagemModal(errorCat)
-        setErro(response)
       }  
     }
   })
@@ -134,7 +140,7 @@ const FormPerfil = () => {
             erros = {formik.errors.name_user}   
         />
 
-<Inputs
+        <Inputs
           textLabel='Senha'
           placeholder='Crie uma senha'
           value = {formik.values.password}
@@ -184,7 +190,7 @@ const FormPerfil = () => {
         <Inputs
             textLabel='Telefone Fixo (Opcional)'
             typeInput='tel'
-            placeholder='(99) 9999-9999'
+            placeholder='DDD e o telefone. Use apenas números!'
             value = {formik.values.phone}
             id = 'phone'
             onchange={formik.handleChange}
@@ -194,13 +200,14 @@ const FormPerfil = () => {
         <Inputs
             textLabel='Telefone Celular'
             typeInput='tel'
-            placeholder='(99) 9999-9999'
+            placeholder='DDD e o celular. Use apenas números!'
             value = {formik.values.mobile}
             id = 'mobile'
             onchange={formik.handleChange}
             isinvalid = {formik.touched.mobile && !!formik.errors.mobile}
             isvalid = {formik.touched.mobile && !formik.errors.mobile}
-            erros = {formik.errors.mobile}   
+            erros = {formik.errors.mobile}
+            pattern="[0-9]{11}"     
         />
 
         <S.Check 

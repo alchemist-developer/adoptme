@@ -21,16 +21,12 @@ import LinkOptionMenu from '../LinkOptionMenu';
 import searchHeartBlack from '../../assets/searchHeartBlack.png'
 import handHeart from '../../assets/handHeart.png'
 import { useNavigate } from 'react-router-dom';
+import { TypeErros } from '../../types';
 
 
 const FormPerfil = () => {
 
   const navigate = useNavigate()
-  const tiposErros = {
-    'Erro: "E-mail já cadastrado"': 'E-mail já cadastrado. Retorne a tela anterior e escolha outro e-mail!',
-
-    'Erro: undefined': 'Erro indefinido. Fale com a nossa central!'
-  }
 
   const validationSchema = Yup.object({
     name_user: Yup.string().required('Por favor preencha com seu nome'),
@@ -96,9 +92,9 @@ const FormPerfil = () => {
       console.log(response);
       
       //@ts-ignore
-      if(tiposErros[response]){
+      if(TypeErros[response]){
         //@ts-ignore
-        setErro(tiposErros[response])
+        setErro(TypeErros[response])
       }      
       else{
         setErro(response)
