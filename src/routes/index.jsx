@@ -13,9 +13,14 @@ import QueroDoar from '../components/QueroDoar'
 import QueroAdotar from '../components/QueroAdotar'
 import ProfileUser from '../pages/ProfileUser'
 
+
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 function Routes() {
+
+  const permission  = useSelector((state)=>state.persistedReducer.isLogged)
+  console.log(permission);
 
   const [inputValues, setInputValues] = useState({})
   const [infoPet, setInfoPet] = useState([])
@@ -27,11 +32,10 @@ function Routes() {
         <Route path="/contato/:id" element={<Contatar infoPet={infoPet} />} />
         <Route path="/" element={<Home/>}/>
         <Route path="/cadastro" element={<Cadastro/>} />
-        <Route path= '/admin' element = {<Admin/>}/>
         <Route path='/login' element={<Login />} />
-        <Route path= '/querodoar' element = {<QueroDoar/>}/>
+        <Route path= '/querodoar' element = {permission ? <QueroDoar/> : <Home/>}/>
         <Route path='/queroadotar' element={<QueroAdotar setInputValues={setInputValues}/>} />
-        <Route path='/userprofile' element={<ProfileUser/>} />
+        <Route path='/userprofile' element={permission ? <ProfileUser/> : <Home/>} />
       </WrapperRoutes>
     </BrowserRouter>
   );
