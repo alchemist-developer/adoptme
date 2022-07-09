@@ -4,6 +4,9 @@ import Vetor from "../../assets/vector.png";
 import Share from "../../assets/Vector.svg";
 import InfoDog from "../InfoDog";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCards } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-cards";
 import "swiper/css";
 import { listarTodos } from "../../service/pet";
 import { useNavigate } from "react-router-dom";
@@ -60,6 +63,10 @@ function CardContent() {
         slidesPerView={1}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
+        effect={"cards"}
+        grabCursor={true}
+        modules={[EffectCards]}
+        className="mySwiper"
       >
         {array.map((pet) => {
           {
