@@ -22,11 +22,10 @@ const FormPerfil = () => {
   const dispatch = useDispatch();
   var token = useSelector((state: RootState)=>state.persistedReducer.accessToken)
 
-  var takeUser   = useSelector((state: RootState)=>state.persistedReducer.user) as User
-  var decoded= jwt_decode(token);
-  if (takeUser.phone == null) {
-    takeUser.phone = ''
-  }  
+  var takeUser  = useSelector((state: RootState)=>state.persistedReducer.user) as User
+
+  console.log(takeUser);
+  
 
   const validationSchema = Yup.object({
     name_user: Yup.string().required('Por favor preencha com seu nome'),
