@@ -53,7 +53,7 @@ export default function Contact(props) {
       </Header>
         <div className="img-contact">
       <div className="container-contato">
-          <img className="contato-img" src={Foto} alt="imagem do contato" />
+          <img className="contato-img" src={`http://res.cloudinary.com/luizatrocino/image/upload/`+usuario.image_user} alt="imagem do contato" />
         </div>
         <div className="body-contato">
           <div className="desc-contato">
