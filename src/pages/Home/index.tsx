@@ -75,6 +75,7 @@ const Home = () => {
           </LinkOptionMenu>
         </OptionMenu>
       </Header>
+      
       <CarouselHome/>
       <BodyMenu/>
       <Footer/>

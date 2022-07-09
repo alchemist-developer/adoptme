@@ -7,6 +7,15 @@ interface props{
     margin?: string;
 }
 
+export const ScreenOption = styled.div<props>`
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    display: ${props =>props.open ? 'none': 'flex'};
+
+`
+
 export const Option = styled.div<props>`
     width: 60%;
     display: flex;
@@ -64,6 +73,7 @@ export const StyledTeste = styled.div<props>`
     display: flex;
     justify-content: end;
     min-height: 49px;
+
 `
 
 export const StyledLink = styled(Link)<props>`

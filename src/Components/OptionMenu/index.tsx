@@ -18,6 +18,7 @@ const OptionMenu = (props:Props) => {
         <S.StyledButton onClick={()=> setOpen(!open)} open={open}>
             <S.StyledImg src= {collapse} />
         </S.StyledButton>
+        <S.ScreenOption onClick={()=> setOpen(!open)}  open={open}></S.ScreenOption>
         <S.Option open={open}>
 
             <S.StyledDivClose>
