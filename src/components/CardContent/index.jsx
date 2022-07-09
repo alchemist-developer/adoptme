@@ -103,12 +103,12 @@ function CardContent() {
                         {" "}
                         <strong>{}</strong>
                       </p> */}
-                      <p className="local">{pet.city + ", " + pet.state}</p>
+                      <p className="local">{pet.state}</p>
                       <div className="row-container">
-                        <div className="row-item2">{pet.type}</div>
-                        <div className="row-item4">{pet.age}</div>
-                        <div className="row-item3">{pet.gender}</div>
-                        <div className="row-item1">{pet.size}</div>
+                        <div className="row-item1">{pet.type}</div>
+                        <div className="row-item2">{pet.gender}</div>
+                        <div className="row-item3">{pet.age}</div>
+                        <div className="row-item4">{pet.size}</div>
                       </div>
                       <div className="observacoes">
                         <p>Observações importantes:</p>
