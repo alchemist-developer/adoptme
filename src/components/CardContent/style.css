@@ -100,7 +100,6 @@ div.row-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 6px;
 }
 
 
@@ -143,7 +142,7 @@ div.row-item1 {
     border: #1E1E1E 1px solid;
     margin: 2px;
     font-size: 14px;
-    padding: 4px 5px;
+    padding: 4px 15px;
 }
 
 div.row-item2 {
@@ -153,7 +152,7 @@ div.row-item2 {
     border: #1E1E1E 1px solid;
     margin: 2px;
     font-size: 14px;
-    padding: 4px 5px;
+    padding: 4px 15px;
 }
 
 div.row-item3 {
@@ -163,7 +162,7 @@ div.row-item3 {
     border: #1E1E1E 1px solid;
     margin: 2px;
     font-size: 14px;
-    padding: 4px 5px;
+    padding: 4px 15px;
 }
 
 div.row-item4 {
@@ -173,9 +172,14 @@ div.row-item4 {
     border: #1E1E1E 1px solid;
     margin: 2px;
     font-size: 14px;
-    padding: 4px 5px;
+    padding: 4px 15px;
 }
 
 div.dog-content {
     margin: 0px 15px;
+}
+
+p.local {
+    margin-bottom: 36px;
+    margin-top: -11px;
 }
