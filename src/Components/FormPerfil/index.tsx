@@ -14,7 +14,7 @@ import { useState } from 'react';
 import {FiLogIn} from 'react-icons/fi';
 import { Modal } from 'react-bootstrap';
 import { cadastroUsuario } from '../../service/user';
-import OptionMenuCadastro from '../OptionMenuCadastro';
+// import OptionMenuCadastro from '../OptionMenuCadastro';
 import { toast } from 'react-toastify'
 import { User } from '../../types';
 
