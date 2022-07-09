@@ -2,7 +2,6 @@ import ButtonAdotar from '../ButtonAdotar';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
 import * as S from './styles';
-import jwt_decode from "jwt-decode";
 import { EditarUsuario } from '../../service/user';
 import InputFile from '../InputFile';
 import Inputs from '../Inputs';

@@ -27,7 +27,7 @@ const InputFile = ({onchange, id, erros, isvalid, isinvalid}:Props) => {
       <S.StyledDiv>          
         <S.Img src={files}/>
         <S.StyledDivInput>
-        <small> {erros} </small>
+        <S.Small> {erros} </S.Small>
           <S.InputText 
             type="text"
             disabled 

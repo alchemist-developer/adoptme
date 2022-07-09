@@ -65,7 +65,7 @@ const FormPersonal = (props: Props) => {
         <Inputs
             textLabel='Telefone Fixo (Opcional)'
             typeInput='tel'
-            placeholder='(99) 9999-9999'
+            placeholder='DDD e o telefone. Use apenas números!'
             value = {props.formik.values.phone}
             id = 'phone'
             onchange={props.formik.handleChange}
@@ -75,13 +75,14 @@ const FormPersonal = (props: Props) => {
         <Inputs
             textLabel='Telefone Celular'
             typeInput='tel'
-            placeholder='(99) 9999-9999'
+            placeholder='DDD e o celular. Use apenas números!'
             value = {props.formik.values.mobile}
             id = 'mobile'
             onchange={props.formik.handleChange}
             isinvalid = {props.formik.touched.mobile && !!props.formik.errors.mobile}
             isvalid = {props.formik.touched.mobile && !props.formik.errors.mobile}
-            erros = {props.formik.errors.mobile}   
+            erros = {props.formik.errors.mobile}
+            pattern="[0-9]{11}"    
         />
 
         <S.Check 

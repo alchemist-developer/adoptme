@@ -58,3 +58,8 @@ export const InputText = styled(FormControl)<props>`
 export const Label = styled.label`
     margin-top: 7%;
 `
+
+export const Small = styled.small`
+    color: red;
+    font-size: 10px;
+`

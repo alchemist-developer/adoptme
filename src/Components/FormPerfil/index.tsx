@@ -26,15 +26,20 @@ import { useNavigate } from 'react-router-dom';
 const FormPerfil = () => {
 
   const navigate = useNavigate()
+  const tiposErros = {
+    'Erro: "E-mail já cadastrado"': 'E-mail já cadastrado. Retorne a tela anterior e escolha outro e-mail!',
+
+    'Erro: undefined': 'Erro indefinido. Fale com a nossa central!'
+  }
 
   const validationSchema = Yup.object({
     name_user: Yup.string().required('Por favor preencha com seu nome'),
 
     email: Yup.string().email('Por favor preencha com um email válido').required('Por favor preencha com seu email'),
 
-    password: Yup.string().required('Por favor preencha com uma password').min(8, 'Sua password deve ter no mínimo 8 caracteres').max(12, 'Sua password deve ter no máximo 12 caracteres'),
+    password: Yup.string().required('Por favor preencha com uma senha').min(8, 'Sua senha deve ter no mínimo 8 caracteres').max(12, 'Sua senha deve ter no máximo 12 caracteres'),
 
-    confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'As passwords não são iguais').required('Por favor preencha com uma password'),
+    confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'As senhas não são iguais').required('Por favor preencha com uma senha'),
 
     comments: Yup.string(),
 
@@ -44,7 +49,7 @@ const FormPerfil = () => {
 
     mobile: Yup.string().min(10,'Deve ter no mínimo 10 digitios').required('O telefone é obrigatório'),
 
-    image: Yup.string().required('A imagem deve ser obrigatório'),
+    image: Yup.string().required('A imagem é obrigatória'),
   })
 
   const formik = useFormik({
@@ -88,6 +93,17 @@ const FormPerfil = () => {
       
       let response = await cadastroUsuario(data as unknown as User)
       
+      console.log(response);
+      
+      //@ts-ignore
+      if(tiposErros[response]){
+        //@ts-ignore
+        setErro(tiposErros[response])
+      }      
+      else{
+        setErro(response)
+      }
+
       if (response.user_id) {
         setShow(true)
         setErro('Conta criada com sucesso!')
@@ -96,7 +112,6 @@ const FormPerfil = () => {
       else{
         setShow(true)
         setimagemModal(errorCat)
-        setErro(response)
       }  
     }
   })
