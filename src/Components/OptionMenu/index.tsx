@@ -21,7 +21,13 @@ const OptionMenu = (props:Props) => {
         <S.Option open={open}>
 
             <S.StyledDivClose>
-                <S.StyledLink display='flex' to={'/'}>
+                <S.StyledLink 
+                    display='flex'
+                    to={ props.user_name == 'login' ? 
+                        '/login' :
+                        '/'
+                        }
+                    >
                     <S.StyledIcon src= {userLogin} alt="" />
                     {props.user_name}
                 </S.StyledLink>

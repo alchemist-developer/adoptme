@@ -27,12 +27,12 @@ const Home = () => {
 
   let takeUser = useSelector((state: RootState)=> state.persistedReducer.user) as User
   const [changeRota, setChangeRota] = useState(false)
-  const [infoUser, setInfoUser] = useState('usuario')
+  const [infoUser, setInfoUser] = useState('login')
 
   const optionExit = () =>{
     dispatch(signOut())
     setChangeRota(false)
-    setInfoUser('usuario')
+    setInfoUser('login')
     navigate('/')
     
   }

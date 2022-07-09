@@ -21,9 +21,11 @@ const FormPerfil = () => {
 
   const dispatch = useDispatch();
   var token = useSelector((state: RootState)=>state.persistedReducer.accessToken)
-  var decoded: User = jwt_decode(token);
-  if (decoded.phone == null) {
-    decoded.phone = ''
+
+  var takeUser   = useSelector((state: RootState)=>state.persistedReducer.user) as User
+  var decoded= jwt_decode(token);
+  if (takeUser.phone == null) {
+    takeUser.phone = ''
   }  
 
   const validationSchema = Yup.object({
@@ -46,14 +48,14 @@ const FormPerfil = () => {
 
   const formik = useFormik({
     initialValues: {
-      name_user: decoded.name_user,
+      name_user: takeUser.name_user,
       password: '',
       confirmPassword: '',
-      image: decoded.image,
-      comments: '',
-      address: decoded.address,
-      phone: decoded.phone,
-      mobile: '',
+      image: '',
+      comments: takeUser.comments,
+      address: takeUser.address,
+      phone: takeUser.phone,
+      mobile: takeUser.mobile,
       whats: 'false',
 
     },
@@ -81,7 +83,7 @@ const FormPerfil = () => {
       setErro('Enviando dados...')
       setimagemModal(dogTurtle) 
 
-      let response = await EditarUsuario(decoded.user_id, data as unknown as User)
+      let response = await EditarUsuario(takeUser.user_id, data as unknown as User)
       console.log(response);
       
       if (response.user_id) {
