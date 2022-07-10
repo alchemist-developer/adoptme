@@ -12,6 +12,7 @@ div img.card-img {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    object-fit: cover;
     margin-top: 34px;
 }
 
@@ -182,4 +183,8 @@ div.dog-content {
 p.local {
     margin-bottom: 36px;
     margin-top: -11px;
+}
+
+#tituloSemPet{
+    margin: 60px 0;
 }

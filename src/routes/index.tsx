@@ -32,7 +32,6 @@ function Routes() {
   })
 
   const permission  = useSelector((state: any)=> state.persistedReducer.isLogged)
-  console.log(permission);
 
 
 
