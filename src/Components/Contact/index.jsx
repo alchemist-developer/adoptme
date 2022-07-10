@@ -43,10 +43,12 @@ export default function Contact() {
     await users.forEach((user) => {
       if (user.user_id === Number(id)) {
         usuario = user;
+        console.log(usuario)
       }
     });
   }
   acharUsuario();
+ 
 
   return (
     <>
@@ -72,8 +74,8 @@ export default function Contact() {
               <img src={Mail} alt="" /> faleconosco@ongproteger.com.br
             </p>
             <div className="whatsapp">
-              <h6>Entre em contato com {usuario.name_user} no Whatsapp</h6>
-              <a href={`https://wa.me/`+ usuario.whats}>Abrir no Whatsapp</a>
+              <h6>Entre em  contato com {usuario.name_user} no Whatsapp</h6>
+              <a href={`https://wa.me/${usuario.mobile}`}>Abrir no Whatsapp</a>
             </div>
           </div>
         </div>
