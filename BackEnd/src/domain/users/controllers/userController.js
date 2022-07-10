@@ -76,7 +76,7 @@ const UserController = {
             const file = req.files[0]   
 
             const {password} = req.body
-            const newPassword = UserService.cripPassword(password)
+            const newPassword = await UserService.cripPassword(password)
 
             const userHasPermission = await UserService.userHasPermission(user_id,email)
 
@@ -110,7 +110,7 @@ const UserController = {
             return res.status(201).json(updatedUser);
         } catch (error) {
             console.log(error)
-            return res.status(500).json('Erro ao atualizar o usuário');
+            return res.status(500).json('Erro ao atualizar o usuário' +error);
         };
     },
     

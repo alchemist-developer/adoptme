@@ -77,6 +77,19 @@ describe('listPetsByUser:', () => {
 
 }),
 
+// describe('updateUser', () => {
+//     test('Ao atualizar um usuário autenticado, em caso de sucesso o retorno deve ser 201', async () => {
+//         const token6thUser = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6IldoaXRuZXkuV2Vpc3NuYXRAZ21haWwuY29tIiwibmFtZV91c2VyIjoiQ2xhdWRlIEhvZWdlciBJIiwiYWRkcmVzcyI6IkZvcnQgRGVzdGluZXkiLCJwaG9uZSI6bnVsbCwiaWF0IjoxNjU3NDcyMzUzfQ.g_dT5fX58egx2_2a5qcixWLQYP2J_P8nlM9PHmPztKc"
+//         const response = await supertest(app)
+//         .put("/user/6")
+//         .set('Authorization', `Bearer ${token6thUser}`)
+//         .set('Content-type','multipart/form-data')
+//         .field('password', '123456')
+//         .field('name_user', 'Pedro')
+//         expect(response.status).toBe(201)
+//     })
+// })
+
 describe('deleteUser:', () => {
     test('Ao tentar deletar a própria conta a response deve ser 200', async () => {
         const user = await UserService.activateUserForDeletionTest(3)
@@ -89,66 +102,3 @@ describe('deleteUser:', () => {
 })
 
 
-
-
-
-
-
-// async listPetsByUser(req, res) {
-//     try {
-//         const {user_id} = req.params;
-//         const userTokenId = req.auth.user_id
-//         const userExists = await UserService.userExists(user_id)
-
-//         if(user_id != userTokenId){
-//             return res.status(401).json('Usuário informado não coincide com o usuário logado')
-//         }
-
-//         if (!userExists) {
-//             return res.status(400).json('Usuário não encontrado');
-//         }
-
-//         const petsByUser = await PetService.findPetsByUser(user_id)
-//         if(petsByUser=[]){
-//             return res.status(404).json('Usuário não possui pets cadastrados atualmente')
-//         }
-
-//         return res.status(200).json(petsByUser);
-//     } catch (error) {
-//         console.log(error)
-//         return res.status(500).json('Erro ao listar os pets deste usuário');
-        
-//     };
-// }
-
-// async deleteUser(req, res) {
-//     try {
-//         const {user_id} = req.params;
-//         const { email } = req.auth
-
-//         const userHasPermission = await UserService.userHasPermission(user_id,email)
-
-//         if (!userHasPermission) {
-//             return res.status(404).json('Usuário não encontrado ou não possui permissão');
-//         }
-        
-//         const findUser = await UserService.userExists(user_id)
-//         if(!findUser.status){
-//             return res.status(401).json('Usuário já desativado')
-//         }
-
-//         await User.update({
-//             status:false
-//         }, {
-//             where: {
-//                 user_id,
-//             }
-//         });
-
-//         const updatedUser = await UserService.userExists(user_id)
-//         return res.status(200).json(updatedUser);
-//     } catch (error) {
-//         return res.status(500).res.json('Erro ao deletar usuário')
-        
-//     }
-// }
