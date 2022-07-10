@@ -10,8 +10,6 @@ import "./styles-login.css";
 import baseAPI from '../../service/baseAPI';
 import Banner from "../../assets/bannerCadastro.png";
 
-// import { Container } from './styles';
-
 const FormLogin = () => {
 
     const dispatch = useDispatch();
