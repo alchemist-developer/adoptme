@@ -50,6 +50,15 @@ function CardContent() {
       ) {
         array.push(pet);
       }
+
+      // if (
+      //     // (
+      // //   INPUT.escolhaDoAnimal.value === "tanto faz" &&
+      // //   INPUT.idadeDoAnimal === "tanto faz" &&
+      // //   INPUT.tamanhoDoAnimal === "tanto faz" &&
+      // //   INPUT.generoDoAnimal === "tanto faz" &&
+      // // ) 
+      // )
     });
     console.log(array);
   }
@@ -89,7 +98,7 @@ function CardContent() {
                   <div className="info-dog-column">
                     <div className="button-hover">
                       <button onClick={handleClick} className="btn-fromtop">
-                        <img src={Vetor} alt="" />
+                        <img className="translate" src={Vetor} alt="" />
                       </button>
                     </div>
                     <div className="dog-content">
@@ -99,8 +108,8 @@ function CardContent() {
                           <img src={Share} alt="" />
                         </button>
                       </div>
-                      {/* <p className="doador">
-                        {" "}
+                       {/* <p className="doador">
+                        {pet.user.user_name}
                         <strong>{}</strong>
                       </p> */}
                       <p className="local">{pet.state}</p>
