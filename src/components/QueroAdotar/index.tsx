@@ -143,7 +143,7 @@ function QueroAdotar({ setInputValues }: QueroAdotarProps) {
                 className="inputRadio"
                 id="tanto-faz"
                 name="generoDoAnimal"
-                value="tanto-faz"
+                value="generoTantofaz"
               />
               <S.LabelTantoFaz
                 id="label-input-tanto-faz"

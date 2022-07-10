@@ -3,7 +3,6 @@ import React from 'react';
 import CardDog from '../../components/CardDog';
 
 function AdotarPet(props: any) {
-  console.log(props.inputValues)
   
   return (
     <>

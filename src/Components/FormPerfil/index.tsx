@@ -89,7 +89,6 @@ const FormPerfil = () => {
       
       let response = await cadastroUsuario(data as unknown as User)
       
-      console.log(response);
       
       //@ts-ignore
       if(TypeErros[response]){
@@ -132,7 +131,6 @@ const FormPerfil = () => {
 
   const back = () => {
     if(changePage){
-      console.log(changePage)
       return navigate('/')
     }
     return setChangePage(true)
