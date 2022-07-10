@@ -14,11 +14,9 @@ import handHeart from '../../assets/handHeart.png'
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { useDispatch } from "react-redux";
-import { signOut } from "../../store/user";
+import { signIn, signOut } from "../../store/user";
 import { User } from "../../types";
 import { useNavigate } from "react-router-dom";
-
-
 
 const Home = () => {
 
@@ -61,7 +59,7 @@ const Home = () => {
           <LinkOptionMenu display = {changeRota} rota='/userprofile' icon= {userProfile} >
             Editar perfil
           </LinkOptionMenu>
-          <LinkOptionMenu display = {changeRota}  rota='/' icon= {handHeart} >
+          <LinkOptionMenu display = {changeRota}  rota='/admin' icon= {handHeart} >
             Meus pets
           </LinkOptionMenu>
           <LinkOptionMenu display = {changeRota}  rota='/' icon= {heart} >
@@ -70,7 +68,7 @@ const Home = () => {
           <LinkOptionMenu display = {changeRota}  rota='/' icon= {searchHeartBlack} >
             Buscar amigo
           </LinkOptionMenu>
-          <LinkOptionMenu onclick={()=>{optionExit()}} display = {changeRota}  rota='/' icon= {sign_Out} >
+          <LinkOptionMenu onclick={optionExit} display = {changeRota}  rota='/' icon= {sign_Out} >
             Sair da conta
           </LinkOptionMenu>
         </OptionMenu>
