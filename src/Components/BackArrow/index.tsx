@@ -11,7 +11,7 @@ const BackArrow = ({display, url, onclick}: Props) => {
   return (
     <S.Arrow display={display} onClick = {onclick}>
       <S.StyledLink to={url}>
-        <img src= {arrowLeft} alt="" />
+        <S.Img src= {arrowLeft} alt="" />
       </S.StyledLink>
     </S.Arrow>
   )

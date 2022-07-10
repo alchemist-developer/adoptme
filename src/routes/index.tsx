@@ -15,6 +15,7 @@ import QueroDoar from '../pages/QueroDoar'
 import QueroAdotar from '../pages/QueroAdotar'
 import ProfileUser from '../pages/ProfileUser'
 import { type QueroAdotarValues } from '../types'
+import { useSelector } from "react-redux";
 
 
 function Routes() {
@@ -27,6 +28,16 @@ function Routes() {
     tamanhoDoAnimal: ''
   })
 
+
+
+function Routes() {
+
+  const permission  = useSelector((state)=>state.persistedReducer.isLogged)
+  console.log(permission);
+
+  const [inputValues, setInputValues] = useState({})
+  const [infoPet, setInfoPet] = useState([])
+
   return (
     <BrowserRouter>
       <WrapperRoutes>
@@ -34,11 +45,10 @@ function Routes() {
         <Route path="/contato/:id" element={<Contatar/>} />
         <Route path="/" element={<Home/>}/>
         <Route path="/cadastro" element={<Cadastro/>} />
-        <Route path= '/admin' element = {<Admin/>}/>
         <Route path='/login' element={<Login />} />
-        <Route path= '/querodoar' element = {<QueroDoar/>}/>
+        <Route path= '/querodoar' element = {permission ? <QueroDoar/> : <Home/>}/>
         <Route path='/queroadotar' element={<QueroAdotar setInputValues={setInputValues}/>} />
-        <Route path='/userprofile' element={<ProfileUser/>} />
+        <Route path='/userprofile' element={permission ? <ProfileUser/> : <Home/>} />
       </WrapperRoutes>
     </BrowserRouter>
   );

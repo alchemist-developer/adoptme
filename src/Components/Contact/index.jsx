@@ -14,6 +14,8 @@ export default function Contact() {
   const [users, setUsers] = useState();
   // const [usuario, setUsuario] = useState({});
   const { id } = useParams();
+  console.log(props.infoPet, 'adryel simon')
+  const array = [];
 
   useEffect(() => {
     const loadUsers = async () => {
@@ -49,26 +51,26 @@ export default function Contact() {
         <Logo margin={"none"} />
         {/* <OptionMenu displayProfile="flex" /> */}
       </Header>
-      <div className="container-contato">
         <div className="img-contact">
-          <img className="contato-img" src={Foto} alt="imagem do contato" />
+      <div className="container-contato">
+          <img className="contato-img" src={`http://res.cloudinary.com/luizatrocino/image/upload/`+usuario.image_user} alt="imagem do contato" />
         </div>
         <div className="body-contato">
           <div className="desc-contato">
             <h1>{usuario.name_user}</h1>
-            <p className="local-contato"></p>
-            <p> </p>
+            <p className="local-contato">{usuario.address}</p>
+            <p>{usuario.comments}</p>
           </div>
 
           <div className="box-contato">
-              <h1>Quer adotar o {}</h1>
+              <h1>Quer adotar?</h1>
             <p>Para adotar ou saber mais fale com o Protetor</p>
             <p>
               <img src={Mail} alt="" /> faleconosco@ongproteger.com.br
             </p>
             <div className="whatsapp">
-              <h6>Entre em contato com a ONG Proteger no Whatsapp</h6>
-              <a href={`https://wa.me/`}>Contatar via Whatsapp</a>
+              <h6>Entre em contato com {usuario.name_user} no Whatsapp</h6>
+              <a href={`https://wa.me/`+ usuario.whats}>Abrir no Whatsapp</a>
             </div>
           </div>
         </div>

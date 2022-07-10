@@ -1,5 +1,5 @@
 .carousel-body .carousel-indicators{
-    margin-bottom: 345px;
+    margin-bottom: 325px;
     position: absolute;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .carouselItem{
-    min-height: 570px;
+    height: 600px;
 }
 
 h4, p {

@@ -21,6 +21,7 @@ img.contato-img {
     margin-top: 50px;
 }
 
+
 .img-contact {
     border-radius: 20px;
     display: block; 
@@ -36,28 +37,25 @@ div.desc-contato {
     justify-content: start;
     color: black;
     text-align: start;
-    padding: 6px;
-    background-color:transparent;
-    border-radius: 10px;
+    padding: 13px;
 }
 
 p img {
-    width: 15px;
-    height: 10px;
+    width: 30px;
+    height: 20px;
     margin-right: 5px;
 }
 
 
 
-div.desc-contato p.local-contato, p {
+/* div.desc-contato p.local-contato, p {
     margin: 3px;
     margin-bottom: 10px;
     padding-left: 3px;
     font-size: 0.9em;
-}
+} */
 
 div.box-contato {
-    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,6 +69,7 @@ div.box-contato {
     height: 275px;
     border-radius: 10px;
     border: 1px solid black;
+    margin-bottom: 20px;
 }
 
 
@@ -92,9 +91,12 @@ div.whatsapp h6 {
 
 div.whatsapp a {
     text-decoration: none;
-    background-color: #8F9799;
-    padding: 3%;
+    background-color: #77B291;
+    padding: 1.5% 5%;
     color: black;
-    border-radius: 1px;
+    border-radius: 8px;
+    border: 1px solid black;
     font-weight: bold;
+    font-weight: 200;
+    font-size: 12px;
 }

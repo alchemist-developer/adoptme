@@ -12,7 +12,7 @@ const Admin = () => {
       <Header logo="center" background = 'white' display = {true}>
         <BackArrow onclick={()=>{}} display = {'center'} url = '/userprofile'/>
         <Logo margin = {'center'}/>
-        <OptionMenu displayProfile="flex"/>
+
       </Header>
       <CardAdmin/>
     </Fragment>

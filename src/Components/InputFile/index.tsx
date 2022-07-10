@@ -6,9 +6,11 @@ interface Props{
   onchange: (e: any) => void;
   id: string;
   erros?: any;
+  isvalid?: boolean;
+  isinvalid?: boolean;
 }
 
-const InputFile = ({onchange, id, erros}:Props) => {
+const InputFile = ({onchange, id, erros, isvalid, isinvalid}:Props) => {
 
     const [files, setFiles] = useState(imgDefault);
     const [teste, setTeste] = useState('');
@@ -25,14 +27,15 @@ const InputFile = ({onchange, id, erros}:Props) => {
       <S.StyledDiv>          
         <S.Img src={files}/>
         <S.StyledDivInput>
+        <S.Small> {erros} </S.Small>
           <S.InputText 
-            type="text" 
+            type="text"
+            disabled 
             value = {teste} 
-            disabled
+            isValid={isvalid}
+            isInvalid={isinvalid}
             color = {erros}
           />
-
-          <small> {erros} </small>
 
           <S.Input
             accept="image/png,image/jpeg,image/jpg"

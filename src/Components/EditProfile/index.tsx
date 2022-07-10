@@ -2,29 +2,35 @@ import ButtonAdotar from '../ButtonAdotar';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
 import * as S from './styles';
-import jwt_decode from "jwt-decode";
-import { cadastroUsuario } from '../../service/user';
-import { toast } from 'react-toastify'
+import { EditarUsuario } from '../../service/user';
 import InputFile from '../InputFile';
 import Inputs from '../Inputs';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { User } from '../../types';
+import baseAPI from '../../service/baseAPI';
+import dogTurtle from '../../assets/dogTurtle.gif'
+import success from '../../assets/success.gif'
+import errorCat from '../../assets/errorCat.gif'
+import { useState } from 'react';
+import { Modal } from 'react-bootstrap';
+import { signIn } from '../../store/user';
+import { TypeErros } from '../../types';
 
 const FormPerfil = () => {
 
+  const dispatch = useDispatch();
   var token = useSelector((state: RootState)=>state.persistedReducer.accessToken)
-  var decoded: User = jwt_decode(token);
-  if (decoded.phone == null) {
-    decoded.phone = ''
-  }  
+
+  var takeUser  = useSelector((state: RootState)=>state.persistedReducer.user) as User
+  
 
   const validationSchema = Yup.object({
     name_user: Yup.string().required('Por favor preencha com seu nome'),
 
     password: Yup.string().required('Por favor preencha com uma senha').min(8, 'Sua senha deve ter no mínimo 8 caracteres').max(12, 'Sua senha deve ter no máximo 12 caracteres'),
 
-    confirmPassword: Yup.string().oneOf([Yup.ref('senha'), null], 'As senhas não são iguais').required('Por favor preencha com uma senha'),
+    confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'As senhas não são iguais').required('Por favor preencha com uma senha'),
 
     comments: Yup.string(),
 
@@ -34,25 +40,25 @@ const FormPerfil = () => {
 
     mobile: Yup.string().min(10,'Deve ter no mínimo 10 digitios').required('O telefone é obrigatório'),
 
-    image: Yup.string().required('A imagem deve ser obrigatório'),
+    image: Yup.string().required('A imagem deve ser obrigatória'),
   })
 
   const formik = useFormik({
     initialValues: {
-      name_user: decoded.name_user,
+      name_user: takeUser.name_user,
       password: '',
       confirmPassword: '',
       image: '',
-      comments: '',
-      address: decoded.address,
-      phone: decoded.phone,
-      mobile: '',
+      comments: takeUser.comments,
+      address: takeUser.address,
+      phone: takeUser.phone,
+      mobile: takeUser.mobile,
       whats: 'false',
 
     },
     validationSchema,
     onSubmit: async (values)=>{
-      let data = new FormData()
+      let data = new FormData() 
       data.append('name_user', values.name_user)      
       data.append('password', values.password)       
       data.append('image', values.image)
@@ -64,40 +70,48 @@ const FormPerfil = () => {
       if (values.phone) {
         data.append('phone', values.phone) 
       }
-
       data.append('address', values.address)     
       data.append('mobile', values.mobile)      
       data.append('whats', values.whats)
-    
-      
-      let response = await cadastroUsuario(data)
+      //@ts-ignore
+      baseAPI.defaults.headers["Authorization"] = `Bearer ${token}`
+
+      setShow(true)
+      setErro('Enviando dados...')
+      setimagemModal(dogTurtle) 
+
+      let response = await EditarUsuario(takeUser.user_id, data as unknown as User)
+              
+      //@ts-ignore
+      if(TypeErros[response]){
+        //@ts-ignore
+        setErro(TypeErros[response])
+      }      
+      else{
+        setErro(response)
+      }
       
       if (response.user_id) {
-
+        setShow(true)
+        setErro('Conta atualizada com sucesso!')
+        setimagemModal(success)
+        dispatch(signIn({token, user:response}));
       }
       else{
-
+        setShow(true)
+        setimagemModal(errorCat)
       }  
     }
   })
 
-
-  const advance = () => {
-    if (formik.values.name_user && !formik.errors.confirmPassword) {
-        toast.success("Agora preencha o seu perfil!", {
-            position: toast.POSITION.TOP_CENTER
-        });
-       
-    }
-    else{
-      toast.warn('Preencha todos os campos!')  
-    }
-  }
-
   let onchange = (e: any) => {        
     const files = e.target.files[0];        
     formik.setFieldValue("image", files);
-}
+  }
+
+  const [show, setShow] = useState(false)
+  const [erro, setErro] = useState('')
+  const [imagemModal, setimagemModal] = useState(dogTurtle)
 
   return (
     <>
@@ -109,7 +123,9 @@ const FormPerfil = () => {
         <InputFile 
             onchange={onchange}
             id="image"
-            erros = {formik.errors.image}  
+            erros = {formik.errors.image}
+            isinvalid = {formik.touched.image && !!formik.errors.image}
+            isvalid = {formik.touched.image && !formik.errors.image}   
         />
 
         <Inputs
@@ -125,27 +141,26 @@ const FormPerfil = () => {
         />
 
         <Inputs
-            textLabel='Senha'
-            placeholder='Crie uma senha'
-            value = {formik.values.password}
-            typeInput='password'
-            id = 'password'
-            onchange={formik.handleChange}
-            isinvalid = {formik.touched.password && !!formik.errors.password}
-            isvalid = {formik.touched.password && !formik.errors.password}
-            erros = {formik.errors.password} 
+          textLabel='Senha'
+          placeholder='Crie uma senha'
+          value = {formik.values.password}
+          typeInput='password'
+          id = 'password'
+          onchange={formik.handleChange}
+          isinvalid = {formik.touched.password && !!formik.errors.password}
+          isvalid = {formik.touched.password && !formik.errors.password}
+          erros = {formik.errors.password} 
         />
-
-        <Inputs
-            textLabel='Repetir senha'
-            placeholder='Digite a senha novamente'
-            value = {formik.values.confirmPassword}
-            id = 'confirmPassword'
-            typeInput='password'
-            onchange={formik.handleChange}
-            isinvalid = {formik.touched.confirmPassword && !!formik.errors.confirmPassword}
-            isvalid = {formik.touched.confirmPassword && !formik.errors.confirmPassword}
-            erros = {formik.errors.confirmPassword} 
+      <Inputs
+          textLabel='Repetir senha'
+          placeholder='Digite a senha novamente'
+          value = {formik.values.confirmPassword}
+          id = 'confirmPassword'
+          typeInput='password'
+          onchange={formik.handleChange}
+          isinvalid = {formik.touched.confirmPassword && !!formik.errors.confirmPassword}
+          isvalid = {formik.touched.confirmPassword && !formik.errors.confirmPassword}
+          erros = {formik.errors.confirmPassword} 
         />
 
         <Inputs
@@ -175,7 +190,7 @@ const FormPerfil = () => {
         <Inputs
             textLabel='Telefone Fixo (Opcional)'
             typeInput='tel'
-            placeholder='(99) 9999-9999'
+            placeholder='DDD e o telefone. Use apenas números!'
             value = {formik.values.phone}
             id = 'phone'
             onchange={formik.handleChange}
@@ -185,13 +200,14 @@ const FormPerfil = () => {
         <Inputs
             textLabel='Telefone Celular'
             typeInput='tel'
-            placeholder='(99) 9999-9999'
+            placeholder='DDD e o celular. Use apenas números!'
             value = {formik.values.mobile}
             id = 'mobile'
             onchange={formik.handleChange}
             isinvalid = {formik.touched.mobile && !!formik.errors.mobile}
             isvalid = {formik.touched.mobile && !formik.errors.mobile}
-            erros = {formik.errors.mobile}   
+            erros = {formik.errors.mobile}
+            pattern="[0-9]{11}"     
         />
 
         <S.Check 
@@ -202,15 +218,24 @@ const FormPerfil = () => {
             onChange={formik.handleChange} 
         />
 
-            <ButtonAdotar 
-            display= {true} 
-            color='#1E1E1E' 
-            type='submit'
-            >
+        <ButtonAdotar 
+        display= {true} 
+        color='#1E1E1E' 
+        type='submit'
+        >
 
-            Salvar Perfil ✔
+          Salvar Perfil ✔
 
-            </ButtonAdotar>
+        </ButtonAdotar>
+
+        <Modal centered show={show} onHide={()=>setShow(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>{erro}</Modal.Title>
+          </Modal.Header>
+          <S.Modalbody>
+              <S.Img src={imagemModal} />
+          </S.Modalbody>
+        </Modal>
 
         </S.StyledForm>
     </>

@@ -14,19 +14,28 @@ import { useState } from 'react';
 import {FiLogIn} from 'react-icons/fi';
 import { Modal } from 'react-bootstrap';
 import { cadastroUsuario } from '../../service/user';
-import OptionMenuCadastro from '../OptionMenuCadastro';
 import { toast } from 'react-toastify'
+import { User } from '../../types';
+import OptionMenu from '../OptionMenu';
+import LinkOptionMenu from '../LinkOptionMenu';
+import searchHeartBlack from '../../assets/searchHeartBlack.png'
+import handHeart from '../../assets/handHeart.png'
+import { useNavigate } from 'react-router-dom';
+import { TypeErros } from '../../types';
+
 
 const FormPerfil = () => {
+
+  const navigate = useNavigate()
 
   const validationSchema = Yup.object({
     name_user: Yup.string().required('Por favor preencha com seu nome'),
 
     email: Yup.string().email('Por favor preencha com um email válido').required('Por favor preencha com seu email'),
 
-    password: Yup.string().required('Por favor preencha com uma password').min(8, 'Sua password deve ter no mínimo 8 caracteres').max(12, 'Sua password deve ter no máximo 12 caracteres'),
+    password: Yup.string().required('Por favor preencha com uma senha').min(8, 'Sua senha deve ter no mínimo 8 caracteres').max(12, 'Sua senha deve ter no máximo 12 caracteres'),
 
-    confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'As passwords não são iguais').required('Por favor preencha com uma password'),
+    confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'As senhas não são iguais').required('Por favor preencha com uma senha'),
 
     comments: Yup.string(),
 
@@ -36,7 +45,7 @@ const FormPerfil = () => {
 
     mobile: Yup.string().min(10,'Deve ter no mínimo 10 digitios').required('O telefone é obrigatório'),
 
-    image: Yup.string().required('A imagem deve ser obrigatório'),
+    image: Yup.string().required('A imagem é obrigatória'),
   })
 
   const formik = useFormik({
@@ -77,8 +86,20 @@ const FormPerfil = () => {
       setErro('Enviando dados...')
       setimagemModal(dogTurtle)  
       
-      let response = await cadastroUsuario(data)
       
+      let response = await cadastroUsuario(data as unknown as User)
+      
+      console.log(response);
+      
+      //@ts-ignore
+      if(TypeErros[response]){
+        //@ts-ignore
+        setErro(TypeErros[response])
+      }      
+      else{
+        setErro(response)
+      }
+
       if (response.user_id) {
         setShow(true)
         setErro('Conta criada com sucesso!')
@@ -87,7 +108,6 @@ const FormPerfil = () => {
       else{
         setShow(true)
         setimagemModal(errorCat)
-        setErro(response)
       }  
     }
   })
@@ -99,8 +119,8 @@ const FormPerfil = () => {
 
   const advance = () => {
     if (formik.values.email && !formik.errors.confirmPassword) {
-      setChangePage(!changePage)
-      toast.success("Agora preencha o seu perfil!", {
+      setChangePage(false)
+      toast.success("Para criar sua conta é necessário preencher os campos abaixo!", {
         position: toast.POSITION.TOP_CENTER
       });
        
@@ -110,23 +130,38 @@ const FormPerfil = () => {
     }
   }
 
+  const back = () => {
+    if(changePage){
+      console.log(changePage)
+      return navigate('/')
+    }
+    return setChangePage(true)
+  }
+
   return (
     <>
       <Header 
-        display= {!changePage} 
+        display= {true} 
         logo="center" 
         background="rgba(255, 255, 255, 0.75)"
       >
 
         <BackArrow 
-          display = {'center'} 
+          display = {changePage ?'none' : 'center'} 
           url = '' 
-          onclick = {()=>setChangePage(true)}
+          onclick = {()=>back()}
         />
         
-        <Logo margin = {'center'}/>
+        <Logo margin = {changePage ?'none' : 'center'}/>
 
-        <OptionMenuCadastro user={'usuario'} />
+        <OptionMenu user_name='login' >
+        <LinkOptionMenu display = {true} rota="/queroadotar" icon= {searchHeartBlack} >
+            Buscar um amigo
+          </LinkOptionMenu>
+          <LinkOptionMenu display = {true} rota="/login" icon= {handHeart} >
+            Doar um amigo
+          </LinkOptionMenu>
+        </OptionMenu>
 
       </Header>
 

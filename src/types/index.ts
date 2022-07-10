@@ -4,6 +4,7 @@ export interface SignIn {
 }
 
 export interface User extends SignIn {
+    user_id: number,
     name_user: string,
     email: string,
     password: string,
@@ -29,3 +30,9 @@ export interface QueroAdotarValues {
     tamanhoDoAnimal: string,
     idadeDoAnimal: string
 }
+
+export const  TypeErros = {
+    'Erro: "E-mail já cadastrado"': 'E-mail já cadastrado. Retorne a tela anterior e escolha outro e-mail!',
+
+    'Erro: undefined': 'Erro indefinido. Fale com a nossa central!'
+  }

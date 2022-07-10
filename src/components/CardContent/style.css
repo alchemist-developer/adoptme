@@ -7,12 +7,12 @@ div.card-container {
 
 div img.card-img {
     position: fixed;
-    ;
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    margin-top: 34px;
 }
 
 div.dog-nome-row {
@@ -20,14 +20,30 @@ div.dog-nome-row {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-right: 5px;
+}
+
+div.info-dog-column {
+    width: 100%;
+    padding: 5px 2px;
+    height: 100%;
+}
+
+div.flex-end {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+div.observacoes {
+    margin-top: 1rem;
+    padding: 2px;
 }
 
 button.compartilhar-btn {
-    background-color: rgba(255, 255, 255, 0.603);
+    background-color: rgba(255, 255, 255, 0.43);
     border: 2px solid rgba(0, 0, 0, 0.515);
     color: rgb(0, 0, 0);
-    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -38,6 +54,7 @@ button.compartilhar-btn {
     padding: 3px 5px;
     border-radius: 8px;
 }
+
 
 button.btn {
     background-color: #a19e9e83;
@@ -51,14 +68,6 @@ button.btn {
     width: 100px;
     height: 25px;
     margin-right: 20px;
-}
-
-div h1 {
-    margin: 6px 10px;
-}
-
-button.btn-fromtop img {
-    margin-top: 10px;
 }
 
 button.compartilhar-btn {
@@ -84,60 +93,28 @@ button.btn-fromtop {
     border: none;
     color: yellow;
     font-size: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-
-button.button-next {
-    position: absolute;
-    z-index: 1;
-    right: 0;
-    top: 50%;
-    margin-right: 5%;
-    padding: 5px 10px;
-    background-color: rgba(255, 255, 255, 0.17);
-    color: rgba(65, 62, 62, 0.249);
-    border: 0;
-    outline: none;
-    font-weight: bold;
-    border-radius: 6px;
-}
-
-button.button-return {
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 50%;
-    margin-left: 5%;
-    padding: 5px 10px;
-    background-color: rgba(255, 255, 255, 0.17);
-    color: rgba(65, 62, 62, 0.249);
-    border: 0;
-    outline: none;
-    font-weight: bold;
-    border-radius: 6px;
+    padding-top: 10px; 
 }
 
 div.row-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 
 p.descricao {
     font-size: 0.9rem;
-    margin: 15px 2px;
+    word-wrap: break-word;
 }
 
 button span {
-    margin-left: 10px;
+    margin-left: 21px;
 }
 
-div.observacoes {
-    height: auto;
-    margin: 8px;
+span img {
+    width: 15px;
+    height: 15px;
 }
 
 button.btn-contatar {
@@ -146,7 +123,6 @@ button.btn-contatar {
     border: none;
     background-color: #1E1E1E;
     color: rgba(255, 255, 255, 0.81);
-    font-weight: bold;
     padding: 5px;
     text-decoration: none;
     font-size: 16px;
@@ -159,15 +135,6 @@ button.btn-contatar {
     letter-spacing: 1px;
 }
 
-p.doador {
-    margin: 4px 8px;
-}
-
-p.local {
-    margin-bottom: 25px;
-    margin-left: 8px;
-}
-
 div.row-item1 {
     display: flex;
     background-color: #77B291;
@@ -175,7 +142,7 @@ div.row-item1 {
     border: #1E1E1E 1px solid;
     margin: 2px;
     font-size: 14px;
-    padding: 4px 5px;
+    padding: 4px 15px;
 }
 
 div.row-item2 {
@@ -185,7 +152,7 @@ div.row-item2 {
     border: #1E1E1E 1px solid;
     margin: 2px;
     font-size: 14px;
-    padding: 4px 5px;
+    padding: 4px 15px;
 }
 
 div.row-item3 {
@@ -195,7 +162,7 @@ div.row-item3 {
     border: #1E1E1E 1px solid;
     margin: 2px;
     font-size: 14px;
-    padding: 4px 5px;
+    padding: 4px 15px;
 }
 
 div.row-item4 {
@@ -205,5 +172,14 @@ div.row-item4 {
     border: #1E1E1E 1px solid;
     margin: 2px;
     font-size: 14px;
-    padding: 4px 5px;
+    padding: 4px 15px;
+}
+
+div.dog-content {
+    margin: 0px 15px;
+}
+
+p.local {
+    margin-bottom: 36px;
+    margin-top: -11px;
 }

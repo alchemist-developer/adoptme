@@ -43,15 +43,23 @@ export const Input = styled(FormControl)`
     display: none;
 `
 
-export const InputText = styled.input<props>`
-    background-color: white;
+export const InputText = styled(FormControl)<props>`
     text-align: center;
     border-radius: 10px;
     padding: 3% 0px;
     border: ${props => props.color ? '1px solid red': '1px solid black' };
+    
+    :disabled{
+        background-color: white;
+    }
 
 `
 
 export const Label = styled.label`
     margin-top: 7%;
+`
+
+export const Small = styled.small`
+    color: red;
+    font-size: 10px;
 `

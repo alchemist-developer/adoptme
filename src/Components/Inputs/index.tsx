@@ -24,7 +24,7 @@ const Inputs = ({textLabel, typeInput, rows, as, id, value, onchange, pattern, i
           {textLabel}
         </S.Label>
         <br/> 
-        <small> {erros} </small>
+        <S.Small> {erros} </S.Small>
         <S.Input
           color = {erros} 
           type={typeInput}

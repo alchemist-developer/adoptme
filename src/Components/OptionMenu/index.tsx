@@ -18,16 +18,23 @@ const OptionMenu = (props:Props) => {
         <S.StyledButton onClick={()=> setOpen(!open)} open={open}>
             <S.StyledImg src= {collapse} />
         </S.StyledButton>
+        <S.ScreenOption onClick={()=> setOpen(!open)}  open={open}></S.ScreenOption>
         <S.Option open={open}>
 
             <S.StyledDivClose>
-                <S.StyledLink to={'/cadastro'}>
+                <S.StyledLink 
+                    display='flex'
+                    to={ props.user_name == 'login' ? 
+                        '/login' :
+                        '/'
+                        }
+                    >
                     <S.StyledIcon src= {userLogin} alt="" />
                     {props.user_name}
                 </S.StyledLink>
-                <S.StyledButton onClick={()=> setOpen(!open)} open={true}>
-                    <AiOutlineClose size={25}/>
-                </S.StyledButton>               
+                <S.StyledButtonX onClick={()=> setOpen(!open)}>
+                    <AiOutlineClose size={20}/>
+                </S.StyledButtonX>               
             </S.StyledDivClose>
 
             <S.StyledDivLink>
