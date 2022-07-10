@@ -58,7 +58,8 @@ const PetService = {
 
     async findAllPets(){
       const allPets = await Pet.findAll({
-        where:{status:true}
+        where:{status:true},
+        include: [{ model: User, attributes: ["name_user"]}]
       })
       return allPets
     },
