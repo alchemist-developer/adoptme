@@ -1,6 +1,8 @@
 import { Carousel } from 'react-bootstrap';
-import imgCat from '../../assets/gato2.jpg'
 import './styles.css'
+
+import carrosselTestemunho1 from '../../assets/carrossel-testemunho-1.png'
+import carrosselTestemunho2 from '../../assets/carrossel-testemunho-2.png'
 
 const CarouselTestemunho= () => {
     return(
@@ -8,21 +10,21 @@ const CarouselTestemunho= () => {
           <Carousel.Item className="carouselItem">
             <img
               className="d-block w-100 carosuel-body"
-              src={imgCat}
+              src={carrosselTestemunho1}
               alt="First slide"
             />
             <h4>Patricia Meireles</h4>
-            <p>Encontramos o Max através da plataforma me.adota em um momento bem delicado de nossas vidas e encheu o ambiente de alegria e tudo ficou colorido de novo. Tivemos uma experiência muito bacana, encontramos o perfil do Max e instantaneamente sabia que ele deveria vir ficar com a nossa família. Sou muito grata por ter encontrado a plataforma, e a dona Márcia, antiga protetora do Max, o nosso xodó.</p>
+            <p>Essa fofura animal parece que estava só nos esperando pra formarmos uma família completa. Encontramos a Mia, através da plataforma me.adota, e depois de várias conversas com os protetores dela, Seu Januário e sua filha Michele, nós finalmente a levamos para casa. Hoje já está totalmente habituada a rotina da família, se sente confortável até pra fazer travessuras.</p>
 
           </Carousel.Item>
           <Carousel.Item className="carouselItem">
             <img
                 className="d-block w-100 carosuel-body"
-                src={imgCat}
+                src={carrosselTestemunho2}
                 alt="First slide"
               />    
         
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <p>Pai de pet, real oficial! Agora minha trilha sonora são miados dessas duas tagarelas que eu amo muito. Já fazem 3 meses que a Lara e a Lua estão comigo, encontrei o protetor delas, o Maurício do Projeto Patinhas, através da plataforma me.adota, foi super de boa... o processo de adoção e adaptação também, tudo supervisionado pelo projeto voluntário. Tô muito feliz!</p>
             
           </Carousel.Item>
       </Carousel>

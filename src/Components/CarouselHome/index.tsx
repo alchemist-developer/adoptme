@@ -1,6 +1,10 @@
 import { Carousel } from 'react-bootstrap';
-import imgCat from '../../assets/gato2.jpg'
 import './styles.css'
+import React from 'react'
+
+import imgCarrossel1 from '../../assets/img-carrossel-1.png'
+import imgCarrossel2 from '../../assets/img-carrossel-2.png'
+import imgCarrossel3 from '../../assets/img-carrossel-3.png'
 
 const CarouselHome= () => {
     return(
@@ -8,7 +12,7 @@ const CarouselHome= () => {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={imgCat}
+              src={imgCarrossel2}
               alt="First slide"
             />
 
@@ -16,14 +20,14 @@ const CarouselHome= () => {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={imgCat}
+              src={imgCarrossel1}
               alt="Second slide"
             />
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={imgCat}
+              src={imgCarrossel3}
               alt="Third slide"
             />
           </Carousel.Item>

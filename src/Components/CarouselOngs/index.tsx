@@ -1,6 +1,8 @@
 import { Carousel } from 'react-bootstrap';
-import imgCat from '../../assets/gato2.jpg'
 import './styles.css'
+
+import carrosselOng1 from '../../assets/carrosselOng1.png'
+import carrosselOng2 from '../../assets/carrosselOng2.png'
 
 const CarouselOngs= () => {
     return(
@@ -8,16 +10,16 @@ const CarouselOngs= () => {
           <Carousel.Item className="carouselItemOng">
             <img
               className="d-block w-100 carosuel-body"
-              src={imgCat}
-              alt="First slide"
+              src={carrosselOng1}
+              alt="Primeiro slide"
             />
 
           </Carousel.Item>
           <Carousel.Item className="carouselItemOng">
           <img
               className="d-block w-100 carosuel-body"
-              src={imgCat}
-              alt="First slide"
+              src={carrosselOng2}
+              alt="Segundo slide"
             />
             
           </Carousel.Item>

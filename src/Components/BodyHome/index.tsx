@@ -63,8 +63,7 @@ const BodyHome = () => {
                 <ConatinerContend>
                     <S.H4 color='#FAD673'>Adote, não compre.</S.H4>
                     <S.ImgBody src= {lucas} />
-                    <S.H1>Quem somos</S.H1>
-                    <S.H4 color='black'>Adoção responsável</S.H4>
+                    <S.H1>Adoção responsável</S.H1>
                     <S.P bold='bold'>
                         Algumas coisinhas que você precisa saber antes de adotar:
                     </S.P>
