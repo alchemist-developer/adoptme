@@ -16,7 +16,9 @@ import Coracao from "../../assets/Vector (4).png";
 
 function CardContent() {
   const navigate = useNavigate();
+
   const [active, setActive] = useState(false);
+  
   function handleClick() {
     setActive((oldActive) => !oldActive);
   }

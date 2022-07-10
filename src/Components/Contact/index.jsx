@@ -8,32 +8,35 @@ import { listarTodosDonos } from "../../service/user";
 import { useState, useEffect } from "react";
 import baseAPI from "../../service/baseAPI";
 import { useParams } from "react-router-dom";
-import user from "../../store/user";
+
 
 export default function Contact() {
   const [users, setUsers] = useState();
-  // const [usuario, setUsuario] = useState({});
+
+  // @ts-ignore
+  const dadosUsuario = JSON.parse(localStorage.getItem("persist:@users"));
+  const token = dadosUsuario.accessToken;
+  const newToken = token.replace(/"/g, "");
+
   const { id } = useParams();
-  console.log(props.infoPet, 'adryel simon')
-  const array = [];
 
   useEffect(() => {
     const loadUsers = async () => {
       try {
         baseAPI.defaults.headers[
           "Authorization"
-        ] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMywiZW1haWwiOiJlbWFpbC51c3VhcmlvQGdtYWlsLmNvbSIsIm5hbWVfdXNlciI6Ik5vbWUgZG8gdXN1w6FyaW8gQXR1YWxpemFkbyIsImFkZHJlc3MiOiJSdWEgZG8gVXN1w6FyaW8sIDEwMSAiLCJwaG9uZSI6IigxMSkgMTIzNC01Njc4IiwiaWF0IjoxNjU2Nzc5NTYxfQ.FN79EI59dh3xt1mk62r3Qcif02SAHUR5aqxjHfsW5AI`;
+        ] = `Bearer ${newToken}`;
         
         const response = await listarTodosDonos();
         setUsers(response);
-        // console.log(response);
+       
       } catch (error) {
         console.log(error);
       }
     };
     loadUsers();
   }, []);
-  // console.log(users);
+  
   var usuario = {};
 
   async function acharUsuario() {
@@ -49,7 +52,7 @@ export default function Contact() {
     <>
       <Header display={true} logo="none" background="white">
         <Logo margin={"none"} />
-        {/* <OptionMenu displayProfile="flex" /> */}
+        
       </Header>
         <div className="img-contact">
       <div className="container-contato">
