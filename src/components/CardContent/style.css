@@ -185,6 +185,11 @@ p.local {
     margin-top: -11px;
 }
 
-#tituloSemPet{
-    margin: 60px 0;
+#divSemPet{
+    margin: 100px 0;
+    text-align: center;
+}
+
+#divSemPet a {
+    text-decoration: underline;
 }

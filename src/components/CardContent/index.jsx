@@ -56,14 +56,6 @@ function CardContent() {
         array.push(pet);
       }
 
-      // if (
-      //     // (
-      // //   INPUT.escolhaDoAnimal.value === "tanto faz" &&
-      // //   INPUT.idadeDoAnimal === "tanto faz" &&
-      // //   INPUT.tamanhoDoAnimal === "tanto faz" &&
-      // //   INPUT.generoDoAnimal === "tanto faz" &&
-      // // ) 
-      // )
     });
   }
 
@@ -80,7 +72,10 @@ function CardContent() {
         className="mySwiper"
       >
         {array.length == 0 ? (
-          <h1 id="tituloSemPet">Não encontramos pets com essa descrição <Link to="/queroadotar">Retornar</Link></h1>
+          <div id="divSemPet">
+            <h1>Não encontramos pets com essa descrição</h1>
+            <Link to="/queroadotar">Retornar</Link>
+          </div>
         ) : (
           array.map((pet) => {
             return (
@@ -110,10 +105,6 @@ function CardContent() {
                             <img src={Share} alt="" />
                           </button>
                         </div>
-                        {/* <p className="doador">
-                                  {" "}
-                                  <strong>{}</strong>
-                                </p> */}
                         <p className="local">{pet.state}</p>
                         <div className="row-container">
                           <div className="row-item1">{pet.type}</div>
