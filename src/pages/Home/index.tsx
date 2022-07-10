@@ -1,3 +1,4 @@
+import React from 'react'
 import { Fragment, useEffect, useState } from "react";
 import BodyMenu from "../../components/BodyHome";
 import CarouselHome from "../../components/CarouselHome";
