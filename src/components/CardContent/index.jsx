@@ -12,6 +12,8 @@ import { listarTodos } from "../../service/pet";
 import { useNavigate } from "react-router-dom";
 import Coracao from "../../assets/Vector (4).png";
 import { Link } from 'react-router-dom'
+import { ReturnLink } from "./styled";
+
 
 
 function CardContent() {
@@ -72,9 +74,13 @@ function CardContent() {
         className="mySwiper"
       >
         {array.length == 0 ? (
+          <div className="vh">
           <div id="divSemPet">
             <h1>Não encontramos pets com essa descrição</h1>
+           <ReturnLink> 
             <Link to="/queroadotar">Retornar</Link>
+            </ReturnLink>
+          </div>
           </div>
         ) : (
           array.map((pet) => {
