@@ -55,6 +55,15 @@ function CardContent() {
       ) {
         array.push(pet);
       }
+
+      // if (
+      //     // (
+      // //   INPUT.escolhaDoAnimal.value === "tanto faz" &&
+      // //   INPUT.idadeDoAnimal === "tanto faz" &&
+      // //   INPUT.tamanhoDoAnimal === "tanto faz" &&
+      // //   INPUT.generoDoAnimal === "tanto faz" &&
+      // // ) 
+      // )
     });
   }
 
