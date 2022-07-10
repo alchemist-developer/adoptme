@@ -6,10 +6,14 @@ import { toast } from 'react-toastify'
 
 import wallpaperPug from '../../assets/wallpaper-pug.png'
 import searchHeart from '../../assets/searchHeart.png'
+import { QueroAdotarValues } from '../../types';
 
+interface QueroAdotarProps {
+    setInputValues: React.Dispatch<React.SetStateAction<QueroAdotarValues>>
+}
 
-function QueroAdotar(props: any){
-
+function QueroAdotar({ setInputValues }: QueroAdotarProps){
+    console.log(setInputValues)
      const arrEstados = ["Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espirito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantis"]
 
     const navigate = useNavigate();
@@ -31,9 +35,8 @@ function QueroAdotar(props: any){
                     toast.warn('Preencha todos os campos!')
                     return
                 }
-                // alert(JSON.stringify(values, null, 2));   
-                props.setInputValues({values})
-                // console.log(values)
+                setInputValues(values)
+                
                 localStorage.setItem("@dadosInput", JSON.stringify(values))
                 navigate("/adotar")
             } catch (error) {
@@ -120,11 +123,3 @@ function QueroAdotar(props: any){
 }
 
 export default QueroAdotar;
-
-function setInputValues(arg0: { values: { estado: string; }; }) {
-    throw new Error('Function not implemented.');
-}
-function inputValues(inputValues: any) {
-    throw new Error('Function not implemented.');
-}
-

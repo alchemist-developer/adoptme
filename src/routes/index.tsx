@@ -3,28 +3,35 @@ import {
   Route,
   BrowserRouter,
 } from "react-router-dom";
+import { useState } from "react";
+
 import AdotarPet from "../pages/AdotarPet";
 import Contatar from "../pages/Contatar";
 import Home from '../pages/Home';
 import Cadastro from '../pages/Cadastro'
 import Admin from '../pages/Admin'
 import Login from '../pages/Login'
-import QueroDoar from '../components/QueroDoar'
-import QueroAdotar from '../components/QueroAdotar'
+import QueroDoar from '../pages/QueroDoar'
+import QueroAdotar from '../pages/QueroAdotar'
 import ProfileUser from '../pages/ProfileUser'
+import { type QueroAdotarValues } from '../types'
 
-import { useState } from "react";
 
 function Routes() {
-
-  const [inputValues, setInputValues] = useState({})
-  const [infoPet, setInfoPet] = useState([])
+  const [inputValues, setInputValues] = useState<QueroAdotarValues>({
+    cidade: '',
+    escolhaDoAnimal: '',
+    estado: '',
+    generoDoAnimal: '',
+    idadeDoAnimal: '',
+    tamanhoDoAnimal: ''
+  })
 
   return (
     <BrowserRouter>
       <WrapperRoutes>
-        <Route path="/adotar" element={<AdotarPet inputValues={inputValues} setInfoPet={setInfoPet} />} />
-        <Route path="/contato/:id" element={<Contatar infoPet={infoPet} />} />
+        <Route path="/adotar" element={<AdotarPet inputValues={inputValues}/>} />
+        <Route path="/contato/:id" element={<Contatar/>} />
         <Route path="/" element={<Home/>}/>
         <Route path="/cadastro" element={<Cadastro/>} />
         <Route path= '/admin' element = {<Admin/>}/>

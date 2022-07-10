@@ -18,7 +18,7 @@ function CardContent() {
     setActive((oldActive) => !oldActive);
   }
 
-  var INPUT = JSON.parse(localStorage.getItem("@dadosInput"));
+  const INPUT = JSON.parse(localStorage.getItem("@dadosInput"));
 
   const [pets, setPets] = useState({});
   useEffect(() => {

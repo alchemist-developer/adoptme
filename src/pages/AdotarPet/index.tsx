@@ -2,10 +2,9 @@ import React from 'react';
 // import { Container } from './styles';
 import CardDog from '../../components/CardDog';
 
-function AdotarPet(props) {
-  // console.log(props.inputValues.values.estado)
-  // console.log(localStorage.getItem("@dadosInput"))
-  // localStorage.clear()
+function AdotarPet(props: any) {
+  console.log(props.inputValues)
+  
   return (
     <>
       <CardDog />

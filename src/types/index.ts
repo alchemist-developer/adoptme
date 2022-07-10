@@ -20,3 +20,12 @@ export interface UserState {
     accessToken: string,
     user: {}
 }
+
+export interface QueroAdotarValues {
+    estado: string,
+    cidade: string,
+    generoDoAnimal: string,
+    escolhaDoAnimal: string,
+    tamanhoDoAnimal: string,
+    idadeDoAnimal: string
+}

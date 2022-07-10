@@ -6,8 +6,13 @@ import QueroAdotar from "../../components/QueroAdotar";
 
 import searchHeartBlack from "../../assets/searchHeartBlack.png";
 import handHeart from "../../assets/handHeart.png";
+import { QueroAdotarValues } from "../../types";
 
-function PagQueroAdotar() {
+interface PagQueroAdotarProps {
+  setInputValues: React.Dispatch<React.SetStateAction<QueroAdotarValues>>
+}
+
+function PagQueroAdotar({ setInputValues }: PagQueroAdotarProps) {
   return (
     <>
       <Header display={true} logo="none" background="white">
@@ -21,7 +26,7 @@ function PagQueroAdotar() {
           </LinkOptionMenu>
         </OptionMenu>
       </Header>
-      <QueroAdotar />
+      <QueroAdotar setInputValues={setInputValues} />
     </>
   );
 }

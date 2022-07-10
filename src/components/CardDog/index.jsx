@@ -9,15 +9,15 @@ import OptionMenu from "../../components/OptionMenu";
 
 function CardDog(props) {
 
-  const x = axios.get("https://adoptme-app.herokuapp.com/pet/")
+  // const x = axios.get("https://adoptme-app.herokuapp.com/pet/")
 
 //   useEffect(() => {
 //     const dadosInput = localStorage.getItem("@dadosInput")
 //     dadosInput(JSON.parse(minhaLista) || [])
 // }, [])
 
-var INPUT = JSON.parse(localStorage.getItem('@dadosInput'));
-console.log(INPUT.estado)
+  var INPUT = JSON.parse(localStorage.getItem('@dadosInput'));
+  // console.log(INPUT.estado)
 
   // const x =localStorage.getItem("@dadosInput")
   // setDadosInput(JSON.parse(x))

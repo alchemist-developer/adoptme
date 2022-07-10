@@ -10,12 +10,10 @@ import baseAPI from "../../service/baseAPI";
 import { useParams } from "react-router-dom";
 import user from "../../store/user";
 
-export default function Contact(props) {
+export default function Contact() {
   const [users, setUsers] = useState();
   // const [usuario, setUsuario] = useState({});
   const { id } = useParams();
-  console.log(props.infoPet, 'oi')
-  const array = [];
 
   useEffect(() => {
     const loadUsers = async () => {
