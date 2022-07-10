@@ -20,7 +20,7 @@ import { useSelector } from "react-redux";
 
 function Routes() {
   
-  const [infoPet, setInfoPet] = useState([])
+
   const [inputValues, setInputValues] = useState<QueroAdotarValues>({
     cidade: '',
     escolhaDoAnimal: '',
