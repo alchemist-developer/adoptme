@@ -85,7 +85,7 @@ function CardContent() {
         ) : (
           array.map((pet) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide className="animate__animated animate__fadeIn">
                 <div className="card-container">
                   <div>
                     <img
