@@ -1,102 +1,90 @@
 body {
-    color: black;
+  color: black;
 }
 
 div.container-contato {
-    background-color: rgba(255, 255, 255, 0.618);
-    display: flex;
-    flex-direction: column;
-    
+  background-color: rgba(255, 255, 255, 0.618);
+  display: flex;
+  flex-direction: column;
 }
 
 img.contato-img {
-    width: 100%;
-    height: 33vh;
-    background-size: cover;
-    object-fit: cover;
-    border-radius: 5px;
-    background-position: top;
-    background-repeat: no-repeat;
-    box-shadow: 0px 13px 21px rgba(0, 0, 0, 0.452);
-    margin-top: 50px;
+  width: 100%;
+  height: 33vh;
+  background-size: cover;
+  object-fit: cover;
+  border-radius: 5px;
+  background-position: top;
+  background-repeat: no-repeat;
+  box-shadow: 0px 13px 21px rgba(0, 0, 0, 0.452);
+  margin-top: 50px;
 }
 
-
 .img-contact {
-    border-radius: 20px;
-    display: block; 
+  border-radius: 20px;
+  display: block;
 }
 
 div.desc-contato {
-    position: relative;
+  position: relative;
 
-    display: flex;
-    height: 66%;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: start;
-    color: black;
-    text-align: start;
-    padding: 13px;
+  display: flex;
+  height: 66%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  color: black;
+  text-align: start;
+  padding: 13px;
 }
 
 p img {
-    width: 30px;
-    height: 20px;
-    margin-right: 5px;
+  width: 30px;
+  height: 20px;
+  margin-right: 5px;
 }
-
-
-
-/* div.desc-contato p.local-contato, p {
-    margin: 3px;
-    margin-bottom: 10px;
-    padding-left: 3px;
-    font-size: 0.9em;
-} */
 
 div.box-contato {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 3px;
-    background-color: #C9D7C4;
-    text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    gap: 5px;
-    height: 275px;
-    border-radius: 10px;
-    border: 1px solid black;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 3px;
+  background-color: #c9d7c4;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  gap: 5px;
+  height: 275px;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin-bottom: 20px;
 }
 
-
 div.whatsapp {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 3%;
 }
 
 div.whatsapp h6 {
-    font-size: 0.8rem;
-    color: #242424cd;
-    margin-bottom: 15px;
-    margin-top: 5px;
+  font-size: 0.8rem;
+  color: #242424cd;
+  margin-bottom: 15px;
+  margin-top: 5px;
 }
 
 div.whatsapp a {
-    text-decoration: none;
-    background-color: #77B291;
-    padding: 1.5% 5%;
-    color: black;
-    border-radius: 8px;
-    border: 1px solid black;
-    font-weight: bold;
-    font-weight: 200;
-    font-size: 12px;
+  text-decoration: none;
+  background-color: #77b291;
+  padding: 1.5% 5%;
+  color: black;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-weight: bold;
+  font-weight: 200;
+  font-size: 12px;
 }
