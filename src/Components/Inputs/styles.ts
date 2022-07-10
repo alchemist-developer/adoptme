@@ -17,7 +17,7 @@ export const Input = styled(FormControl)<props>`
     };
     ::placeholder{
         text-align: start;
-        font-size: 18px;
+        font-size: 16px;
     };
 `
 

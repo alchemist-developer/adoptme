@@ -73,6 +73,11 @@ div a.esqueciSenha2 {
   color: #000;
 }
 
+input {
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+
 input::placeholder {
   text-align: center;
   color: black;
