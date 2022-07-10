@@ -19,6 +19,8 @@ import { useSelector } from "react-redux";
 
 
 function Routes() {
+  
+  const [infoPet, setInfoPet] = useState([])
   const [inputValues, setInputValues] = useState<QueroAdotarValues>({
     cidade: '',
     escolhaDoAnimal: '',
@@ -28,15 +30,10 @@ function Routes() {
     tamanhoDoAnimal: ''
   })
 
-
-
-function Routes() {
-
-  const permission  = useSelector((state)=>state.persistedReducer.isLogged)
+  const permission  = useSelector((state: any)=> state.persistedReducer.isLogged)
   console.log(permission);
 
-  const [inputValues, setInputValues] = useState({})
-  const [infoPet, setInfoPet] = useState([])
+
 
   return (
     <BrowserRouter>
@@ -53,5 +50,6 @@ function Routes() {
     </BrowserRouter>
   );
 }
+
 
 export default Routes;
