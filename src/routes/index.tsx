@@ -6,6 +6,7 @@ import {
 import { useState } from "react";
 
 import AdotarPet from "../pages/AdotarPet";
+//@ts-ignore
 import Contatar from "../pages/Contatar";
 import Home from '../pages/Home';
 import Cadastro from '../pages/Cadastro'
