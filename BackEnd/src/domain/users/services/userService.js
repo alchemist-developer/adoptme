@@ -44,6 +44,16 @@ const UserService = {
 
         return userHasPermission
     },
+
+    async activateUserForDeletionTest(user_id){
+        await User.update({
+            status:true
+        }, {
+            where: {
+                user_id,
+            }
+        })
+    }
 }
 
 module.exports = UserService

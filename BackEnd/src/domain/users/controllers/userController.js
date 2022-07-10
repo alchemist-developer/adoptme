@@ -10,8 +10,8 @@ const UserController = {
             const newPassword = UserService.cripPassword(password)
             const file = req.files[0]
 
-            if(file==[]){
-                return res.status(400).json("É necessário enviar uma imagem do usuárip")
+            if(isEmpty(file)){
+                return res.status(400).json("É necessário enviar uma imagem do usuário")
               }
             
             if(await UserService.emailExists(email)){
@@ -38,6 +38,7 @@ const UserController = {
             const listUsers = await User.findAll({where:{status:true}});
             return res.status(200).json(listUsers);
         } catch (error) {
+            console.log(error)
             return res.status(500).json('Erro ao listar usuários');
         }
     },
@@ -48,22 +49,21 @@ const UserController = {
             const userTokenId = req.auth.user_id
             const userExists = await UserService.userExists(user_id)
 
+            if (!userExists) {
+                return res.status(404).json('Usuário não encontrado');
+            } 
+
             if(user_id != userTokenId){
                 return res.status(401).json('Usuário informado não coincide com o usuário logado')
             }
 
-            if (!userExists) {
-                return res.status(400).json('Usuário não encontrado');
-            }
-
-            const petsByUser = await PetService.findPetsByUser(user_id)
-            if(petsByUser=[]){
+            var petsByUser = await PetService.findPetsByUser(user_id)
+            if(isEmpty(petsByUser)){
                 return res.status(404).json('Usuário não possui pets cadastrados atualmente')
             }
 
             return res.status(200).json(petsByUser);
         } catch (error) {
-            console.log(error)
             return res.status(500).json('Erro ao listar os pets deste usuário');
             
         };
@@ -116,16 +116,21 @@ const UserController = {
     
     async deleteUser(req, res) {
         try {
-            const {user_id} = req.params;
-            const { email } = req.auth
-
+            const { user_id } = req.params;
+            const { email } = req.auth;
+            // const tokenid = req.auth.user_id;
+            console.log(user_id, email)
+            
             const userHasPermission = await UserService.userHasPermission(user_id,email)
+            console.log(userHasPermission)
 
             if (!userHasPermission) {
                 return res.status(404).json('Usuário não encontrado ou não possui permissão');
             }
             
             const findUser = await UserService.userExists(user_id)
+           
+
             if(!findUser.status){
                 return res.status(401).json('Usuário já desativado')
             }
@@ -145,8 +150,11 @@ const UserController = {
             
         }
     },
-
     
+}
+
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
 }
 
 module.exports = UserController
