@@ -56,7 +56,7 @@ const ProfileUser = () => {
           <LinkOptionMenu display = {true}  rota='/' icon= {searchHeartBlack} >
             Buscar amigo
           </LinkOptionMenu>
-          <LinkOptionMenu onclick={()=>{optionExit()}} display = {true}  rota='/' icon= {sign_Out} >
+          <LinkOptionMenu onclick={()=>optionExit} display = {true}  rota='/' icon= {sign_Out} >
             Sair da conta
           </LinkOptionMenu>
         </OptionMenu>
