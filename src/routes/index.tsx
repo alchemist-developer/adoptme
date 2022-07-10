@@ -44,6 +44,7 @@ function Routes() {
         <Route path="/" element={<Home/>}/>
         <Route path="/cadastro" element={<Cadastro/>} />
         <Route path='/login' element={<Login />} />
+        <Route path='/admin' element={<Admin />} />
         <Route path= '/querodoar' element = {permission ? <QueroDoar/> : <Home/>}/>
         <Route path='/queroadotar' element={<QueroAdotar setInputValues={setInputValues}/>} />
         <Route path='/userprofile' element={permission ? <ProfileUser/> : <Home/>} />

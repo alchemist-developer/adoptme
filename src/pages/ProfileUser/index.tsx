@@ -24,8 +24,7 @@ const ProfileUser = () => {
   const takeUser = useSelector((state: RootState)=> state.persistedReducer.user) as User;
   const optionExit = () =>{
     dispatch(signOut())
-    navigate('/')
-    
+    navigate('/')    
   }
 
   return (
@@ -60,8 +59,6 @@ const ProfileUser = () => {
           <LinkOptionMenu onclick={()=>{optionExit()}} display = {true}  rota='/' icon= {sign_Out} >
             Sair da conta
           </LinkOptionMenu>
-
-
         </OptionMenu>
 
       </Header>
