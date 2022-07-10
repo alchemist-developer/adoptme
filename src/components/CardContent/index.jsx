@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import Coracao from "../../assets/Vector (4).png";
 import { Link } from 'react-router-dom'
 import { ReturnLink } from "./styled";
-
+import 'animate.css';
 
 
 function CardContent() {
@@ -74,8 +74,8 @@ function CardContent() {
         className="mySwiper"
       >
         {array.length == 0 ? (
-          <div className="vh">
-          <div id="divSemPet">
+          <div className="vh animate__bounceInDown" >
+          <div id="divSemPet" className="animate__animated animate__fadeInDown animate__delay-3s">
             <h1>Não encontramos pets com essa descrição</h1>
            <ReturnLink> 
             <Link to="/queroadotar">Retornar</Link>
