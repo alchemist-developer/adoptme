@@ -1,16 +1,11 @@
-.carousel-body-ong .carousel-indicators{
-    margin-bottom: 10px;
-
-}
-
-.carosuel-body{
-    border-radius: 8px;
-    border: 1px black solid;
-    margin-bottom: 10%;
+.carousel-body-ong {
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-bottom: 2%;
 }
 
 .carouselItemOng{
-    height: 285px;
+    min-height: 285px;
 }
 
 h4, p {
