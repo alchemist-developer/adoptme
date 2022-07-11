@@ -85,9 +85,9 @@ const PetService = {
       console.log(file.length)
 
         if(file.lenght==0){
-          var image_pet01=findPet.image_pet01
-          var image_pet02=findPet.image_pet02
-          var image_pet03=findPet.image_pet03
+          var image_pet01=findPet.image_pet01;
+          var image_pet02=findPet.image_pet02;
+          var image_pet03=findPet.image_pet03;
         }
 
         if(file.length==1){
