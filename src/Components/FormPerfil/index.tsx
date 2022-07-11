@@ -84,8 +84,7 @@ const FormPerfil = () => {
     
       setShow(true)
       setErro('Enviando dados...')
-      setimagemModal(dogTurtle)  
-      
+      setimagemModal(dogTurtle)
       
       let response = await cadastroUsuario(data as unknown as User)
       
@@ -101,8 +100,9 @@ const FormPerfil = () => {
 
       if (response.user_id) {
         setShow(true)
-        setErro('Conta criada com sucesso!')
+        setErro('Conta criada com sucesso! Agurade que você será redirecionado para a pagina inicial!')
         setimagemModal(success)
+        setTimeout(()=>{navigate('/')},5000)
       }
       else{
         setShow(true)

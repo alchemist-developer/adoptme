@@ -17,11 +17,11 @@ function PagQueroAdotar({ setInputValues }: PagQueroAdotarProps) {
     <>
       <Header display={true} logo="none" background="white">
         <Logo margin={"none"} />
-        <OptionMenu user_name="usuario">
-          <LinkOptionMenu rota="/" icon={searchHeartBlack}>
+        <OptionMenu user_name="login">
+          <LinkOptionMenu display = {true} rota="/" icon={searchHeartBlack}>
             Buscar um amigo
           </LinkOptionMenu>
-          <LinkOptionMenu rota="/" icon={handHeart}>
+          <LinkOptionMenu display = {true} rota="/" icon={handHeart}>
             Doar um amigo
           </LinkOptionMenu>
         </OptionMenu>

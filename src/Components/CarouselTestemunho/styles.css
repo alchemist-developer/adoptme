@@ -1,20 +1,16 @@
-.carousel-body .carousel-indicators{
-    margin-bottom: 325px;
-    position: absolute;
-}
-
-.carosuel-body{
-    border-radius: 8px;
-    border: 1px black solid;
-    margin-bottom: 10%;
+.carosuel-body-testemunho{    
+    margin-bottom: 2%;
 }
 
 .carouselItem{
-    height: 600px;
+    min-height: 700px;
+    border: 1px solid black;
+    border-radius: 20px;
+
 }
 
-h4, p {
-    margin-left: 0;
+.text {
+    padding: 0% 2% 0% 2% !important;
 }
 
 h4{
