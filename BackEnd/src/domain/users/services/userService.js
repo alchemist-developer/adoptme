@@ -34,11 +34,10 @@ const UserService = {
         return userExists
     },
 
-    async userHasPermission(user_id,email){
+    async userHasPermission(user_id,tokenId){
         const userHasPermission = await User.count({
             where: {
-                user_id,
-                email
+                user_id: tokenId
             }
         });
 
@@ -53,6 +52,16 @@ const UserService = {
                 user_id,
             }
         })
+    },
+
+    async getUserByID(user_id){
+        const user = await User.findOne({
+            where: {
+               user_id
+            }
+        });
+        
+        return user
     }
 }
 

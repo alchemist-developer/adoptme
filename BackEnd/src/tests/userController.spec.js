@@ -5,6 +5,7 @@ const tokenUserWOPets = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLC
 const tokenUserWPets = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJlbWFpbCI6IkdhcmZpZWxkMjBAeWFob28uY29tIiwibmFtZV91c2VyIjoiRHIuIE5ldHRpZSBUdXJuZXIiLCJhZGRyZXNzIjoiV2l6YWJvcm91Z2giLCJwaG9uZSI6bnVsbCwiaWF0IjoxNjU3MTMxMjQ4fQ.BiDBt_rqN5YSDwpyki22I8yeHbRErswmNUuhAse7Z1E"//user_id: 3
 var FormData = require('form-data');
 import { Blob } from 'buffer';
+import PetService from '../domain/pets/services/petService';
 const fs = require('fs')
 const path = require('path');
 const { faker } = require('@faker-js/faker')
@@ -61,6 +62,7 @@ describe('listPetsByUser:', () => {
     }),
 
     test('Ao listar pets por usuário, se o usuário não contém pets a response deve ser 404', async () => {
+        PetService.deActivatePetForEmptinessTest(1)
         const response = await supertest(app)
         .get("/user/1")
         .set('Authorization', 'bearer ' + tokenUserWOPets)
@@ -77,18 +79,18 @@ describe('listPetsByUser:', () => {
 
 }),
 
-// describe('updateUser', () => {
-//     test('Ao atualizar um usuário autenticado, em caso de sucesso o retorno deve ser 201', async () => {
-//         const token6thUser = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6IldoaXRuZXkuV2Vpc3NuYXRAZ21haWwuY29tIiwibmFtZV91c2VyIjoiQ2xhdWRlIEhvZWdlciBJIiwiYWRkcmVzcyI6IkZvcnQgRGVzdGluZXkiLCJwaG9uZSI6bnVsbCwiaWF0IjoxNjU3NDcyMzUzfQ.g_dT5fX58egx2_2a5qcixWLQYP2J_P8nlM9PHmPztKc"
-//         const response = await supertest(app)
-//         .put("/user/6")
-//         .set('Authorization', `Bearer ${token6thUser}`)
-//         .set('Content-type','multipart/form-data')
-//         .field('password', '123456')
-//         .field('name_user', 'Pedro')
-//         expect(response.status).toBe(201)
-//     })
-// })
+describe('updateUser', () => {
+    test('Ao atualizar um usuário autenticado, em caso de sucesso o retorno deve ser 201', async () => {
+        const token6thUser = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6IldoaXRuZXkuV2Vpc3NuYXRAZ21haWwuY29tIiwibmFtZV91c2VyIjoiQ2xhdWRlIEhvZWdlciBJIiwiYWRkcmVzcyI6IkZvcnQgRGVzdGluZXkiLCJwaG9uZSI6bnVsbCwiaWF0IjoxNjU3NDcyMzUzfQ.g_dT5fX58egx2_2a5qcixWLQYP2J_P8nlM9PHmPztKc"
+        const response = await supertest(app)
+        .put("/user/6")
+        .set('Authorization', `Bearer ${token6thUser}`)
+        .set('Content-type','multipart/form-data')
+        .field('password', '123456')
+        .field('name_user', 'Pedro')
+        expect(response.status).toBe(201)
+    })
+})
 
 describe('deleteUser:', () => {
     test('Ao tentar deletar a própria conta a response deve ser 200', async () => {

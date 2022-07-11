@@ -12,11 +12,11 @@ const PetController = {
       if(file==[]){
         return res.status(400).json("É necessário enviar ao menos uma imagem do pet")
       }
-      
+     
       const {image_pet01, image_pet02, image_pet03} = await PetService.registerImages(file)
-      
-      const petOwner = await UserService.userExists(user_id)
 
+      const petOwner = await UserService.userExists(user_id)
+     
       const newPet = await Pet.create({
         ...req.body,
         user_id,
@@ -54,22 +54,23 @@ const PetController = {
       if (!petByUser) {
         return res.status(404).json("Pet não existe, não pertence a este usuário ou foi desativado");
       }
-
+      console.log('XANA')
       const {image_pet01, image_pet02, image_pet03} = await PetService.updateImages(file, pet_id)
 
+     
       await Pet.update(
         { ...req.body,
           image_pet01,
           image_pet02,
           image_pet03},
-        { where: {pet_id,},}
+        { where: {pet_id}}
       );
-      
+    
       const updatedPet = await PetService.findPet(pet_id)
       return res.status(200).json(updatedPet);
 
     } catch (error) {
-      return res.status(500).json("Erro ao atualizar o pet");
+      return res.status(500).json("Erro ao atualizar o pet" +error);
     }
   },
 
