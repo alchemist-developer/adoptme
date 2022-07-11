@@ -56,8 +56,8 @@ const UserController = {
                 return res.status(400).json('Usuário não encontrado');
             }
 
-            const petsByUser = await PetService.findPetsByUser(user_id)
-            if(petsByUser=[]){
+            var petsByUser = await PetService.findPetsByUser(user_id)
+            if(petsByUser==[]){
                 return res.status(404).json('Usuário não possui pets cadastrados atualmente')
             }
 
@@ -76,22 +76,29 @@ const UserController = {
             const file = req.files[0]   
 
             const {password} = req.body
-            const newPassword = UserService.cripPassword(password)
+            const findUser = await UserService.userExists(user_id)
+
+            if(password){
+                var newPassword = UserService.cripPassword(password)
+            }
+            else{
+                var newPassword = findUser.password
+            }
 
             const userHasPermission = await UserService.userHasPermission(user_id,email)
 
             if (!userHasPermission) {
                 return res.status(404).json('Usuário não encontrado ou não possui permissão');
             }
+            
+            var image_user
 
-            const findUser = await UserService.userExists(user_id)
-
-            if(file == undefined){
-                image_user = findUser.image_user
+            if(`${file}` === 'undefined'){
+                image_user = findUser.dataValues.image_user
             }
             else{
                 const uploadPath = await UserService.registerImages(file)
-                image_user=uploadPath.imageUrl.substr(52,50)
+                var image_user=uploadPath.imageUrl.substr(52,50)
             }
 
             await User.update({
