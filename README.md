@@ -49,7 +49,7 @@ $ git clone https://github.com/Alchemist-developer/adoptme
 $ cd adoptme
 ```
 
-#### Instalando o package-json no projeto
+#### Instalando o node modules 
 ```sh
 $ npm install
 ```
