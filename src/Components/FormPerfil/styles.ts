@@ -28,4 +28,5 @@ export const Img = styled.img`
 
 export const Modalbody = styled(ModalBody)`
     display: flex;
+    flex-direction: column;
 `

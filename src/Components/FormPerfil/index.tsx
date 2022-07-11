@@ -100,7 +100,7 @@ const FormPerfil = () => {
 
       if (response.user_id) {
         setShow(true)
-        setErro('Conta criada com sucesso! Agurade que você será redirecionado para a pagina inicial!')
+        setErro('Conta criada com sucesso! Agurade que você será redirecionado para a pagina de login!')
         setimagemModal(success)
         setTimeout(()=>{navigate('/login')},5000)
       }
@@ -196,9 +196,10 @@ const FormPerfil = () => {
 
       <Modal centered show={show} onHide={()=>setShow(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>{erro}</Modal.Title>
+          <Modal.Title>Mensagem</Modal.Title>
         </Modal.Header>
         <S.Modalbody>
+            {erro}
             <S.Img src={imagemModal} />
         </S.Modalbody>
       </Modal>
