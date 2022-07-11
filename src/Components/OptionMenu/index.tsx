@@ -26,7 +26,7 @@ const OptionMenu = (props:Props) => {
                     display='flex'
                     to={ props.user_name == 'login' ? 
                         '/login' :
-                        '/'
+                        '/userprofile'
                         }
                     >
                     <S.StyledIcon src= {userLogin} alt="" />

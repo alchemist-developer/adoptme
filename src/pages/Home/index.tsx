@@ -66,7 +66,7 @@ const Home = () => {
           <LinkOptionMenu display = {changeRota}  rota='/' icon= {heart} >
             Interessados
           </LinkOptionMenu>
-          <LinkOptionMenu display = {changeRota}  rota='/' icon= {searchHeartBlack} >
+          <LinkOptionMenu display = {changeRota}  rota='/queroadotar' icon= {searchHeartBlack} >
             Buscar amigo
           </LinkOptionMenu>
           <LinkOptionMenu onclick={optionExit} display = {changeRota}  rota='/' icon= {sign_Out} >

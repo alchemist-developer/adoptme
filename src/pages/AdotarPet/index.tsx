@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Container } from './styles';
+//@ts-ignore
 import CardDog from '../../components/CardDog';
 
 function AdotarPet(props: any) {
