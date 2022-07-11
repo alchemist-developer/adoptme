@@ -102,7 +102,7 @@ const FormPerfil = () => {
         setShow(true)
         setErro('Conta criada com sucesso! Agurade que você será redirecionado para a pagina inicial!')
         setimagemModal(success)
-        setTimeout(()=>{navigate('/')},5000)
+        setTimeout(()=>{navigate('/login')},5000)
       }
       else{
         setShow(true)
