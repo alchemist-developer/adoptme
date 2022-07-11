@@ -12,6 +12,7 @@ const PetService = {
           var image_pet01=findPet.image_pet01;
           var image_pet02=findPet.image_pet02;
           var image_pet03=findPet.image_pet03;
+          return {image_pet01: image_pet01, image_pet02: image_pet02, image_pet03: image_pet03}
         }
         
         if(file.length==1){
