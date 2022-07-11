@@ -51,7 +51,7 @@ $ git clone https://github.com/Alchemist-developer/adoptme
 $ cd adoptme
 ```
 
-#### Instalando o node modules 
+#### Instalando as dependências 
 ```sh
 $ npm install
 ```
