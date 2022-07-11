@@ -100,8 +100,8 @@ function QueroDoar() {
         baseAPI.defaults.headers["Authorization"] = `Bearer ${newToken}`;
         await cadastroPet(data);
         toast.success("Seu pet foi cadastrado com sucesso!");
-
         navigate("/");
+        
       } catch (error) {
         console.log("Deu erro:" + error);
       }

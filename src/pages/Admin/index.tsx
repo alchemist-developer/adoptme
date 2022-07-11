@@ -16,7 +16,7 @@ import heart from '../../assets/heart.png'
 import searchHeartBlack from '../../assets/searchHeartBlack.png'
 import sign_Out from '../../assets/signOut.png'
 import handHeart from '../../assets/handHeart.png'
-import { listarId, listarTodos } from "../../service/pet";
+import { listarId } from "../../service/pet";
 import baseAPI from "../../service/baseAPI";
 import { Pets } from "../../types";
 
@@ -39,18 +39,19 @@ const Admin = () => {
       baseAPI.defaults.headers["Authorization"] = `Bearer ${token}`
       try {
         let response = await listarId(takeUser.user_id) as Pets[]
-        setTakePets(response)              
+        setTakePets(response)        
         return response
       } catch (error) {
         //@ts-ignore
         setTakePets(['none'])
         return takePets
       }
-
     }
 
     petsId()
   },[])
+
+
 
   return (
     <Fragment>
@@ -77,13 +78,13 @@ const Admin = () => {
 
       </Header>
       <Container style={{padding: '4% 2%'}}>
-
+        
         {takePets.map((item,index)=>(
           //@ts-ignore
           item != 'none' ?
-
           <CardAdmin
             key={index}
+            id_pet={item.pet_id}
             name_pet= {item.name_pet} 
             description_pet= {item.comments}
             imagem = {item.image_pet01} 

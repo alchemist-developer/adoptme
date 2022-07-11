@@ -32,6 +32,7 @@ export interface QueroAdotarValues {
 }
 
 export interface Pets{
+    pet_id: Key | null | undefined
     name_pet: string,
     type: string,   
     size: string,
