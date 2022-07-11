@@ -73,10 +73,13 @@ const UserController = {
     async updateUser(req, res) {
         try {
             const {user_id} = req.params
-            const { email } = req.auth
-            const file = req.files[0]   
+            const userTokenId = req.auth.user_id
+            const file = req.files[0]  
 
             const {password} = req.body
+<<<<<<< HEAD
+            const newPassword = UserService.cripPassword(password)
+=======
 
             const findUser = await UserService.userExists(user_id)
 
@@ -86,8 +89,9 @@ const UserController = {
             else{
                 var newPassword = findUser.password
             }
+>>>>>>> b2ed72e37c0d3e6650b2831fb8eb8461d7c6daf8
 
-            const userHasPermission = await UserService.userHasPermission(user_id,email)
+            const userHasPermission = await UserService.userHasPermission(user_id,userTokenId)
 
             if (!userHasPermission) {
                 return res.status(404).json('Usuário não encontrado ou não possui permissão');
@@ -95,12 +99,26 @@ const UserController = {
             
             var image_user
 
+<<<<<<< HEAD
+            const findUser = await UserService.getUserByID(user_id)
+            
+            var image_user;
+            
+            if(`${file}` === 'undefined'){
+                image_user = await findUser.dataValues.image_user
+                
+            }
+            else{
+                const uploadPath = await UserService.registerImages(file)
+                image_user = uploadPath.imageUrl.substr(52,50)
+=======
             if(`${file}` === 'undefined'){
                 image_user = findUser.dataValues.image_user
             }
             else{
                 const uploadPath = await UserService.registerImages(file)
                 var image_user=uploadPath.imageUrl.substr(52,50)
+>>>>>>> b2ed72e37c0d3e6650b2831fb8eb8461d7c6daf8
             }
 
             await User.update({
@@ -126,11 +144,9 @@ const UserController = {
     async deleteUser(req, res) {
         try {
             const { user_id } = req.params;
-            const { email } = req.auth;
-            // const tokenid = req.auth.user_id;
-            console.log(user_id, email)
+            const tokenid = req.auth.user_id;
             
-            const userHasPermission = await UserService.userHasPermission(user_id,email)
+            const userHasPermission = await UserService.userHasPermission(user_id,tokenid)
             console.log(userHasPermission)
 
             if (!userHasPermission) {
