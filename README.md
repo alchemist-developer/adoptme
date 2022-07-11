@@ -9,6 +9,9 @@ A aplicação adopt.me tem como objetivo facilitar a conexão entre protetores d
 </br>
 Trata-se do projeto final do curso Gama Experience - XP41, envolvendo estudantes de product design e desenvolvedores web (back e front-end). O grupo do projeto foi responsável pela concepção, planejamento e desenvolvimento do app.
 
+- [Link do projeto](https://meadotepets.herokuapp.com/) 
+Obs: Projeto responsivo somente para dispositivos mobile.
+
 ## 🚀 Tecnologias Usadas
 O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
