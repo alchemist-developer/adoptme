@@ -22,8 +22,8 @@ app.use(routes)
 
 app.use(handleError)
 
-// const port = process.env.PORT || 4600
-// app.listen(port, () => console.log('Servidor no ar!'))
+const port = process.env.PORT || 4600
+app.listen(port, () => console.log('Servidor no ar!'))
 // ^^^^^^^ this was sent to server.js
 
 module.exports = app
