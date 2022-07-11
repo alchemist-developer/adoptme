@@ -1,0 +1,19 @@
+.card-admin{
+    margin: 8% 0;
+    border: 2px solid rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 20px;
+}
+
+.MuiCardMedia-root{
+    object-fit: fill !important;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.MuiCardContent-root{
+    padding: 2% 0 !important;
+}
+
+.button-deletar{
+    margin: 2% 0 !important;
+}

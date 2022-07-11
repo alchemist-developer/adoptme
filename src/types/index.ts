@@ -40,6 +40,7 @@ export interface Pets{
     state: string,  
     comments: string,   
     age: number,
+    image_pet01: string,
 }
 
 export const  TypeErros = {

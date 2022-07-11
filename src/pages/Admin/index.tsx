@@ -37,11 +37,16 @@ const Admin = () => {
     const petsId = async () => {
       //@ts-ignore
       baseAPI.defaults.headers["Authorization"] = `Bearer ${token}`
-      let response = await listarId(takeUser.user_id) as Pets[]
-      setTakePets(response)
-      console.log(response);
-      
-      return response
+      try {
+        let response = await listarId(takeUser.user_id) as Pets[]
+        setTakePets(response)              
+        return response
+      } catch (error) {
+        //@ts-ignore
+        setTakePets(['none'])
+        return takePets
+      }
+
     }
 
     petsId()
@@ -52,7 +57,7 @@ const Admin = () => {
       <Header logo="center" background = 'white' display = {true}>
         <BackArrow onclick={()=>{}} display = {'center'} url = '/userprofile'/>
         <Logo margin = {'center'}/>
-        <OptionMenu  user_name="a definir">
+        <OptionMenu  user_name={takeUser.name_user}>
           <LinkOptionMenu display = {true} rota='/userprofile' icon= {userProfile} >
             Editar perfil
           </LinkOptionMenu>
@@ -65,20 +70,29 @@ const Admin = () => {
           <LinkOptionMenu display = {true}  rota='/' icon= {searchHeartBlack} >
             Buscar amigo
           </LinkOptionMenu>
-          <LinkOptionMenu onclick={()=>optionExit} display = {true}  rota='/' icon= {sign_Out} >
+          <LinkOptionMenu onclick={optionExit} display = {true}  rota='/' icon= {sign_Out} >
             Sair da conta
           </LinkOptionMenu>
         </OptionMenu>
 
       </Header>
-      <Container>
+      <Container style={{padding: '4% 2%'}}>
 
         {takePets.map((item,index)=>(
+          //@ts-ignore
+          item != 'none' ?
+
           <CardAdmin
             key={index}
             name_pet= {item.name_pet} 
-            description_pet= {item.comments} 
+            description_pet= {item.comments}
+            imagem = {item.image_pet01} 
           />
+          :
+          <div>
+            'Nenhum pet encontrado'
+          </div>
+          
         ))}
       </Container>
     </Fragment>
