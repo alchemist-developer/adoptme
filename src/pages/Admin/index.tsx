@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -16,8 +16,9 @@ import heart from '../../assets/heart.png'
 import searchHeartBlack from '../../assets/searchHeartBlack.png'
 import sign_Out from '../../assets/signOut.png'
 import handHeart from '../../assets/handHeart.png'
-import { listarId } from "../../service/pet";
+import { listarId, listarTodos } from "../../service/pet";
 import baseAPI from "../../service/baseAPI";
+import { Pets } from "../../types";
 
 const Admin = () => {
   const dispatch = useDispatch()
@@ -30,11 +31,16 @@ const Admin = () => {
     navigate('/')    
   }
 
+  const [takePets, setTakePets] = useState([] as Pets[])
+
   useEffect(()=>{
     const petsId = async () => {
       //@ts-ignore
       baseAPI.defaults.headers["Authorization"] = `Bearer ${token}`
-      let response = await listarId(22)
+      let response = await listarId(takeUser.user_id) as Pets[]
+      setTakePets(response)
+      console.log(response);
+      
       return response
     }
 
@@ -66,7 +72,14 @@ const Admin = () => {
 
       </Header>
       <Container>
-        <CardAdmin  name_pet="Orion" description_pet="um gato legal!" />
+
+        {takePets.map((item,index)=>(
+          <CardAdmin
+            key={index}
+            name_pet= {item.name_pet} 
+            description_pet= {item.comments} 
+          />
+        ))}
       </Container>
     </Fragment>
 

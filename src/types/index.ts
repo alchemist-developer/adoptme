@@ -31,6 +31,17 @@ export interface QueroAdotarValues {
     idadeDoAnimal: string
 }
 
+export interface Pets{
+    name_pet: string,
+    type: string,   
+    size: string,
+    gender: string,
+    city: string,
+    state: string,  
+    comments: string,   
+    age: number,
+}
+
 export const  TypeErros = {
     'Erro: "E-mail já cadastrado"': 'E-mail já cadastrado. Retorne a tela anterior e escolha outro e-mail!',
 
