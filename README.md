@@ -15,6 +15,8 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [NodeJS](https://nodejs.org/en/)
 - [Keroku](https://dashboard.heroku.com/)
 - [Cloudinary](https://cloudinary.com/documentation)
+- [Sequelize](https://sequelize.org/)
+- [Express](https://expressjs.com/pt-br/)
 - [React](https://pt-br.reactjs.org/)
 - [Redux](https://redux.js.org/)
 - [Styled-Components](https://styled-components.com/)
