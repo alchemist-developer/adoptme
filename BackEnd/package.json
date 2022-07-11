@@ -8,6 +8,7 @@
     "express-jwt": "^7.7.5",
     "express-validation": "^4.1.0",
     "express-validator": "^6.14.1",
+    "form-data": "^4.0.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
@@ -25,14 +26,14 @@
   },
   "name": "adoptme",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "server.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "jest",
     "dev": "nodemon backend/app.js",
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",

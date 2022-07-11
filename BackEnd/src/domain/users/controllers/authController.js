@@ -36,7 +36,9 @@ const AuthController = {
                 secret.key
             )
     
-            return res.json({ token, user: findUser })
+
+            return res.json({ token, user: findUser})
+
         
         } catch (error) {
             console.log(error)
