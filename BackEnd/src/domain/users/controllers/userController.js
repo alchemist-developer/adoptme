@@ -11,6 +11,7 @@ const UserController = {
             const file = req.files[0]
 
             if(isEmpty(file)){
+
                 return res.status(400).json("É necessário enviar uma imagem do usuário")
               }
             
@@ -76,14 +77,29 @@ const UserController = {
             const file = req.files[0]  
 
             const {password} = req.body
+<<<<<<< HEAD
             const newPassword = UserService.cripPassword(password)
+=======
+
+            const findUser = await UserService.userExists(user_id)
+
+            if(password){
+                var newPassword = UserService.cripPassword(password)
+            }
+            else{
+                var newPassword = findUser.password
+            }
+>>>>>>> b2ed72e37c0d3e6650b2831fb8eb8461d7c6daf8
 
             const userHasPermission = await UserService.userHasPermission(user_id,userTokenId)
 
             if (!userHasPermission) {
                 return res.status(404).json('Usuário não encontrado ou não possui permissão');
             }
+            
+            var image_user
 
+<<<<<<< HEAD
             const findUser = await UserService.getUserByID(user_id)
             
             var image_user;
@@ -95,6 +111,14 @@ const UserController = {
             else{
                 const uploadPath = await UserService.registerImages(file)
                 image_user = uploadPath.imageUrl.substr(52,50)
+=======
+            if(`${file}` === 'undefined'){
+                image_user = findUser.dataValues.image_user
+            }
+            else{
+                const uploadPath = await UserService.registerImages(file)
+                var image_user=uploadPath.imageUrl.substr(52,50)
+>>>>>>> b2ed72e37c0d3e6650b2831fb8eb8461d7c6daf8
             }
 
             await User.update({
