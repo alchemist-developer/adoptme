@@ -19,6 +19,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [Redux](https://redux.js.org/)
 - [Styled-Components](https://styled-components.com/)
 - [Formik](https://formik.org/docs/overview)
+- [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
 
 ## 📔 Linguagens
 Este projeto foi desenvolvido nas seguintes linguagens:
@@ -46,6 +47,7 @@ O deploy do backend foi realizado no [Keroku](https://adoptme-app.herokuapp.com/
 ```sh
 $ git clone https://github.com/Alchemist-developer/adoptme
 $ cd adoptme
+```
 
 #### Instalando o package-json no projeto
 ```sh
