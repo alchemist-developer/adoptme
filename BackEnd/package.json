@@ -33,7 +33,7 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon backend/app.js",
-    "start": "node server.js"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
