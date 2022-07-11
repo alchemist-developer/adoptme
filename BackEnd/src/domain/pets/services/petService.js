@@ -7,12 +7,20 @@ const PetService = {
 
     async registerImages(file){
         
+        
+        if(file.lenght==0){
+          var image_pet01=findPet.image_pet01;
+          var image_pet02=findPet.image_pet02;
+          var image_pet03=findPet.image_pet03;
+          return {image_pet01: image_pet01, image_pet02: image_pet02, image_pet03: image_pet03}
+        }
+        
         if(file.length==1){
           
             const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
-            const image_pet01=uploadPathOne.imageUrl.substr(52,50)
-            const image_pet02=''
-            const image_pet03=''
+            var image_pet01=uploadPathOne.imageUrl.substr(52,50)
+            var image_pet02=findPet.image_pet02
+            const image_pet03=findPet.image_pet03
             fs.unlinkSync(file[0].path);
             return {image_pet01: image_pet01, image_pet02: image_pet02, image_pet03: image_pet03}
           }
@@ -20,9 +28,9 @@ const PetService = {
           if(file.length==2){
             const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
             const uploadPathTwo = await cloudinary.uploads(file[1].path,'adoptme/pets')
-            const image_pet01=uploadPathOne.imageUrl.substr(52,50)
-            const image_pet02=uploadPathTwo.imageUrl.substr(52,50)
-            const image_pet03=''
+            var image_pet01=uploadPathOne.imageUrl.substr(52,50)
+            var image_pet02=uploadPathTwo.imageUrl.substr(52,50)
+            var image_pet03=findPet.image_pet03;
             fs.unlinkSync(file[0].path);
             fs.unlinkSync(file[1].path);
             return {image_pet01: image_pet01, image_pet02: image_pet02, image_pet03: image_pet03}
@@ -31,10 +39,10 @@ const PetService = {
           if(file.length==3){
             const uploadPathOne = await cloudinary.uploads(file[0].path,'adoptme/pets')
             const uploadPathTwo = await cloudinary.uploads(file[1].path,'adoptme/pets')
-            const uploadPathThree = await cloudinary.uploads(file[2].path,'adoptme/pets')
-            const image_pet01=uploadPathOne.imageUrl.substr(52,50)
-            const image_pet02=uploadPathTwo.imageUrl.substr(52,50)
-            const image_pet03=uploadPathThree.imageUrl.substr(52,50)
+            var uploadPathThree = await cloudinary.uploads(file[2].path,'adoptme/pets')
+            var image_pet01=uploadPathOne.imageUrl.substr(52,50)
+            var image_pet02=uploadPathTwo.imageUrl.substr(52,50)
+            var image_pet03=uploadPathThree.imageUrl.substr(52,50)
             fs.unlinkSync(file[0].path);
             fs.unlinkSync(file[1].path);
             fs.unlinkSync(file[2].path);
@@ -85,9 +93,9 @@ const PetService = {
       console.log(file.length)
 
         if(file.lenght==0){
-          var image_pet01=findPet.image_pet01
-          var image_pet02=findPet.image_pet02
-          var image_pet03=findPet.image_pet03
+          var image_pet01=findPet.image_pet01;
+          var image_pet02=findPet.image_pet02;
+          var image_pet03=findPet.image_pet03;
         }
 
         if(file.length==1){
