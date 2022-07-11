@@ -27,7 +27,6 @@ img.contato-img {
 
 div.desc-contato {
   position: relative;
-
   display: flex;
   height: 66%;
   flex-direction: column;
@@ -36,6 +35,19 @@ div.desc-contato {
   color: black;
   text-align: start;
   padding: 13px;
+
+}
+
+div.desc-contato p {
+  margin-bottom: 0;
+}
+
+div.desc-contato h1 {
+  margin-bottom: 0;
+}
+
+p.local-contato {
+  margin-bottom: 50px;
 }
 
 p img {
