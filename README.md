@@ -16,7 +16,7 @@ A aplicação Me Adota tem como objetivo facilitar a conexão entre protetores d
 
 Trata-se do projeto final (desafio chefão) do Bootcamp Gama Experience - XP41, envolvendo estudantes de product design e desenvolvedores web (front-end e back-end). O grupo do projeto foi responsável pela concepção, planejamento e desenvolvimento do app.</br>
 </br>Projeto responsivo somente para dispositivos mobile: <a href="https://meadotepets.herokuapp.com/">Página do projeto</a> |
-<a href="https://meadotepets.herokuapp.com/">Linktree</a>
+<a href="https://linktr.ee/meadote">Linktree</a>
 
 ## 🚀 Tecnologias Usadas
 O projeto foi desenvolvido utilizando as seguintes tecnologias:
