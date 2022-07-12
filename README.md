@@ -1,16 +1,22 @@
 
 
-# 🐾 adopt.me 🐾
+# 🐾 ME.ADOTA! 🐾
 
-
-## 🐶 O projeto
-A aplicação adopt.me tem como objetivo facilitar a conexão entre protetores de animais e pessoas que desejam adotar algum pet. 
+A aplicação Me Adota tem como objetivo facilitar a conexão entre protetores de animais e pessoas que desejam adotar algum pet. 
 <br>
-</br>
-Trata-se do projeto final do curso Gama Experience - XP41, envolvendo estudantes de product design e desenvolvedores web (back e front-end). O grupo do projeto foi responsável pela concepção, planejamento e desenvolvimento do app.
 
-- [Link do projeto](https://meadotepets.herokuapp.com/)<br></br>
-Obs: Projeto responsivo somente para dispositivos mobile.
+<table>
+  <tr>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/88943961/178397168-87da3714-8894-4453-8a3a-8c1335af3b2d.png"/></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/88943961/178394844-8ef05197-a6ec-41e8-8319-9ae5150eb8c8.png"/></td>
+  </tr>
+</table>
+
+
+
+Trata-se do projeto final (desafio chefão) do Bootcamp Gama Experience - XP41, envolvendo estudantes de product design e desenvolvedores web (front-end e back-end). O grupo do projeto foi responsável pela concepção, planejamento e desenvolvimento do app.</br>
+</br>Projeto responsivo somente para dispositivos mobile: <a href="https://meadotepets.herokuapp.com/">Página do projeto</a> |
+<a href="https://meadotepets.herokuapp.com/">Linktree</a>
 
 ## 🚀 Tecnologias Usadas
 O projeto foi desenvolvido utilizando as seguintes tecnologias:
@@ -64,10 +70,15 @@ $ npm install
 $ npm run test
 ```
 
+#### Rodando FrontEnd em localhost:3000
+```sh
+$ npm run dev
+```
+
 ## 📄 Documentação APIs
 A documentação das APIs do projeto foi publicada através do PostMan e pode ser acessada [neste link](https://documenter.getpostman.com/view/21559218/UzBsHjau#70788b09-5d76-46a9-8bdb-dabec37e5522).
 
 ## 🙋‍♀️ Integrantes da Equipe
 - Product designers: Alessandro Sales, Luciane Oliveira, Juliana Rocha, Mariana Cruz.
-- Devs frontend: Adryel Simon Moraes, Júnior Dering, Vinicius Alves, Lucas Veiga. 
+- Devs frontend: Adryel Simon, Júnior Dering, Vinicius Alves, Lucas Veiga. 
 - Devs backend:  Natã Vergueiro, Luiza Trocino, Pedro Utz, Deyvison Vianna e Ademir Sott.
